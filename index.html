@@ -643,15 +643,106 @@
 
 </div><!-- /wrapper -->
 
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+
 <script>
-  // Registra o Service Worker para funcionalidade PWA
+  // ===== PWA: Service Worker =====
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
+      // Registra o SW principal (cache offline)
       navigator.serviceWorker.register('/jornal-mapear-geo/sw.js')
-        .then(reg => console.log('SW registrado:', reg.scope))
-        .catch(err => console.log('SW erro:', err));
+        .then(reg => console.log('SW principal registrado:', reg.scope))
+        .catch(err => console.warn('SW principal erro:', err));
+
+      // Registra o SW do Firebase Messaging (notificações)
+      navigator.serviceWorker.register('/jornal-mapear-geo/firebase-messaging-sw.js')
+        .then(reg => console.log('SW Firebase registrado:', reg.scope))
+        .catch(err => console.warn('SW Firebase erro:', err));
     });
   }
+
+  // ===== FIREBASE PUSH NOTIFICATIONS =====
+  firebase.initializeApp({
+    apiKey: "AIzaSyAFe1RUUwCY1tTfthrtBK3fAkGfXVPTMQg",
+    authDomain: "mapear-geo.firebaseapp.com",
+    projectId: "mapear-geo",
+    storageBucket: "mapear-geo.firebasestorage.app",
+    messagingSenderId: "908329303410",
+    appId: "1:908329303410:web:e802f07a9d4d9fc49e31eb"
+  });
+
+  const messaging = firebase.messaging();
+  const VAPID_KEY = "BDn2KqOgk-K3Te2QXDgE8Sr4ghN0cKGH3driXbcxgZQqwQiMNltlZN6jtJ61oLI1PZ6VDKKApt6iGTGKtehxbZY";
+
+  // Solicita permissão e registra o token do dispositivo
+  async function solicitarNotificacoes() {
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') {
+        const token = await messaging.getToken({ vapidKey: VAPID_KEY });
+        if (token) {
+          console.log('Token FCM:', token);
+          // Salva o token no localStorage para referência
+          localStorage.setItem('fcm_token', token);
+          // Envia o token para o servidor de registro
+          await registrarToken(token);
+        }
+      }
+    } catch (err) {
+      console.warn('Erro ao solicitar notificação:', err);
+    }
+  }
+
+  // Envia o token para o servidor de registro (GitHub Gist como banco simples)
+  async function registrarToken(token) {
+    try {
+      await fetch('https://5050-i6wge4cekdkw3qbohkf4d-ef7bb3db.us1.manus.computer/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token })
+      });
+      console.log('Token registrado no servidor.');
+    } catch (e) {
+      // Servidor offline — token salvo localmente apenas
+      console.warn('Servidor de tokens indisponível, token salvo localmente.');
+    }
+  }
+
+  // Notificações recebidas com o app aberto (foreground)
+  messaging.onMessage((payload) => {
+    console.log('Notificação em foreground:', payload);
+    const { title, body } = payload.notification || {};
+    // Exibe banner na página
+    mostrarBannerNotificacao(title, body);
+  });
+
+  // Banner visual de notificação (quando app está aberto)
+  function mostrarBannerNotificacao(titulo, corpo) {
+    const banner = document.createElement('div');
+    banner.style.cssText = `
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #d4af37; color: #0d0d0d;
+      font-family: Georgia, serif; font-size: 14px;
+      padding: 14px 20px; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      cursor: pointer;
+    `;
+    banner.innerHTML = `<strong>📰 ${titulo || 'Nova Edição!'}</strong> — ${corpo || 'Toque para ler a nova edição.'}`;
+    banner.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.prepend(banner);
+    setTimeout(() => banner.remove(), 8000);
+  }
+
+  // Solicita permissão automaticamente após 3 segundos
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if ('Notification' in window && Notification.permission === 'default') {
+        solicitarNotificacoes();
+      }
+    }, 3000);
+  });
 </script>
 
 </body>
