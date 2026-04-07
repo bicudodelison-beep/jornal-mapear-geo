@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalar — Jornal Mapear Geo</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#d4af37" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Mapear Geo" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" type="image/png" href="icon-192.png" />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1a1a1a;
+      color: #e8dcc8;
+      font-family: Georgia, 'Times New Roman', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      border: 2px solid #d4af37;
+      margin-bottom: 20px;
+      box-shadow: 0 0 30px rgba(212,175,55,0.3);
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #d4af37;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .subtitulo {
+      font-size: 13px;
+      color: #a89060;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+
+    /* ===== CARD ANDROID ===== */
+    .card {
+      background: #111;
+      border: 1px solid #2e2e2e;
+      border-top: 3px solid #d4af37;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 360px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .card-titulo {
+      font-size: 13px;
+      font-weight: bold;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    /* Botão de instalação principal */
+    #btn-instalar {
+      display: none;
+      width: 100%;
+      background: #d4af37;
+      color: #0d0d0d;
+      font-family: Georgia, serif;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 6px;
+      padding: 14px 20px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background 0.2s;
+    }
+
+    #btn-instalar:hover { background: #f0cc55; }
+
+    #btn-instalar.visivel { display: block; }
+
+    /* Passos manuais */
+    .passos { text-align: left; }
+
+    .passo {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #2a2a2a;
+      font-size: 13px;
+      color: #b8a880;
+      line-height: 1.5;
+    }
+
+    .passo:last-child { border-bottom: none; }
+
+    .passo-num {
+      background: #d4af37;
+      color: #0d0d0d;
+      font-size: 11px;
+      font-weight: bold;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .destaque { color: #f0e8cc; font-weight: bold; }
+
+    /* Status */
+    #status {
+      font-size: 12px;
+      color: #6a8a6a;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+
+    /* Link para abrir o jornal */
+    .btn-jornal {
+      display: inline-block;
+      margin-top: 20px;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      font-size: 13px;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .btn-jornal:hover {
+      background: #d4af37;
+      color: #0d0d0d;
+    }
+
+    .rodape {
+      margin-top: 28px;
+      font-size: 11px;
+      color: #4a3a20;
+      line-height: 1.6;
+    }
+
+    /* Aviso iOS */
+    #aviso-ios { display: none; }
+    #aviso-android { display: none; }
+    #aviso-desktop { display: none; }
+  </style>
+</head>
+<body>
+
+  <img class="icon" src="icon-192.png" alt="Ícone Mapear Geo" />
+  <h1>JORNAL MAPEAR GEO</h1>
+  <div class="subtitulo">Agrimensura · Topografia · SIGEF · CAR · ITR</div>
+
+  <!-- ANDROID -->
+  <div class="card" id="aviso-android">
+    <div class="card-titulo">📲 Instalar no Android</div>
+
+    <button id="btn-instalar" onclick="instalarPWA()">
+      ⬇ Instalar na Tela Inicial
+    </button>
+
+    <div id="status"></div>
+
+    <div class="passos" id="passos-android">
+      <div class="passo">
+        <span class="passo-num">1</span>
+        <span>Toque nos <span class="destaque">3 pontinhos ⋮</span> no canto superior direito do Chrome</span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">2</span>
+        <span>Selecione <span class="destaque">"Adicionar à tela inicial"</span></span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">3</span>
+        <span>Toque em <span class="destaque">Adicionar</span> para confirmar</span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">4</span>
+        <span>O ícone <span class="destaque">Mapear Geo</span> aparece na sua tela inicial ✅</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- iOS -->
+  <div class="card" id="aviso-ios">
+    <div class="card-titulo">📲 Instalar no iPhone / iPad</div>
+    <div class="passos">
+      <div class="passo">
+        <span class="passo-num">1</span>
+        <span>Abra esta página no <span class="destaque">Safari</span> (não funciona em outros navegadores no iPhone)</span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">2</span>
+        <span>Toque no botão <span class="destaque">Compartilhar</span> (ícone de caixa com seta ↑ na barra inferior)</span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">3</span>
+        <span>Role a lista e toque em <span class="destaque">"Adicionar à Tela de Início"</span></span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">4</span>
+        <span>Confirme o nome <span class="destaque">Mapear Geo</span> e toque em <span class="destaque">Adicionar</span> ✅</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop -->
+  <div class="card" id="aviso-desktop">
+    <div class="card-titulo">💻 Acesse pelo celular</div>
+    <div class="passos">
+      <div class="passo">
+        <span class="passo-num">1</span>
+        <span>Aponte a câmera do celular para o QR Code recebido</span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">2</span>
+        <span>Abra o link no <span class="destaque">Chrome</span> (Android) ou <span class="destaque">Safari</span> (iPhone)</span>
+      </div>
+      <div class="passo">
+        <span class="passo-num">3</span>
+        <span>Siga as instruções para instalar na tela inicial</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn-jornal" href="index.html">▶ Abrir o Jornal Agora</a>
+
+  <div class="rodape">
+    Atualizado toda segunda e sexta-feira às 6h.<br>
+    © 2026 Jornal Mapear Geo
+  </div>
+
+<script>
+  // Detecta o dispositivo e mostra o card correto
+  const ua = navigator.userAgent.toLowerCase();
+  const isIOS = /iphone|ipad|ipod/.test(ua);
+  const isAndroid = /android/.test(ua);
+
+  if (isIOS) {
+    document.getElementById('aviso-ios').style.display = 'block';
+  } else if (isAndroid) {
+    document.getElementById('aviso-android').style.display = 'block';
+  } else {
+    document.getElementById('aviso-desktop').style.display = 'block';
+  }
+
+  // Captura o evento beforeinstallprompt do Chrome/Android
+  let deferredPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Mostra o botão de instalação automática
+    const btn = document.getElementById('btn-instalar');
+    btn.classList.add('visivel');
+
+    // Oculta os passos manuais pois o botão vai fazer tudo
+    document.getElementById('passos-android').style.display = 'none';
+    document.getElementById('status').textContent = '✅ Pronto para instalar! Toque no botão acima.';
+  });
+
+  // Função chamada ao clicar no botão
+  function instalarPWA() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((result) => {
+      if (result.outcome === 'accepted') {
+        document.getElementById('status').textContent = '🎉 Instalado com sucesso!';
+        document.getElementById('btn-instalar').textContent = '✅ Instalado!';
+        document.getElementById('btn-instalar').style.background = '#4a8a4a';
+      } else {
+        document.getElementById('status').textContent = 'Instalação cancelada. Use os passos abaixo se quiser instalar depois.';
+        document.getElementById('passos-android').style.display = 'block';
+      }
+      deferredPrompt = null;
+    });
+  }
+
+  // Se já está instalado como PWA
+  window.addEventListener('appinstalled', () => {
+    document.getElementById('status').textContent = '🎉 App instalado com sucesso!';
+  });
+
+  // Registra o Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/jornal-mapear-geo/sw.js');
+  }
+</script>
+
+</body>
+</html>
