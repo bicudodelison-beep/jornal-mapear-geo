@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jornal Mapear Geo – Edição Diária</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #1a1a1a;
+      color: #e8dcc8;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a { color: #d4af37; text-decoration: none; }
+    a:hover { text-decoration: underline; color: #f0cc55; }
+
+    /* ===== WRAPPER ===== */
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 12px 40px;
+    }
+
+    /* ===== CABEÇALHO ===== */
+    .cabecalho {
+      background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+      border-bottom: 3px double #d4af37;
+      padding: 18px 16px 12px;
+      text-align: center;
+    }
+
+    .cabecalho .ornamento {
+      color: #d4af37;
+      font-size: 11px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .cabecalho .titulo-jornal {
+      font-size: clamp(26px, 7vw, 42px);
+      font-weight: bold;
+      color: #d4af37;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      line-height: 1.1;
+    }
+
+    .cabecalho .subtitulo {
+      font-size: 11px;
+      color: #a89060;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .cabecalho .linha-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #3a3020;
+      border-bottom: 1px solid #3a3020;
+      margin-top: 10px;
+      padding: 5px 0;
+      font-size: 11px;
+      color: #a89060;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .cabecalho .linha-info span {
+      font-style: italic;
+    }
+
+    /* ===== ALERTA DESTAQUE ===== */
+    .alerta-destaque {
+      background: linear-gradient(135deg, #2a1a00 0%, #1a1000 100%);
+      border: 2px solid #d4af37;
+      border-radius: 4px;
+      margin: 16px 0;
+      padding: 14px 16px;
+      position: relative;
+    }
+
+    .alerta-destaque::before {
+      content: "⚡ ALERTA ESPECIAL";
+      display: block;
+      background: #d4af37;
+      color: #0d0d0d;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      padding: 3px 10px;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      border-radius: 4px 0 4px 0;
+    }
+
+    .alerta-destaque .alerta-titulo {
+      font-size: 15px;
+      font-weight: bold;
+      color: #f0cc55;
+      margin-top: 20px;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .alerta-destaque .alerta-texto {
+      font-size: 13px;
+      color: #d4c8a0;
+      line-height: 1.6;
+    }
+
+    .alerta-destaque .alerta-link {
+      display: inline-block;
+      margin-top: 8px;
+      background: #d4af37;
+      color: #0d0d0d;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    .alerta-destaque .alerta-link:hover {
+      background: #f0cc55;
+      text-decoration: none;
+    }
+
+    /* ===== SEÇÃO TÍTULO ===== */
+    .secao-titulo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 14px;
+    }
+
+    .secao-titulo::before,
+    .secao-titulo::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d4af37, transparent);
+    }
+
+    .secao-titulo h2 {
+      font-size: 13px;
+      font-weight: bold;
+      color: #d4af37;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ===== CARD DE NOTÍCIA ===== */
+    .noticia-card {
+      background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
+      border: 1px solid #2e2e2e;
+      border-left: 3px solid #d4af37;
+      border-radius: 3px;
+      margin-bottom: 14px;
+      padding: 14px 14px 12px;
+      transition: border-color 0.2s;
+    }
+
+    .noticia-card:hover {
+      border-left-color: #f0cc55;
+    }
+
+    .noticia-card .tag {
+      display: inline-block;
+      background: #2a2000;
+      color: #d4af37;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 7px;
+    }
+
+    .noticia-card .manchete {
+      font-size: 15px;
+      font-weight: bold;
+      color: #f0e8cc;
+      line-height: 1.35;
+      margin-bottom: 7px;
+    }
+
+    .noticia-card .resumo {
+      font-size: 13px;
+      color: #b8a880;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .noticia-card .rodape-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .noticia-card .fonte {
+      font-size: 11px;
+      color: #7a6a50;
+      font-style: italic;
+    }
+
+    .noticia-card .btn-saiba {
+      display: inline-block;
+      background: transparent;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .noticia-card .btn-saiba:hover {
+      background: #d4af37;
+      color: #0d0d0d;
+      text-decoration: none;
+    }
+
+    /* ===== COLUNA ASSESSORIA ===== */
+    .assessoria-box {
+      background: linear-gradient(180deg, #0f1a0f 0%, #0a120a 100%);
+      border: 1px solid #2a4a2a;
+      border-top: 3px solid #4a8a4a;
+      border-radius: 3px;
+      padding: 18px 16px;
+      margin-bottom: 14px;
+    }
+
+    .assessoria-box .assessoria-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .assessoria-box .assessoria-icon {
+      font-size: 22px;
+    }
+
+    .assessoria-box .assessoria-titulo {
+      font-size: 14px;
+      font-weight: bold;
+      color: #6abf6a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .assessoria-box .assessoria-subtitulo {
+      font-size: 16px;
+      font-weight: bold;
+      color: #c8e8c8;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .assessoria-box p {
+      font-size: 13.5px;
+      color: #a8c8a8;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .assessoria-box .dica-box {
+      background: #0a1e0a;
+      border-left: 3px solid #4a8a4a;
+      padding: 10px 12px;
+      margin: 12px 0;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .assessoria-box .dica-box .dica-titulo {
+      font-size: 11px;
+      font-weight: bold;
+      color: #6abf6a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .assessoria-box .dica-box p {
+      font-size: 13px;
+      color: #90b890;
+      margin-bottom: 0;
+    }
+
+    .assessoria-box .ferramentas-lista {
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .assessoria-box .ferramentas-lista li {
+      font-size: 13px;
+      color: #a8c8a8;
+      padding: 5px 0;
+      border-bottom: 1px solid #1a2e1a;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .assessoria-box .ferramentas-lista li:last-child {
+      border-bottom: none;
+    }
+
+    .assessoria-box .ferramentas-lista li::before {
+      content: "▶";
+      color: #4a8a4a;
+      font-size: 10px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ===== FILOSOFIA ===== */
+    .filosofia-box {
+      background: linear-gradient(180deg, #0f0f1e 0%, #0a0a14 100%);
+      border: 1px solid #2a2a4a;
+      border-top: 3px solid #5a5aaf;
+      border-radius: 3px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .filosofia-box .filosofia-icone {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .filosofia-box blockquote {
+      font-size: 15px;
+      font-style: italic;
+      color: #c8c8e8;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .filosofia-box .filosofia-autor {
+      font-size: 11px;
+      color: #6a6aaf;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ===== RODAPÉ ===== */
+    .rodape {
+      border-top: 2px double #d4af37;
+      padding-top: 14px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .rodape p {
+      font-size: 11px;
+      color: #5a4a30;
+      line-height: 1.7;
+    }
+
+    .rodape .rodape-logo {
+      font-size: 16px;
+      font-weight: bold;
+      color: #d4af37;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    /* ===== DIVISOR ===== */
+    .divisor {
+      text-align: center;
+      color: #3a3020;
+      font-size: 14px;
+      letter-spacing: 6px;
+      margin: 6px 0 16px;
+    }
+
+    /* ===== BADGE EDIÇÃO ===== */
+    .badge-edicao {
+      display: inline-block;
+      background: #2a2000;
+      color: #d4af37;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      padding: 3px 10px;
+      border: 1px solid #d4af37;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 480px) {
+      body { font-size: 15px; }
+      .cabecalho .titulo-jornal { font-size: 28px; }
+      .noticia-card .manchete { font-size: 14px; }
+      .assessoria-box .assessoria-subtitulo { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="cabecalho">
+    <div class="ornamento">✦ Informação Geoespacial com Precisão ✦</div>
+    <div class="titulo-jornal">JORNAL MAPEAR GEO</div>
+    <div class="subtitulo">Edição Diária para Profissionais de Agrimensura</div>
+    <div class="linha-info">
+      <span>Terça-feira, 07 de Abril de 2026</span>
+      <span>Interior do Rio de Janeiro</span>
+      <span>Edição Nº 001</span>
+    </div>
+  </header>
+
+  <!-- ===== ALERTA DESTAQUE ===== -->
+  <div class="alerta-destaque">
+    <div class="alerta-titulo">CIB: O "CPF dos Imóveis" já é obrigatório — e muda tudo para o agrimensor</div>
+    <div class="alerta-texto">
+      O Cadastro Imobiliário Brasileiro (CIB) entrou em vigor em janeiro de 2026 para imóveis federais e será obrigatório para todo o mercado a partir de 2027. Imóveis rurais já estão sujeitos à exigência via CNIR/INCRA. O código único vincula localização geográfica, matrícula, IPTU e histórico de transações — tornando o georreferenciamento e a regularização documental ainda mais urgentes. Para o agrimensor do interior fluminense, isso representa uma janela de demanda crescente.
+    </div>
+    <a class="alerta-link" href="https://jornalempresasenegocios.com.br/destaques/novas-regras-devem-simplificar-a-regularizacao-de-imoveis/" target="_blank" rel="noopener">▶ Leia a análise completa</a>
+  </div>
+
+  <!-- ===== NOTÍCIAS ===== -->
+  <div class="secao-titulo">
+    <h2>📰 Notícias Relevantes</h2>
+  </div>
+  <div class="divisor">— ✦ —</div>
+
+  <!-- NOTÍCIA 1 -->
+  <div class="noticia-card">
+    <span class="tag">Registro de Imóveis</span>
+    <div class="manchete">Novo "CPF" dos Imóveis eleva transparência e exige regularização urgente de propriedades rurais</div>
+    <div class="resumo">
+      O Cadastro Imobiliário Brasileiro (CIB) cria um código único para cada imóvel do país, integrando dados de cartórios, prefeituras e órgãos federais no sistema Sinter. Para imóveis rurais, a exigência já está em vigor via INCRA/CNIR, e a regularização passa a ser pré-requisito para financiamentos, heranças e transações. A obrigatoriedade se expande a todo o mercado em 2027.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: Jornal Empresas & Negócios — 07/04/2026</span>
+      <a class="btn-saiba" href="https://jornalempresasenegocios.com.br/destaques/novas-regras-devem-simplificar-a-regularizacao-de-imoveis/" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 2 -->
+  <div class="noticia-card">
+    <span class="tag">CAR / Meio Ambiente</span>
+    <div class="manchete">Governo fecha acordo com Google e CAR ganha imagens 6x mais precisas para análise ambiental</div>
+    <div class="resumo">
+      O Serviço Florestal Brasileiro (SFB) e o Ministério da Gestão firmaram Acordo de Cooperação Técnica com o Google para disponibilizar imagens de satélite históricas de 2008 com resolução até 6 vezes superior à atual. A base será integrada ao SICAR e permitirá identificar com precisão APPs, fragmentos de vegetação e limites reais de propriedades, impactando diretamente o acesso ao crédito rural e a regularização ambiental.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: Compre Rural — 02/04/2026</span>
+      <a class="btn-saiba" href="https://www.comprerural.com/governo-fecha-acordo-com-google-e-car-ganha-imagens-6x-mais-precisas-veja-o-impacto-direto-no-produtor/" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 3 -->
+  <div class="noticia-card">
+    <span class="tag">SIGEF / Georreferenciamento</span>
+    <div class="manchete">Georreferenciamento e crédito rural: Banco Central torna sensoriamento remoto obrigatório a partir de março de 2026</div>
+    <div class="resumo">
+      No âmbito do Projeto Geotec, o Banco Central do Brasil passou a exigir o sensoriamento remoto das operações de crédito rural a partir de 1º de março de 2026. A medida reforça a necessidade de georreferenciamento certificado no SIGEF/INCRA como requisito para financiamentos agropecuários, ampliando a demanda por serviços técnicos de agrimensura no campo.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: Migalhas — 07/04/2026</span>
+      <a class="btn-saiba" href="https://www.migalhas.com.br/depeso/452952/credito-rural-georreferenciamento-e-seguranca-juridica" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 4 -->
+  <div class="noticia-card">
+    <span class="tag">Regularização Fundiária</span>
+    <div class="manchete">Governo investe R$ 132 milhões em regularização fundiária na Amazônia Legal e beneficia 7,3 mil famílias</div>
+    <div class="resumo">
+      O INCRA, em parceria com a ANATER e o Ministério do Desenvolvimento Agrário, lançou o primeiro ciclo do Programa União com Municípios (UCM), atendendo 7.300 famílias em 48 municípios de seis estados da região Norte. O investimento de R$ 131,9 milhões cobre regularização fundiária, ambiental e assistência técnica rural, com meta de 2,3 milhões de hectares regularizados nos próximos 24 meses.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: INCRA / Gov.br — 02/04/2026</span>
+      <a class="btn-saiba" href="https://www.gov.br/incra/pt-br/assuntos/noticias/7-3-mil-familias-serao-beneficiadas-com-regularizacao-fundiaria-na-amazonia-legal" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 5 -->
+  <div class="noticia-card">
+    <span class="tag">Registro de Imóveis</span>
+    <div class="manchete">Receita Federal digitaliza sistema de arrolamento de bens e elimina ofícios físicos para cartórios</div>
+    <div class="resumo">
+      A partir de 18 de março de 2026, a Receita Federal implantou nova versão do sistema de Arrolamento de Bens, tornando o fluxo exclusivamente digital. Cartórios de Registro de Imóveis passam a comunicar alienações e onerações diretamente pelo sistema federal, com limite de 4 MB por arquivo. A mudança impacta o envio de matrículas, escrituras e certidões, exigindo adaptação imediata das serventias.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: RIB-PR / Registro de Imóveis do Brasil — 03/04/2026</span>
+      <a class="btn-saiba" href="https://ribpr.org.br/noticias/view/receita-federal-atualiza-sistema-de-arrolamento-de-bens-e-altera-comunicacao-com-cartorios" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 6 -->
+  <div class="noticia-card">
+    <span class="tag">Georreferenciamento</span>
+    <div class="manchete">Decreto 12.689 prorroga prazo legal do georreferenciamento para outubro de 2029 — mas demanda segue crescente</div>
+    <div class="resumo">
+      O Decreto nº 12.689, publicado em outubro de 2025, unificou e prorrogou para 21 de outubro de 2029 o prazo máximo para o georreferenciamento obrigatório de todos os imóveis rurais, independentemente do tamanho. A medida elimina os prazos escalonados anteriores, mas não reduz a urgência: a certificação no SIGEF/INCRA continua sendo exigida para desmembramento, parcelamento, remembramento e transferência de propriedade.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: Cescon Barrieu — 23/10/2025 (republicado em 01/04/2026)</span>
+      <a class="btn-saiba" href="https://cesconbarrieu.com.br/prazo-legal-para-o-georreferenciamento-de-imoveis-rurais-e-prorrogado-ate-2029/" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 7 -->
+  <div class="noticia-card">
+    <span class="tag">ITR / Tributação</span>
+    <div class="manchete">Avaliação técnica de imóvel rural pode reduzir riscos na declaração do ITR e evitar autuações da Receita Federal</div>
+    <div class="resumo">
+      Com o prazo do Imposto de Renda 2026 aberto até 29 de maio, especialistas alertam para a importância de laudo técnico de avaliação na declaração do ITR. A subavaliação do imóvel rural pode gerar autuações com multas e juros, enquanto a superavaliação eleva desnecessariamente a carga tributária. O laudo de agrimensor credenciado é o instrumento mais seguro para embasar a declaração perante a Receita Federal.
+    </div>
+    <div class="rodape-card">
+      <span class="fonte">Fonte: Esatto Avaliações — 01/04/2026</span>
+      <a class="btn-saiba" href="https://esattoavaliacoes.com.br/itr-imposto-territorial-rural-como-a-avaliacao-pode-ajudar-na-declaracao/" target="_blank" rel="noopener">Saiba mais</a>
+    </div>
+  </div>
+
+  <!-- ===== ASSESSORIA DE CRESCIMENTO ===== -->
+  <div class="secao-titulo">
+    <h2>🚀 Assessoria de Crescimento</h2>
+  </div>
+  <div class="divisor">— ✦ —</div>
+
+  <div class="assessoria-box">
+    <div class="assessoria-header">
+      <span class="assessoria-icon">🤖</span>
+      <span class="assessoria-titulo">IA para Agrimensores</span>
+    </div>
+    <div class="assessoria-subtitulo">
+      Como usar o ChatGPT e outras IAs para automatizar relatórios técnicos e triplicar sua produtividade
+    </div>
+
+    <p>
+      Um dos maiores gargalos na rotina do agrimensor não está em campo — está na mesa. Redigir memoriais descritivos, relatórios de georreferenciamento, laudos de avaliação e ofícios técnicos consome horas preciosas que poderiam ser investidas em novos levantamentos. A boa notícia: a Inteligência Artificial já resolve boa parte disso, e você não precisa ser programador para usar.
+    </p>
+
+    <div class="dica-box">
+      <div class="dica-titulo">💡 Caso Prático — Memorial Descritivo em Minutos</div>
+      <p>
+        Imagine que você acabou de concluir um levantamento de 45 hectares em Campos dos Goytacazes. Você tem as coordenadas, as confrontações e os dados do proprietário. Abra o ChatGPT (versão gratuita funciona) e cole o seguinte prompt: <em>"Redija um memorial descritivo técnico de imóvel rural com as seguintes informações: [dados do imóvel]. Use linguagem técnica conforme padrões do INCRA e da NBR 14.166."</em> Em 30 segundos você tem um rascunho estruturado que leva apenas revisão final.
+      </p>
+    </div>
+
+    <p>
+      A chave está em aprender a dar instruções precisas — o que os especialistas chamam de <strong>engenharia de prompt</strong>. Quanto mais contexto você fornece (tipo de imóvel, finalidade, norma aplicável, destinatário), mais preciso e utilizável será o resultado. Com o tempo, você cria seus próprios modelos de prompt salvos para cada tipo de documento que produz.
+    </p>
+
+    <p>
+      Além de redigir documentos, a IA pode ser sua assistente jurídica de primeiro nível: pergunte sobre os requisitos do SIGEF para certificação, sobre a legislação do CAR em determinado estado, ou sobre os documentos exigidos para transferência de imóvel rural. Você obtém respostas em linguagem simples em segundos — sem precisar consultar advogado para dúvidas básicas.
+    </p>
+
+    <div class="dica-box">
+      <div class="dica-titulo">🛠 Ferramentas Recomendadas para Esta Semana</div>
+      <p>Experimente estas três ferramentas sem custo inicial:</p>
+    </div>
+
+    <ul class="ferramentas-lista">
+      <li>
+        <strong>ChatGPT (OpenAI)</strong> — Para redigir memoriais, laudos, ofícios e e-mails técnicos. A versão gratuita já é suficiente para a maioria das tarefas. Acesse: chat.openai.com
+      </li>
+      <li>
+        <strong>Gemini (Google)</strong> — Integrado ao Google Docs e Drive, permite gerar e revisar documentos diretamente nas ferramentas que você já usa. Ideal para quem trabalha com planilhas de campo. Acesse: gemini.google.com
+      </li>
+      <li>
+        <strong>Claude (Anthropic)</strong> — Excelente para analisar textos longos como contratos, editais e legislação. Copie o texto de um decreto ou norma técnica e peça um resumo dos pontos que afetam sua atividade. Acesse: claude.ai
+      </li>
+    </ul>
+
+    <p>
+      O agrimensor que dominar essas ferramentas em 2026 vai entregar mais serviços no mesmo tempo, com menos erros e com documentação mais profissional. Isso se traduz diretamente em mais clientes atendidos, mais faturamento e uma reputação de profissional atualizado — exatamente o diferencial que o mercado do interior do Rio de Janeiro está começando a valorizar.
+    </p>
+
+    <div class="dica-box">
+      <div class="dica-titulo">📌 Ação para Hoje</div>
+      <p>
+        Pegue o último memorial descritivo que você redigiu. Copie o texto e peça ao ChatGPT: <em>"Revise este memorial descritivo, corrija erros técnicos e formais, e sugira melhorias de clareza."</em> Compare o resultado com o original e avalie o ganho de qualidade. Você vai se surpreender.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== FILOSOFIA MOTIVACIONAL ===== -->
+  <div class="secao-titulo">
+    <h2>🌱 Reflexão do Dia</h2>
+  </div>
+  <div class="divisor">— ✦ —</div>
+
+  <div class="filosofia-box">
+    <div class="filosofia-icone">✦</div>
+    <blockquote>
+      "O profissional que mede a terra com precisão deve também medir com precisão o valor do seu próprio tempo. Automatize o que a máquina pode fazer. Reserve sua mente para o que só você sabe fazer."
+    </blockquote>
+    <div class="filosofia-autor">— Mapear Geo, Edição 07/04/2026</div>
+  </div>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <div class="rodape-logo">JORNAL MAPEAR GEO</div>
+    <p>Edição diária para profissionais de agrimensura do interior do Rio de Janeiro.</p>
+    <p>Curadoria de notícias dos últimos 7 dias de fontes públicas e especializadas.</p>
+    <p style="margin-top:8px; color:#3a3020;">
+      As informações aqui publicadas têm caráter jornalístico e informativo.<br>
+      Consulte sempre um profissional habilitado para decisões técnicas e jurídicas.<br>
+      © 2026 Jornal Mapear Geo — Todos os direitos reservados.
+    </p>
+  </footer>
+
+</div><!-- /wrapper -->
+
+</body>
+</html>
