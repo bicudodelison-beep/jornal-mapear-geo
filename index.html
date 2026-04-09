@@ -3,767 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jornal Mapear Geo – Edição Diária</title>
-
-  <!-- PWA: Manifest e Tema -->
+  <title>Jornal Mapear Geo &ndash; Edi&ccedil;&atilde;o Di&aacute;ria</title>
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#d4af37" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Mapear Geo" />
-
-  <!-- Ícones para iOS (Apple Touch Icon) -->
   <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
-
-  <!-- Ícone para favicon -->
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
   <link rel="shortcut icon" href="icon-192.png" />
   <style>
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background-color: #1a1a1a;
-      color: #e8dcc8;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
+    body { background-color: #1a1a1a; color: #e8dcc8; font-family: Georgia, "Times New Roman", Times, serif; font-size: 16px; line-height: 1.7; }
     a { color: #d4af37; text-decoration: none; }
     a:hover { text-decoration: underline; color: #f0cc55; }
-
-    /* ===== WRAPPER ===== */
-    .wrapper {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 12px 40px;
-    }
-
-    /* ===== CABEÇALHO ===== */
-    .cabecalho {
-      background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
-      border-bottom: 3px double #d4af37;
-      padding: 18px 16px 12px;
-      text-align: center;
-    }
-
-    .cabecalho .ornamento {
-      color: #d4af37;
-      font-size: 11px;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .cabecalho .titulo-jornal {
-      font-size: clamp(26px, 7vw, 42px);
-      font-weight: bold;
-      color: #d4af37;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-      line-height: 1.1;
-    }
-
-    .cabecalho .subtitulo {
-      font-size: 11px;
-      color: #a89060;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    .cabecalho .linha-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid #3a3020;
-      border-bottom: 1px solid #3a3020;
-      margin-top: 10px;
-      padding: 5px 0;
-      font-size: 11px;
-      color: #a89060;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .cabecalho .linha-info span {
-      font-style: italic;
-    }
-
-    /* ===== ALERTA DESTAQUE ===== */
-    .alerta-destaque {
-      background: linear-gradient(135deg, #2a1a00 0%, #1a1000 100%);
-      border: 2px solid #d4af37;
-      border-radius: 4px;
-      margin: 16px 0;
-      padding: 14px 16px;
-      position: relative;
-    }
-
-    .alerta-destaque::before {
-      content: "⚡ ALERTA ESPECIAL";
-      display: block;
-      background: #d4af37;
-      color: #0d0d0d;
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      padding: 3px 10px;
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      border-radius: 4px 0 4px 0;
-    }
-
-    .alerta-destaque .alerta-titulo {
-      font-size: 15px;
-      font-weight: bold;
-      color: #f0cc55;
-      margin-top: 20px;
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-
-    .alerta-destaque .alerta-texto {
-      font-size: 13px;
-      color: #d4c8a0;
-      line-height: 1.6;
-    }
-
-    .alerta-destaque .alerta-link {
-      display: inline-block;
-      margin-top: 8px;
-      background: #d4af37;
-      color: #0d0d0d;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 2px;
-    }
-
-    .alerta-destaque .alerta-link:hover {
-      background: #f0cc55;
-      text-decoration: none;
-    }
-
-    /* ===== SEÇÃO TÍTULO ===== */
-    .secao-titulo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 22px 0 14px;
-    }
-
-    .secao-titulo::before,
-    .secao-titulo::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, #d4af37, transparent);
-    }
-
-    .secao-titulo h2 {
-      font-size: 13px;
-      font-weight: bold;
-      color: #d4af37;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    /* ===== CARD DE NOTÍCIA ===== */
-    .noticia-card {
-      background: linear-gradient(180deg, #1e1e1e 0%, #181818 100%);
-      border: 1px solid #2e2e2e;
-      border-left: 3px solid #d4af37;
-      border-radius: 3px;
-      margin-bottom: 14px;
-      padding: 14px 14px 12px;
-      transition: border-color 0.2s;
-    }
-
-    .noticia-card:hover {
-      border-left-color: #f0cc55;
-    }
-
-    .noticia-card .tag {
-      display: inline-block;
-      background: #2a2000;
-      color: #d4af37;
-      font-size: 9px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 2px;
-      margin-bottom: 7px;
-    }
-
-    .noticia-card .manchete {
-      font-size: 15px;
-      font-weight: bold;
-      color: #f0e8cc;
-      line-height: 1.35;
-      margin-bottom: 7px;
-    }
-
-    .noticia-card .resumo {
-      font-size: 13px;
-      color: #b8a880;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .noticia-card .rodape-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .noticia-card .fonte {
-      font-size: 11px;
-      color: #7a6a50;
-      font-style: italic;
-    }
-
-    .noticia-card .btn-saiba {
-      display: inline-block;
-      background: transparent;
-      color: #d4af37;
-      border: 1px solid #d4af37;
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      padding: 3px 10px;
-      border-radius: 2px;
-      transition: all 0.2s;
-    }
-
-    .noticia-card .btn-saiba:hover {
-      background: #d4af37;
-      color: #0d0d0d;
-      text-decoration: none;
-    }
-
-    /* ===== COLUNA ASSESSORIA ===== */
-    .assessoria-box {
-      background: linear-gradient(180deg, #0f1a0f 0%, #0a120a 100%);
-      border: 1px solid #2a4a2a;
-      border-top: 3px solid #4a8a4a;
-      border-radius: 3px;
-      padding: 18px 16px;
-      margin-bottom: 14px;
-    }
-
-    .assessoria-box .assessoria-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .assessoria-box .assessoria-icon {
-      font-size: 22px;
-    }
-
-    .assessoria-box .assessoria-titulo {
-      font-size: 14px;
-      font-weight: bold;
-      color: #6abf6a;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .assessoria-box .assessoria-subtitulo {
-      font-size: 16px;
-      font-weight: bold;
-      color: #c8e8c8;
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-
-    .assessoria-box p {
-      font-size: 13.5px;
-      color: #a8c8a8;
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-
-    .assessoria-box .dica-box {
-      background: #0a1e0a;
-      border-left: 3px solid #4a8a4a;
-      padding: 10px 12px;
-      margin: 12px 0;
-      border-radius: 0 3px 3px 0;
-    }
-
-    .assessoria-box .dica-box .dica-titulo {
-      font-size: 11px;
-      font-weight: bold;
-      color: #6abf6a;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-
-    .assessoria-box .dica-box p {
-      font-size: 13px;
-      color: #90b890;
-      margin-bottom: 0;
-    }
-
-    .assessoria-box .ferramentas-lista {
-      list-style: none;
-      margin: 10px 0;
-    }
-
-    .assessoria-box .ferramentas-lista li {
-      font-size: 13px;
-      color: #a8c8a8;
-      padding: 5px 0;
-      border-bottom: 1px solid #1a2e1a;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .assessoria-box .ferramentas-lista li:last-child {
-      border-bottom: none;
-    }
-
-    .assessoria-box .ferramentas-lista li::before {
-      content: "▶";
-      color: #4a8a4a;
-      font-size: 10px;
-      margin-top: 3px;
-      flex-shrink: 0;
-    }
-
-    /* ===== FILOSOFIA ===== */
-    .filosofia-box {
-      background: linear-gradient(180deg, #0f0f1e 0%, #0a0a14 100%);
-      border: 1px solid #2a2a4a;
-      border-top: 3px solid #5a5aaf;
-      border-radius: 3px;
-      padding: 16px;
-      text-align: center;
-      margin-bottom: 14px;
-    }
-
-    .filosofia-box .filosofia-icone {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .filosofia-box blockquote {
-      font-size: 15px;
-      font-style: italic;
-      color: #c8c8e8;
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-
-    .filosofia-box .filosofia-autor {
-      font-size: 11px;
-      color: #6a6aaf;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* ===== RODAPÉ ===== */
-    .rodape {
-      border-top: 2px double #d4af37;
-      padding-top: 14px;
-      text-align: center;
-      margin-top: 24px;
-    }
-
-    .rodape p {
-      font-size: 11px;
-      color: #5a4a30;
-      line-height: 1.7;
-    }
-
-    .rodape .rodape-logo {
-      font-size: 16px;
-      font-weight: bold;
-      color: #d4af37;
-      letter-spacing: 2px;
-      margin-bottom: 4px;
-    }
-
-    /* ===== DIVISOR ===== */
-    .divisor {
-      text-align: center;
-      color: #3a3020;
-      font-size: 14px;
-      margin: 8px 0 16px;
-      letter-spacing: 4px;
-    }
-
-    /* ===== BADGE EDIÇÃO ===== */
-    .badge-edicao {
-      display: inline-block;
-      background: #2a2000;
-      color: #d4af37;
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      padding: 3px 10px;
-      border: 1px solid #d4af37;
-      border-radius: 2px;
-      margin-bottom: 8px;
-    }
-
-    /* ===== RESPONSIVO ===== */
-    @media (max-width: 480px) {
-      body { font-size: 15px; }
-      .cabecalho .titulo-jornal { font-size: 28px; }
-      .noticia-card .manchete { font-size: 14px; }
-      .assessoria-box .assessoria-subtitulo { font-size: 15px; }
-    }
+    .wrapper { max-width: 680px; margin: 0 auto; padding: 0 12px 40px; }
+    .cabecalho { background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); border-bottom: 3px double #d4af37; padding: 18px 16px 12px; text-align: center; }
+    .cabecalho .ornamento { color: #d4af37; font-size: 11px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 4px; }
+    .cabecalho .titulo-jornal { font-size: clamp(26px, 7vw, 42px); font-weight: bold; color: #d4af37; letter-spacing: 2px; text-shadow: 2px 2px 6px rgba(0,0,0,0.8); line-height: 1.1; }
+    .cabecalho .subtitulo { font-size: 11px; color: #a89060; letter-spacing: 4px; text-transform: uppercase; margin-top: 4px; }
+    .cabecalho .linha-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #3a3020; border-bottom: 1px solid #3a3020; margin-top: 10px; padding: 5px 0; font-size: 11px; color: #a89060; flex-wrap: wrap; gap: 4px; }
+    .cabecalho .linha-info span { font-style: italic; }
+    .badge-edicao { display: inline-block; background: #d4af37; color: #0d0d0d; font-size: 10px; font-weight: bold; padding: 3px 10px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase; font-style: normal; }
+    .alerta-destaque { background: linear-gradient(135deg, #2a1a00 0%, #1a1000 100%); border: 2px solid #d4af37; border-radius: 4px; margin: 16px 0; padding: 14px 16px; position: relative; }
+    .alerta-destaque::before { content: "ALERTA ESPECIAL"; display: block; background: #d4af37; color: #0d0d0d; font-size: 10px; font-weight: bold; letter-spacing: 3px; padding: 3px 10px; position: absolute; top: -1px; left: -1px; border-radius: 4px 0 4px 0; }
+    .alerta-destaque .alerta-titulo { font-size: 15px; font-weight: bold; color: #f0cc55; margin-top: 22px; margin-bottom: 8px; line-height: 1.4; }
+    .alerta-destaque .alerta-texto { font-size: 13px; color: #c8b880; line-height: 1.6; margin-bottom: 10px; }
+    .alerta-destaque .alerta-link { display: inline-block; background: #d4af37; color: #0d0d0d; font-size: 11px; font-weight: bold; padding: 6px 14px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase; }
+    .alerta-destaque .alerta-link:hover { background: #f0cc55; text-decoration: none; }
+    .secao-titulo { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+    .secao-titulo::before, .secao-titulo::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #d4af37, transparent); }
+    .secao-titulo h2 { font-size: 12px; font-weight: bold; color: #d4af37; letter-spacing: 4px; text-transform: uppercase; white-space: nowrap; }
+    .noticia-card { background: linear-gradient(180deg, #222018 0%, #1c1a14 100%); border: 1px solid #3a3020; border-left: 3px solid #d4af37; border-radius: 3px; padding: 14px 16px; margin-bottom: 12px; }
+    .noticia-card:hover { border-left-color: #f0cc55; }
+    .noticia-card .tag { display: inline-block; font-size: 9px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #d4af37; border: 1px solid #d4af37; padding: 2px 7px; border-radius: 2px; margin-bottom: 7px; }
+    .noticia-card .manchete { font-size: 15px; font-weight: bold; color: #f5e6b0; line-height: 1.4; margin-bottom: 8px; }
+    .noticia-card .resumo { font-size: 13px; color: #c8b880; line-height: 1.65; margin-bottom: 10px; }
+    .noticia-card .rodape-card { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .noticia-card .fonte { font-size: 11px; color: #7a6840; font-style: italic; }
+    .noticia-card .btn-saiba { display: inline-block; background: transparent; border: 1px solid #d4af37; color: #d4af37; font-size: 10px; font-weight: bold; padding: 4px 12px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase; }
+    .noticia-card .btn-saiba:hover { background: #d4af37; color: #0d0d0d; text-decoration: none; }
+    .assessoria-box { background: linear-gradient(180deg, #0d1a0d 0%, #0a150a 100%); border: 1px solid #2a4a2a; border-top: 3px solid #4a8a4a; border-radius: 3px; padding: 18px 16px; margin-bottom: 12px; }
+    .assessoria-box .assessoria-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .assessoria-box .assessoria-icon { font-size: 28px; line-height: 1; }
+    .assessoria-box .assessoria-titulo { font-size: 14px; font-weight: bold; color: #6abf6a; letter-spacing: 1px; text-transform: uppercase; }
+    .assessoria-box .assessoria-subtitulo { font-size: 16px; font-weight: bold; color: #c8e8c8; line-height: 1.3; margin-bottom: 12px; }
+    .assessoria-box p { font-size: 13px; color: #a8c8a8; line-height: 1.7; margin-bottom: 10px; }
+    .assessoria-box .dica-box { background: rgba(74,138,74,0.12); border-left: 3px solid #4a8a4a; padding: 10px 14px; margin: 12px 0; border-radius: 0 3px 3px 0; }
+    .assessoria-box .dica-box .dica-titulo { font-size: 11px; font-weight: bold; color: #6abf6a; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .assessoria-box .dica-box p { font-size: 13px; color: #b8d8b8; margin-bottom: 0; }
+    .assessoria-box .ferramentas-lista { list-style: none; margin: 10px 0; padding: 0; }
+    .assessoria-box .ferramentas-lista li { font-size: 13px; color: #a8c8a8; padding: 6px 0 6px 20px; border-bottom: 1px solid rgba(74,138,74,0.15); position: relative; }
+    .assessoria-box .ferramentas-lista li:last-child { border-bottom: none; }
+    .assessoria-box .ferramentas-lista li::before { content: "\25B8"; position: absolute; left: 0; color: #4a8a4a; font-size: 14px; }
+    .filosofia-box { background: linear-gradient(180deg, #1a1a2a 0%, #141420 100%); border: 1px solid #2a2a4a; border-top: 3px solid #5a5aaa; border-radius: 3px; padding: 18px 16px; margin-bottom: 12px; text-align: center; }
+    .filosofia-box .filosofia-icone { font-size: 28px; margin-bottom: 10px; }
+    .filosofia-box blockquote { font-size: 15px; font-style: italic; color: #c8c8e8; line-height: 1.7; margin-bottom: 10px; }
+    .filosofia-box .filosofia-autor { font-size: 12px; color: #7a7aaa; letter-spacing: 2px; text-transform: uppercase; }
+    .rodape { text-align: center; padding: 20px 0 10px; border-top: 2px double #d4af37; margin-top: 20px; }
+    .rodape p { font-size: 11px; color: #5a4a30; line-height: 1.8; }
+    .rodape .rodape-titulo { font-size: 13px; color: #d4af37; font-weight: bold; margin-bottom: 4px; }
+    @media (max-width: 480px) { .cabecalho .titulo-jornal { font-size: 28px; } .noticia-card .manchete { font-size: 14px; } .assessoria-box .assessoria-subtitulo { font-size: 15px; } }
   </style>
 </head>
 <body>
+  <div class="wrapper">
 
-<div class="wrapper">
+    <header class="cabecalho">
+      <div class="ornamento">&#10022; &#10022; &#10022; Agrimensura &amp; Geotecnologia &#10022; &#10022; &#10022;</div>
+      <div class="titulo-jornal">JORNAL MAPEAR GEO</div>
+      <div class="subtitulo">Edi&ccedil;&atilde;o Di&aacute;ria para Profissionais de Agrimensura</div>
+      <div class="linha-info">
+        <span>Edi&ccedil;&atilde;o N&ordm; 003</span>
+        <span class="badge-edicao">Quinta-feira, 09 de Abril de 2026</span>
+        <span>Interior do Rio de Janeiro</span>
+      </div>
+    </header>
 
-  <!-- ===== CABEÇALHO ===== -->
-  <header class="cabecalho">
-    <div class="ornamento">✦ Informação Geoespacial com Precisão ✦</div>
-    <div class="titulo-jornal">JORNAL MAPEAR GEO</div>
-    <div class="subtitulo">Edição Diária para Profissionais de Agrimensura</div>
-    <div class="linha-info">
-      <span>Quarta-feira, 08 de Abril de 2026</span>
-      <span>Interior do Rio de Janeiro</span>
-      <span>Edição Nº 002</span>
+    <div class="alerta-destaque">
+      <div class="alerta-titulo">Opera&ccedil;&atilde;o Terra Forjada: PF desmantela esquema de fraude no SIGEF e SICAR &mdash; empresas de topografia s&atilde;o alvos em MS</div>
+      <div class="alerta-texto">
+        A Pol&iacute;cia Federal deflagrou em 07/04/2026 a Opera&ccedil;&atilde;o Terra Forjada em Mato Grosso do Sul, investigando duas empresas e seis pessoas por inserir dados falsos no SIGEF (Sistema de Gest&atilde;o Fundi&aacute;ria) e no SICAR para simular posse e dom&iacute;nio de &aacute;reas rurais. Uma empresa de topografia com sede em Campo Grande &eacute; alvo central &mdash; a mesma j&aacute; havia sido investigada na Opera&ccedil;&atilde;o Terra Nullius (2023). O esquema inclu&iacute;a sobreposi&ccedil;&atilde;o de &aacute;reas, adultera&ccedil;&atilde;o de reservas legais e tentativas de legalizar terras p&uacute;blicas de forma fraudulenta. <strong>Aten&ccedil;&atilde;o: a integridade dos dados lan&ccedil;ados no SIGEF &eacute; responsabilidade do profissional habilitado &mdash; qualquer irregularidade pode resultar em responsabiliza&ccedil;&atilde;o criminal.</strong>
+      </div>
+      <a class="alerta-link" href="https://folhams.com.br/2026/04/07/pf-investiga-fraude-em-sistemas-federais-para-simular-posse-de-terras/" target="_blank" rel="noopener">&#9658; Leia a mat&eacute;ria completa &mdash; Folha MS</a>
     </div>
-  </header>
 
-  <!-- ===== ALERTA DESTAQUE ===== -->
-  <div class="alerta-destaque">
-    <div class="alerta-titulo">STF invalida lei do Tocantins que legalizava registros rurais sem título — impacto nacional para agrimensores</div>
-    <div class="alerta-texto">
-      O Plenário do STF declarou, por unanimidade, inconstitucional a Lei Estadual nº 3.525/2019 do Tocantins, que permitia convalidar registros de imóveis rurais sem título de alienação ou concessão do Poder Público. O relator Nunes Marques entendeu que a lei estadual invadiu competência privativa da União em Direito Civil, Agrário e Registros Públicos. O julgamento reforça que regularização fundiária exige conformidade com normas federais — e eleva a importância do georreferenciamento certificado no SIGEF como instrumento de segurança jurídica para proprietários rurais em todo o Brasil.
+    <div class="secao-titulo"><h2>&#128240; Not&iacute;cias Relevantes</h2></div>
+
+    <div class="noticia-card">
+      <span class="tag">SIGEF / Grilagem</span>
+      <div class="manchete">Opera&ccedil;&atilde;o Terra Forjada: PF combate fraude no SIGEF e SICAR para grilagem de terras em Mato Grosso do Sul</div>
+      <div class="resumo">A Pol&iacute;cia Federal deflagrou a Opera&ccedil;&atilde;o Terra Forjada em 07/04/2026, investigando duas empresas e seis pessoas por manipular dados no SIGEF e no SICAR para criar registros artificiais de posse rural, sobrepor &aacute;reas e simular conformidade ambiental. Uma das empresas-alvo j&aacute; havia sido investigada em 2023 pela Opera&ccedil;&atilde;o Terra Nullius, por fraudes fundi&aacute;rias semelhantes. A investiga&ccedil;&atilde;o teve origem na Base Quadrante, instalada no Pantanal durante a crise de inc&ecirc;ndios de 2024. O caso refor&ccedil;a a necessidade de rigor &eacute;tico e t&eacute;cnico nos lan&ccedil;amentos de dados em sistemas federais.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: Folha MS &mdash; 07/04/2026</span>
+        <a class="btn-saiba" href="https://folhams.com.br/2026/04/07/pf-investiga-fraude-em-sistemas-federais-para-simular-posse-de-terras/" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
     </div>
-    <a class="alerta-link" href="https://www.irib.org.br/stf-declara-inconstitucional-lei-que-validava-registros-imobiliarios-de-imoveis-rurais-sem-titulo-de-alienacao-ou-concessao/" target="_blank" rel="noopener">▶ Leia a decisão completa no IRIB</a>
+
+    <div class="noticia-card">
+      <span class="tag">CCIR / ITR</span>
+      <div class="manchete">Calend&aacute;rio 2026: CCIR tem emiss&atilde;o prevista para 19 de maio e ITR deve ser declarado entre agosto e setembro</div>
+      <div class="resumo">O cronograma oficial de obriga&ccedil;&otilde;es do im&oacute;vel rural para 2026 j&aacute; foi divulgado: o INCRA prev&ecirc; disponibilizar o sistema para emiss&atilde;o do Certificado de Cadastro de Im&oacute;vel Rural (CCIR) a partir de 19 de maio, com sinaliza&ccedil;&atilde;o de antecipa&ccedil;&atilde;o. J&aacute; a Receita Federal deve abrir o per&iacute;odo de entrega da Declara&ccedil;&atilde;o do ITR entre 10 de agosto e 30 de setembro. Ter o CCIR e o ITR em dia &eacute; requisito essencial para venda, desmembramento, arrendamento e obten&ccedil;&atilde;o de financiamentos agr&iacute;colas &mdash; e o agrimensor que orienta seus clientes sobre esses prazos agrega valor diferenciado ao servi&ccedil;o.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: Prefeitura de Vila Pav&atilde;o/ES &mdash; 08/04/2026</span>
+        <a class="btn-saiba" href="https://www.vilapavao.es.gov.br/noticia/ler/11114/atencao-produtores-rurais-calendario-de-obrigacoes-2026" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="noticia-card">
+      <span class="tag">CAR / Meio Ambiente</span>
+      <div class="manchete">STF debate suspens&atilde;o do CAR: decis&atilde;o do ministro Fl&aacute;vio Dino sobre a ADPF 743 divide especialistas em direito ambiental</div>
+      <div class="resumo">Artigo publicado no Conjur (05/04/2026) aponta que a tentativa de suspender o Cadastro Ambiental Rural nos termos da ADPF 743 contraria decis&atilde;o anterior do pr&oacute;prio STF no caso do Marco Temporal. O debate jur&iacute;dico em torno do CAR continua aquecido: de um lado, a press&atilde;o por maior rigor ambiental; de outro, a necessidade de seguran&ccedil;a jur&iacute;dica para os produtores rurais. Para o agrimensor, o cen&aacute;rio refor&ccedil;a a import&acirc;ncia de manter os cadastros ambientais atualizados e em conformidade com a legisla&ccedil;&atilde;o vigente, evitando riscos para os clientes.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: Conjur &mdash; 05/04/2026</span>
+        <a class="btn-saiba" href="https://www.conjur.com.br/2026-abr-05/suspender-o-car-nos-termos-da-adpf-743-viola-decisao-do-proprio-stf-no-caso-do-marco-temporal/" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="noticia-card">
+      <span class="tag">Regulariza&ccedil;&atilde;o Fundi&aacute;ria</span>
+      <div class="manchete">Governo investe R$ 132 milh&otilde;es em regulariza&ccedil;&atilde;o fundi&aacute;ria na Amaz&ocirc;nia Legal: 7,3 mil fam&iacute;lias e 2,3 milh&otilde;es de hectares na primeira etapa</div>
+      <div class="resumo">O governo federal e a ANATER formalizaram contratos com 14 entidades para regulariza&ccedil;&atilde;o fundi&aacute;ria e assist&ecirc;ncia t&eacute;cnica em 48 munic&iacute;pios priorit&aacute;rios da Amaz&ocirc;nia Legal, com foco em pequenas propriedades rurais de at&eacute; quatro m&oacute;dulos fiscais. A primeira etapa prev&ecirc; regularizar 2,3 milh&otilde;es de hectares, com meta de atingir 9,5 milh&otilde;es de hectares e 30 mil fam&iacute;lias ao final do terceiro ciclo. O investimento total soma R$ 815 milh&otilde;es. O programa cria demanda direta por servi&ccedil;os de georreferenciamento e certifica&ccedil;&atilde;o junto ao INCRA.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: Ag&ecirc;ncia Brasil &mdash; 06/04/2026</span>
+        <a class="btn-saiba" href="https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-04/governo-investe-r-132-milhoes-em-regularizacao-fundiaria-na-amazonia" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="noticia-card">
+      <span class="tag">Topografia / Mercado</span>
+      <div class="manchete">MundoGEO Connect 2026: mais de 230 marcas confirmadas para a maior feira de geotecnologias da Am&eacute;rica Latina em junho</div>
+      <div class="resumo">A feira MundoGEO Connect 2026 acontece de 16 a 18 de junho no Expo Center Norte &ndash; Pavilh&atilde;o Azul, em S&atilde;o Paulo, reunindo mais de 230 marcas expositoras em geotecnologia, topografia, agrimensura, drones e geoespacial. O evento ocorre simultaneamente com o DroneShow Robotics, o SpaceBR Show e a Expo eVTOL, formando o maior hub de tecnologia espacial e geoespacial do Brasil. Para o agrimensor do interior, o evento &eacute; oportunidade de atualiza&ccedil;&atilde;o tecnol&oacute;gica, networking e avalia&ccedil;&atilde;o de novos equipamentos e softwares para o mercado fluminense.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: MundoGEO &mdash; 07/04/2026</span>
+        <a class="btn-saiba" href="https://mundogeo.com/2026/04/07/newgeo-confirmada-na-feira-mundogeo-connect-2026/" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="noticia-card">
+      <span class="tag">Georreferenciamento / Tecnologia</span>
+      <div class="manchete">Topografia 2026: GNSS+IMU, laser scanner port&aacute;til e batimetria automatizada consolidam novo padr&atilde;o de produtividade no setor</div>
+      <div class="resumo">An&aacute;lise t&eacute;cnica publicada pelo Blog da CPE Topografia (07/04/2026) aponta que a integra&ccedil;&atilde;o de receptores GNSS RTK com sensores inerciais (IMU) j&aacute; &eacute; pr&aacute;tica consolidada em 2026, eliminando a necessidade de nivelamento perfeito do bast&atilde;o e aumentando a produtividade em &aacute;reas irregulares. O laser scanner port&aacute;til com SLAM visual e o ecobat&iacute;metro aut&ocirc;nomo completam o arsenal tecnol&oacute;gico dispon&iacute;vel. O mercado valoriza profissionais que dominam m&uacute;ltiplas tecnologias e sabem integrar dados GNSS, drone, LiDAR e batimetria em um &uacute;nico fluxo de trabalho.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: Blog CPE Tecnologia &mdash; 07/04/2026</span>
+        <a class="btn-saiba" href="https://blog.cpetecnologia.com.br/topografia-2026/" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="noticia-card">
+      <span class="tag">Regulariza&ccedil;&atilde;o / Minas Gerais</span>
+      <div class="manchete">Minas Gerais expande regulariza&ccedil;&atilde;o de propriedades rurais para mais 50 munic&iacute;pios com meta de 18 mil documentos em 2026</div>
+      <div class="resumo">O governo de Minas Gerais anunciou a expans&atilde;o do programa de regulariza&ccedil;&atilde;o fundi&aacute;ria para mais 50 munic&iacute;pios, com meta de emitir 18 mil documentos de propriedade rural at&eacute; o final de 2026. A iniciativa envolve equipes de campo, cart&oacute;rios e o INCRA, e refor&ccedil;a a demanda por servi&ccedil;os de georreferenciamento certificado em todo o pa&iacute;s. O modelo mineiro pode servir de refer&ecirc;ncia para programas similares no estado do Rio de Janeiro, onde a regulariza&ccedil;&atilde;o fundi&aacute;ria ainda enfrenta gargalos hist&oacute;ricos, especialmente no interior.</div>
+      <div class="rodape-card">
+        <span class="fonte">Fonte: Ag&ecirc;ncia Minas &mdash; 07/04/2026</span>
+        <a class="btn-saiba" href="https://agenciaminas.mg.gov.br/noticia/regularizacao-de-propriedades-rurais-chega-a-mais-50-municipios" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="secao-titulo"><h2>&#128640; Assessoria de Crescimento</h2></div>
+
+    <div class="assessoria-box">
+      <div class="assessoria-header">
+        <div class="assessoria-icon">&#129302;</div>
+        <div><div class="assessoria-titulo">IA para Agrimensores</div></div>
+      </div>
+      <div class="assessoria-subtitulo">ChatGPT e IA Generativa como Assistente Jur&iacute;dico-T&eacute;cnico: como o agrimensor do interior pode usar IA para interpretar normas, redigir laudos e responder clientes com mais seguran&ccedil;a</div>
+      <p>As edi&ccedil;&otilde;es anteriores mostraram como a IA pode automatizar documentos t&eacute;cnicos e como os drones com intelig&ecirc;ncia artificial transformam o trabalho de campo. Hoje o tema &eacute; diferente &mdash; e talvez ainda mais impactante para o dia a dia do agrimensor que atua no interior do Rio de Janeiro: o uso de IA generativa como um assistente jur&iacute;dico-t&eacute;cnico de bolso.</p>
+      <p>Quem trabalha com georreferenciamento, SIGEF, CCIR, ITR e CAR sabe que grande parte do tempo n&atilde;o &eacute; gasto em campo &mdash; &eacute; gasto tentando entender normas, interpretar resolu&ccedil;&otilde;es do INCRA, responder d&uacute;vidas de clientes e redigir documentos t&eacute;cnicos com linguagem adequada. &Eacute; exatamente nesse ponto que ferramentas como o ChatGPT (OpenAI), o Gemini (Google) e o Claude (Anthropic) podem mudar completamente sua rotina.</p>
+      <div class="dica-box">
+        <div class="dica-titulo">&#128161; Caso de Uso Real &mdash; Interpreta&ccedil;&atilde;o de Normas do INCRA</div>
+        <p>Imagine que voc&ecirc; recebeu uma notifica&ccedil;&atilde;o de inconsist&ecirc;ncia no SIGEF e precisa entender o que diz a Norma T&eacute;cnica para Georreferenciamento de Im&oacute;veis Rurais (3&ordf; edi&ccedil;&atilde;o). Em vez de ler 80 p&aacute;ginas de documento t&eacute;cnico, voc&ecirc; cola o trecho problem&aacute;tico no ChatGPT e pergunta: <em>"Explique em linguagem simples o que essa norma exige para o caso de sobreposi&ccedil;&atilde;o de v&eacute;rtices entre im&oacute;veis certificados. Quais s&atilde;o os passos para regularizar?"</em> Em segundos, voc&ecirc; tem uma explica&ccedil;&atilde;o clara, com os passos pr&aacute;ticos &mdash; e pode pedir que a IA reformule para enviar ao cliente como orienta&ccedil;&atilde;o t&eacute;cnica.</p>
+      </div>
+      <p>Mas o uso vai muito al&eacute;m da interpreta&ccedil;&atilde;o de normas. Veja o que o agrimensor moderno j&aacute; est&aacute; fazendo com IA generativa no dia a dia:</p>
+      <ul class="ferramentas-lista">
+        <li><strong>Reda&ccedil;&atilde;o de laudos e pareceres t&eacute;cnicos:</strong> descreva os dados do levantamento e pe&ccedil;a &agrave; IA para redigir o texto t&eacute;cnico no padr&atilde;o ABNT, com linguagem profissional. Voc&ecirc; revisa e assina &mdash; o tempo de reda&ccedil;&atilde;o cai de horas para minutos.</li>
+        <li><strong>Resposta a clientes com linguagem acess&iacute;vel:</strong> cole a d&uacute;vida do cliente e pe&ccedil;a &agrave; IA uma resposta clara, sem jarg&atilde;o t&eacute;cnico, que voc&ecirc; possa enviar diretamente pelo WhatsApp.</li>
+        <li><strong>Interpreta&ccedil;&atilde;o de legisla&ccedil;&atilde;o tribut&aacute;ria (ITR/CCIR):</strong> pergunte &agrave; IA sobre prazos, penalidades, documenta&ccedil;&atilde;o necess&aacute;ria e fluxo de regulariza&ccedil;&atilde;o &mdash; ela funciona como um consultor dispon&iacute;vel 24 horas.</li>
+        <li><strong>Cria&ccedil;&atilde;o de propostas comerciais:</strong> informe o tipo de servi&ccedil;o, a &aacute;rea, a localiza&ccedil;&atilde;o e o prazo, e pe&ccedil;a &agrave; IA para redigir uma proposta t&eacute;cnica e comercial profissional para enviar ao produtor rural.</li>
+        <li><strong>An&aacute;lise de editais e contratos:</strong> cole o texto de um edital ou contrato e pe&ccedil;a &agrave; IA para identificar cl&aacute;usulas de risco, prazos cr&iacute;ticos e obriga&ccedil;&otilde;es do contratado.</li>
+      </ul>
+      <div class="dica-box">
+        <div class="dica-titulo">&#128295; Ferramentas Recomendadas para Come&ccedil;ar Hoje</div>
+        <p><strong>ChatGPT (chat.openai.com):</strong> vers&atilde;o gratuita j&aacute; &eacute; suficiente para a maioria dos usos. A vers&atilde;o Plus (US$ 20/m&ecirc;s) acessa o GPT-4, mais preciso para textos t&eacute;cnicos e jur&iacute;dicos.<br><br><strong>Gemini (gemini.google.com):</strong> integrado ao Google, ideal para quem j&aacute; usa Google Drive e Docs. Permite trabalhar diretamente em documentos.<br><br><strong>NotebookLM (notebooklm.google.com):</strong> ferramenta gratuita do Google que permite fazer perguntas sobre documentos que voc&ecirc; mesmo carrega &mdash; ideal para analisar normas do INCRA, resolu&ccedil;&otilde;es do CONFEA e legisla&ccedil;&atilde;o ambiental.</p>
+      </div>
+      <p><strong>Uma ressalva importante:</strong> a IA generativa n&atilde;o substitui o conhecimento t&eacute;cnico do agrimensor &mdash; ela amplifica. Sempre revise o que a IA produz antes de assinar ou enviar ao cliente. Use-a como um estagi&aacute;rio muito r&aacute;pido e bem informado, n&atilde;o como um substituto da sua responsabilidade t&eacute;cnica e legal.</p>
+      <p>O agrimensor do interior do Rio de Janeiro que aprender a usar essas ferramentas hoje ter&aacute; uma vantagem competitiva real: mais tempo para o que importa, documentos mais profissionais, clientes melhor atendidos &mdash; e uma empresa que cresce com intelig&ecirc;ncia.</p>
+    </div>
+
+    <div class="secao-titulo"><h2>&#127807; Filosofia do Dia</h2></div>
+
+    <div class="filosofia-box">
+      <div class="filosofia-icone">&#127807;</div>
+      <blockquote>"A terra n&atilde;o mente. Ela registra cada passo, cada medida, cada decis&atilde;o. O agrimensor que trabalha com integridade n&atilde;o apenas demarca propriedades &mdash; ele constr&oacute;i a confian&ccedil;a sobre a qual toda uma comunidade se assenta."</blockquote>
+      <div class="filosofia-autor">&mdash; Reflex&atilde;o do Jornal Mapear Geo</div>
+    </div>
+
+    <footer class="rodape">
+      <div class="rodape-titulo">JORNAL MAPEAR GEO</div>
+      <p>Edi&ccedil;&atilde;o N&ordm; 003 &mdash; Quinta-feira, 09 de Abril de 2026</p>
+      <p>Produzido para profissionais de agrimensura do interior do Rio de Janeiro</p>
+      <p style="margin-top:8px; color:#3a3020;">As not&iacute;cias s&atilde;o curadas de fontes p&uacute;blicas e confi&aacute;veis. Os links direcionam para as mat&eacute;rias originais.<br>Este jornal n&atilde;o substitui orienta&ccedil;&atilde;o jur&iacute;dica ou t&eacute;cnica especializada.</p>
+    </footer>
+
   </div>
 
-  <!-- ===== NOTÍCIAS ===== -->
-  <div class="secao-titulo">
-    <h2>📰 Notícias Relevantes</h2>
-  </div>
-  <div class="divisor">— ✦ —</div>
-
-  <!-- NOTÍCIA 1 -->
-  <div class="noticia-card">
-    <span class="tag">Registro de Imóveis</span>
-    <div class="manchete">STF invalida lei do Tocantins que validava registros de imóveis rurais sem título oficial</div>
-    <div class="resumo">
-      O Supremo Tribunal Federal declarou inconstitucional, por unanimidade, a Lei Estadual nº 3.525/2019 do Tocantins, que convalidava registros imobiliários rurais sem título de alienação ou concessão expedido pelo Poder Público. A decisão também invalidou as Leis Estaduais nº 3.730/2020 e 3.896/2022, que regulamentavam os procedimentos de convalidação. O STF reafirmou que a regularização fundiária deve observar as normas federais e proteger o patrimônio público, a inclusão social e o meio ambiente.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: IRIB — 07/04/2026</span>
-      <a class="btn-saiba" href="https://www.irib.org.br/stf-declara-inconstitucional-lei-que-validava-registros-imobiliarios-de-imoveis-rurais-sem-titulo-de-alienacao-ou-concessao/" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 2 -->
-  <div class="noticia-card">
-    <span class="tag">Registro de Imóveis / CNJ</span>
-    <div class="manchete">CNJ moderniza registro de imóveis: retificação rural dispensa assinatura de vizinhos se imóvel já for certificado pelo INCRA</div>
-    <div class="resumo">
-      O Provimento nº 195/2025 do CNJ trouxe duas inovações de grande impacto: a autotutela registral, que permite ao cartório resolver sobreposições de áreas sem necessidade de ação judicial, e a dispensa da anuência dos confrontantes para retificação de imóveis rurais já certificados pelo INCRA via SIGEF. A mudança elimina um dos maiores entraves históricos da regularização fundiária rural — a recusa de um único vizinho que bloqueava todo o processo.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: RSC Notícias / Revista Sociedade Científica — 07/04/2026</span>
-      <a class="btn-saiba" href="https://news.scientificsociety.net/2026/04/07/registro-imoveis-brasil/" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 3 -->
-  <div class="noticia-card">
-    <span class="tag">CAR / Meio Ambiente</span>
-    <div class="manchete">Google doa imagens de satélite de alta resolução ao governo e transforma análise do CAR no Brasil</div>
-    <div class="resumo">
-      O Ministério da Gestão, o Serviço Florestal Brasileiro e o Google firmaram Acordo de Cooperação Técnica que disponibiliza imagens históricas de satélite de alta resolução referentes a 2008 — marco temporal do Código Florestal. A parceria permitirá análises mais precisas de APPs, reservas legais e passivos ambientais no Cadastro Ambiental Rural (CAR), beneficiando estados e municípios e qualificando os processos de regularização ambiental de propriedades rurais em todo o país.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: Agrolink / MGI — 02/04/2026</span>
-      <a class="btn-saiba" href="https://www.agrolink.com.br/noticias/especialistas-apresentam-avancos-na-analise-do-car-com-uso-de-novas-tecnologias-e-dados_512695.html" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 4 -->
-  <div class="noticia-card">
-    <span class="tag">CAR / STF</span>
-    <div class="manchete">Ministro Flávio Dino determina notificação de proprietários com mais de 4 módulos fiscais sobre o CAR</div>
-    <div class="resumo">
-      Em decisão monocrática na ADPF 743, o ministro Flávio Dino determinou que a União notifique todos os titulares de áreas maiores de quatro módulos fiscais sobre suas obrigações no Cadastro Ambiental Rural. A medida reacende o debate sobre a suspensão do CAR e reforça a necessidade de regularização ambiental das propriedades rurais de médio e grande porte, com impacto direto na demanda por serviços de georreferenciamento e consultoria ambiental.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: Conjur — 05/04/2026</span>
-      <a class="btn-saiba" href="https://www.conjur.com.br/2026-abr-05/suspender-o-car-nos-termos-da-adpf-743-viola-decisao-do-proprio-stf-no-caso-do-marco-temporal/" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 5 -->
-  <div class="noticia-card">
-    <span class="tag">ITR / Tributação</span>
-    <div class="manchete">Prazo de abril é crítico para o ITR: Valor da Terra Nua (VTN) definido agora pode elevar imposto do produtor rural</div>
-    <div class="resumo">
-      Até 30 de abril, as prefeituras enviam à Receita Federal o laudo do Valor da Terra Nua (VTN), parâmetro central para a declaração do ITR em agosto-setembro. Quando o VTN municipal supera o preço real de mercado, o produtor fica entre pagar mais imposto ou declarar abaixo e arriscar cair na malha fiscal. Especialistas recomendam acompanhar o processo junto às prefeituras e entidades de classe, e contratar laudo técnico de avaliação para embasar a declaração com segurança.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: O Presente Rural — 06/04/2026</span>
-      <a class="btn-saiba" href="https://opresenterural.com.br/valor-de-referencia-da-terra-pode-elevar-o-itr-do-produtor/" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 6 -->
-  <div class="noticia-card">
-    <span class="tag">Regularização Fundiária</span>
-    <div class="manchete">Governo federal investe R$ 132 milhões em regularização fundiária e assistência técnica na Amazônia Legal</div>
-    <div class="resumo">
-      O governo federal e a ANATER formalizaram contratos com 14 entidades para regularização fundiária e assistência técnica rural em 48 municípios prioritários da Amazônia Legal, beneficiando 7,3 mil famílias em 2,3 milhões de hectares. O programa prevê regularização fundiária, ambiental e implementação de práticas agroecológicas, com meta de atingir 9,5 milhões de hectares e 30 mil famílias ao final do terceiro ciclo. O investimento total previsto soma R$ 815 milhões.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: Jornal de Brasília / ANATER — 06/04/2026</span>
-      <a class="btn-saiba" href="https://jornaldebrasilia.com.br/noticias/brasil/governo-federal-investe-r-132-milhoes-em-regularizacao-fundiaria-na-amazonia/" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 7 -->
-  <div class="noticia-card">
-    <span class="tag">Topografia / Tecnologia</span>
-    <div class="manchete">Topografia 2026: GNSS com sensor inercial (IMU), drones RTK e escaneamento a laser redefinem o trabalho de campo</div>
-    <div class="resumo">
-      Análise do mercado de topografia em 2026 aponta que a integração de receptores GNSS RTK com sensores inerciais (IMU) já é prática consolidada, reduzindo a necessidade de nivelamento perfeito do bastão e aumentando a produtividade em campo. Drones com RTK integrado e escaneamento a laser (LiDAR) completam o cenário de transformação tecnológica. Profissionais que dominam essas ferramentas entregam levantamentos mais rápidos, com maior precisão e conformidade com as normas do INCRA e da ABNT.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: CPE Tecnologia — 07/04/2026</span>
-      <a class="btn-saiba" href="https://blog.cpetecnologia.com.br/topografia-2026/" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- NOTÍCIA 8 -->
-  <div class="noticia-card">
-    <span class="tag">CCIR / INCRA</span>
-    <div class="manchete">INCRA alerta: golpes na cobrança do CCIR aumentam — saiba como emitir o documento gratuitamente</div>
-    <div class="resumo">
-      O INCRA reforçou o alerta sobre golpes envolvendo a cobrança indevida pelo Certificado de Cadastro de Imóvel Rural (CCIR). O documento é emitido gratuitamente pelo portal do INCRA mediante o Código do Imóvel Rural (13 dígitos) e o CPF/CNPJ do proprietário. O CCIR é exigido para venda, desmembramento, arrendamento e financiamento de imóveis rurais, e sua regularidade é verificada automaticamente nos processos de georreferenciamento no SIGEF.
-    </div>
-    <div class="rodape-card">
-      <span class="fonte">Fonte: Prefeitura de Castelo Branco / INCRA — 07/04/2026</span>
-      <a class="btn-saiba" href="https://www.gov.br/incra/pt-br/assuntos/servicos/certificado-de-cadastro-de-imovel-rural-ccir" target="_blank" rel="noopener">Saiba mais</a>
-    </div>
-  </div>
-
-  <!-- ===== ASSESSORIA DE CRESCIMENTO ===== -->
-  <div class="secao-titulo">
-    <h2>🚀 Assessoria de Crescimento</h2>
-  </div>
-  <div class="divisor">— ✦ —</div>
-
-  <div class="assessoria-box">
-    <div class="assessoria-header">
-      <span class="assessoria-icon">🛸</span>
-      <span class="assessoria-titulo">IA para Agrimensores</span>
-    </div>
-    <div class="assessoria-subtitulo">
-      Drones com IA: como transformar levantamentos topográficos em vantagem competitiva no interior do Rio de Janeiro
-    </div>
-
-    <p>
-      Se a edição anterior mostrou como a IA pode automatizar documentos técnicos no escritório, hoje o tema é o campo — especificamente, como a combinação de drones com inteligência artificial está redefinindo o que é possível fazer em um levantamento topográfico e o que isso significa para o agrimensor do interior fluminense que quer crescer.
-    </p>
-
-    <p>
-      A realidade é direta: um levantamento de 50 hectares que levava dois dias com estação total e trena pode ser concluído em três a quatro horas com um drone equipado com câmera fotogramétrica. Com processamento por IA, o resultado é uma nuvem de pontos densa, um modelo digital de terreno (MDT), curvas de nível e ortofoto georreferenciada — tudo com precisão centimétrica quando combinado com GNSS RTK ou pontos de controle no solo.
-    </p>
-
-    <div class="dica-box">
-      <div class="dica-titulo">💡 Caso Prático — Levantamento de Fazenda em Campos dos Goytacazes</div>
-      <p>
-        Um agrimensor do norte fluminense adquiriu um drone DJI Mavic 3 Enterprise (cerca de R$ 18.000) e o software Agisoft Metashape para processamento fotogramétrico. Em seis meses, recuperou o investimento com apenas quatro levantamentos de propriedades rurais entre 30 e 80 hectares. O diferencial: entregou ortofoto, MDT e memorial descritivo em 48 horas — concorrentes com equipe convencional levavam de 5 a 7 dias. O cliente pagou pelo serviço completo, não pelo tempo.
-      </p>
-    </div>
-
-    <p>
-      O papel da IA nesse processo vai além do voo. Softwares modernos como <strong>DJI Terra, Pix4D e OpenDroneMap</strong> usam algoritmos de visão computacional para identificar automaticamente pontos homólogos entre centenas de fotos, gerar nuvens de pontos 3D e calcular volumes de corte e aterro. O que antes exigia horas de processamento manual agora é feito em minutos com uma instrução simples ao software.
-    </p>
-
-    <p>
-      Para o agrimensor que atua no interior do Rio de Janeiro, a oportunidade é concreta: propriedades rurais em municípios como Itaperuna, Santo Antônio de Pádua, Miracema, Bom Jesus do Itabapoana e Campos dos Goytacazes têm demanda crescente por levantamentos para georreferenciamento, inventário florestal, CAR e projetos de drenagem. O drone com IA permite atender mais clientes, com mais qualidade e em menos tempo.
-    </p>
-
-    <div class="dica-box">
-      <div class="dica-titulo">🛠 Ferramentas Recomendadas para Esta Semana</div>
-      <p>Conheça as principais opções de software com IA para processamento de imagens de drone:</p>
-    </div>
-
-    <ul class="ferramentas-lista">
-      <li>
-        <strong>Agisoft Metashape</strong> — Referência mundial em fotogrametria. Gera ortofoto, MDT, nuvem de pontos e modelos 3D com alta precisão. Versão profissional a partir de USD 3.499 (licença perpétua). Acesse: agisoft.com
-      </li>
-      <li>
-        <strong>Pix4Dmapper</strong> — Solução em nuvem com processamento automático por IA. Ideal para quem quer velocidade e integração com GNSS. Plano mensal a partir de USD 350. Acesse: pix4d.com
-      </li>
-      <li>
-        <strong>OpenDroneMap (ODM)</strong> — Alternativa gratuita e de código aberto. Processa imagens de drone e gera ortofoto e MDT com qualidade profissional. Perfeito para começar sem investimento em software. Acesse: opendronemap.org
-      </li>
-      <li>
-        <strong>DJI Terra</strong> — Software da própria DJI para planejamento de voo e processamento básico. Gratuito para usuários de drones DJI, com recursos de IA para geração de modelos 3D. Acesse: dji.com/br/dji-terra
-      </li>
-    </ul>
-
-    <p>
-      A barreira de entrada caiu drasticamente. Drones de entrada como o DJI Mini 4 Pro (cerca de R$ 7.000) já produzem imagens com resolução suficiente para levantamentos de menor escala. Para trabalhos com exigência de precisão centimétrica e certificação no INCRA, o investimento em drone com RTK integrado (como o DJI Mavic 3 Enterprise ou o Phantom 4 RTK) é necessário — mas se paga em poucos projetos.
-    </p>
-
-    <div class="dica-box">
-      <div class="dica-titulo">📌 Ação para Esta Semana</div>
-      <p>
-        Baixe o OpenDroneMap gratuitamente e processe um conjunto de fotos de drone que você já tenha (mesmo de um celular em área aberta). Siga o tutorial em português disponível no YouTube buscando "OpenDroneMap tutorial português". Você vai entender o fluxo completo de processamento fotogramétrico sem gastar nada — e vai saber exatamente o que está comprando quando for investir em software profissional.
-      </p>
-    </div>
-  </div>
-
-  <!-- ===== FILOSOFIA MOTIVACIONAL ===== -->
-  <div class="secao-titulo">
-    <h2>🌱 Reflexão do Dia</h2>
-  </div>
-  <div class="divisor">— ✦ —</div>
-
-  <div class="filosofia-box">
-    <div class="filosofia-icone">✦</div>
-    <blockquote>
-      "O cartógrafo medieval desenhava o mundo com o que sabia e deixava em branco o que ignorava. O agrimensor moderno não tem essa opção — a tecnologia eliminou o branco. O que sobra é a escolha: ser o profissional que domina as ferramentas, ou aquele que é dominado por quem as domina."
-    </blockquote>
-    <div class="filosofia-autor">— Mapear Geo, Edição 08/04/2026</div>
-  </div>
-
-  <!-- ===== RODAPÉ ===== -->
-  <footer class="rodape">
-    <div class="rodape-logo">JORNAL MAPEAR GEO</div>
-    <p>Edição diária para profissionais de agrimensura do interior do Rio de Janeiro.</p>
-    <p>Curadoria de notícias dos últimos 7 dias de fontes públicas e especializadas.</p>
-    <p style="margin-top:8px; color:#3a3020;">
-      As informações aqui publicadas têm caráter jornalístico e informativo.<br>
-      Consulte sempre um profissional habilitado para decisões técnicas e jurídicas.<br>
-      © 2026 Jornal Mapear Geo — Todos os direitos reservados.
-    </p>
-  </footer>
-
-</div><!-- /wrapper -->
-
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
-
-<script>
-  // ===== PWA: Service Worker =====
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      // Registra o SW principal (cache offline)
-      navigator.serviceWorker.register('/jornal-mapear-geo/sw.js')
-        .then(reg => console.log('SW principal registrado:', reg.scope))
-        .catch(err => console.warn('SW principal erro:', err));
-
-      // Registra o SW do Firebase Messaging (notificações)
-      navigator.serviceWorker.register('/jornal-mapear-geo/firebase-messaging-sw.js')
-        .then(reg => console.log('SW Firebase registrado:', reg.scope))
-        .catch(err => console.warn('SW Firebase erro:', err));
-    });
-  }
-
-  // ===== FIREBASE PUSH NOTIFICATIONS =====
-  firebase.initializeApp({
-    apiKey: "AIzaSyAFe1RUUwCY1tTfthrtBK3fAkGfXVPTMQg",
-    authDomain: "mapear-geo.firebaseapp.com",
-    projectId: "mapear-geo",
-    storageBucket: "mapear-geo.firebasestorage.app",
-    messagingSenderId: "908329303410",
-    appId: "1:908329303410:web:e802f07a9d4d9fc49e31eb"
-  });
-
-  const messaging = firebase.messaging();
-  const VAPID_KEY = "BDn2KqOgk-K3Te2QXDgE8Sr4ghN0cKGH3driXbcxgZQqwQiMNltlZN6jtJ61oLI1PZ6VDKKApt6iGTGKtehxbZY";
-
-  // Solicita permissão e registra o token do dispositivo
-  async function solicitarNotificacoes() {
-    try {
-      const permission = await Notification.requestPermission();
-      if (permission === 'granted') {
-        const token = await messaging.getToken({ vapidKey: VAPID_KEY });
-        if (token) {
-          console.log('Token FCM:', token);
-          // Salva o token no localStorage para referência
-          localStorage.setItem('fcm_token', token);
-          // Envia o token para o servidor de registro
-          await registrarToken(token);
-        }
-      }
-    } catch (err) {
-      console.warn('Erro ao solicitar notificação:', err);
-    }
-  }
-
-  // Envia o token para o servidor de registro (GitHub Gist como banco simples)
-  async function registrarToken(token) {
-    try {
-      await fetch('https://5050-i6wge4cekdkw3qbohkf4d-ef7bb3db.us1.manus.computer/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token })
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function() {
+        navigator.serviceWorker.register("/sw.js").then(function(registration) {
+          console.log("SW registrado: ", registration.scope);
+        }, function(err) {
+          console.log("SW falhou: ", err);
+        });
       });
-      console.log('Token registrado no servidor.');
-    } catch (e) {
-      // Servidor offline — token salvo localmente apenas
-      console.warn('Servidor de tokens indisponível, token salvo localmente.');
     }
-  }
-
-  // Notificações recebidas com o app aberto (foreground)
-  messaging.onMessage((payload) => {
-    console.log('Notificação em foreground:', payload);
-    const { title, body } = payload.notification || {};
-    // Exibe banner na página
-    mostrarBannerNotificacao(title, body);
-  });
-
-  // Banner visual de notificação (quando app está aberto)
-  function mostrarBannerNotificacao(titulo, corpo) {
-    const banner = document.createElement('div');
-    banner.style.cssText = `
-      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
-      background: #d4af37; color: #0d0d0d;
-      font-family: Georgia, serif; font-size: 14px;
-      padding: 14px 20px; text-align: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
-      cursor: pointer;
-    `;
-    banner.innerHTML = `<strong>📰 ${titulo || 'Nova Edição!'}</strong> — ${corpo || 'Toque para ler a nova edição.'}`;
-    banner.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.prepend(banner);
-    setTimeout(() => banner.remove(), 8000);
-  }
-
-  // Solicita permissão automaticamente após 3 segundos
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if ('Notification' in window && Notification.permission === 'default') {
-        solicitarNotificacoes();
-      }
-    }, 3000);
-  });
-</script>
-
+  </script>
 </body>
 </html>
