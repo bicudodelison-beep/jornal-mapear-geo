@@ -197,16 +197,113 @@
 
   </div>
 
-  <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function() {
-        navigator.serviceWorker.register("/sw.js").then(function(registration) {
-          console.log("SW registrado: ", registration.scope);
-        }, function(err) {
-          console.log("SW falhou: ", err);
-        });
-      });
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+
+<script>
+  // ===== PWA: Service Workers =====
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/jornal-mapear-geo/sw.js')
+        .then(reg => console.log('SW principal:', reg.scope))
+        .catch(err => console.warn('SW principal erro:', err));
+      navigator.serviceWorker.register('/jornal-mapear-geo/firebase-messaging-sw.js')
+        .then(reg => console.log('SW Firebase:', reg.scope))
+        .catch(err => console.warn('SW Firebase erro:', err));
+    });
+  }
+
+  // ===== FIREBASE FCM =====
+  firebase.initializeApp({
+    apiKey: "AIzaSyAFe1RUUwCY1tTfthrtBK3fAkGfXVPTMQg",
+    authDomain: "mapear-geo.firebaseapp.com",
+    projectId: "mapear-geo",
+    storageBucket: "mapear-geo.firebasestorage.app",
+    messagingSenderId: "908329303410",
+    appId: "1:908329303410:web:e802f07a9d4d9fc49e31eb"
+  });
+
+  const messaging = firebase.messaging();
+  const VAPID_KEY = "BDn2KqOgk-K3Te2QXDgE8Sr4ghN0cKGH3driXbcxgZQqwQiMNltlZN6jtJ61oLI1PZ6VDKKApt6iGTGKtehxbZY";
+  const SERVIDOR = "https://5050-i6wge4cekdkw3qbohkf4d-ef7bb3db.us1.manus.computer";
+
+  async function ativarNotificacoes() {
+    const btn = document.getElementById('btn-notificacao');
+    if (btn) btn.textContent = '⏳ Ativando...';
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') {
+        const token = await messaging.getToken({ vapidKey: VAPID_KEY });
+        if (token) {
+          localStorage.setItem('fcm_token', token);
+          try {
+            const resp = await fetch(SERVIDOR + '/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ token })
+            });
+            const data = await resp.json();
+            console.log('Token registrado:', data);
+            if (btn) { btn.textContent = '✅ Notificações ativas!'; setTimeout(() => btn.style.display = 'none', 3000); }
+          } catch (e) {
+            console.warn('Servidor offline. Token:', token);
+            mostrarTokenNaTela(token);
+            if (btn) btn.textContent = '⚠️ Copie o token abaixo';
+          }
+        }
+      } else {
+        if (btn) btn.textContent = '🔕 Permissão negada';
+      }
+    } catch (err) {
+      console.warn('Erro FCM:', err);
+      if (btn) btn.textContent = '❌ Erro — tente novamente';
     }
-  </script>
+  }
+
+  function mostrarTokenNaTela(token) {
+    const div = document.createElement('div');
+    div.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;color:#d4af37;border-top:2px solid #d4af37;font-family:monospace;font-size:10px;padding:10px;word-break:break-all;';
+    div.innerHTML = '<strong>Token FCM — copie e envie ao administrador:</strong><br>' + token + '<br><button onclick="this.parentElement.remove()" style="margin-top:6px;background:#d4af37;color:#000;border:none;padding:4px 10px;cursor:pointer;">Fechar</button>';
+    document.body.appendChild(div);
+  }
+
+  messaging.onMessage((payload) => {
+    const { title, body } = payload.notification || {};
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:#d4af37;color:#0d0d0d;font-family:Georgia,serif;font-size:14px;padding:14px 20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.5);cursor:pointer;';
+    banner.innerHTML = '<strong>📰 ' + (title||'Nova Edição!') + '</strong> — ' + (body||'Toque para ler.');
+    banner.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+    document.body.prepend(banner);
+    setTimeout(() => banner.remove(), 8000);
+  });
+
+  window.addEventListener('load', () => {
+    const btn = document.getElementById('btn-notificacao');
+    if ('Notification' in window) {
+      if (Notification.permission === 'granted') {
+        messaging.getToken({ vapidKey: VAPID_KEY }).then(token => {
+          if (token) {
+            localStorage.setItem('fcm_token', token);
+            fetch(SERVIDOR + '/register', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ token })
+            }).then(() => {
+              console.log('Token re-registrado.');
+              if (btn) btn.style.display = 'none';
+            }).catch(() => {
+              if (btn) { btn.textContent = '🔔 Reativar Notificações'; btn.style.display = 'block'; }
+            });
+          }
+        }).catch(e => console.warn('Erro token:', e));
+      } else if (Notification.permission === 'default') {
+        setTimeout(() => { if (btn) btn.style.display = 'block'; }, 3000);
+      }
+    }
+  });
+</script>
+
+<button id="btn-notificacao" onclick="ativarNotificacoes()" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9998;background:#d4af37;color:#0d0d0d;font-family:Georgia,serif;font-size:13px;font-weight:bold;border:none;border-radius:30px;padding:12px 20px;box-shadow:0 4px 15px rgba(212,175,55,0.5);cursor:pointer;">🔔 Ativar Notificações</button>
+
 </body>
 </html>
