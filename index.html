@@ -665,6 +665,34 @@
   const VAPID_KEY = "BDn2KqOgk-K3Te2QXDgE8Sr4ghN0cKGH3driXbcxgZQqwQiMNltlZN6jtJ61oLI1PZ6VDKKApt6iGTGKtehxbZY";
   const SERVIDOR = "https://fcm-token-server.onrender.com";
 
+  async function registrarToken(token, tentativa) {
+    tentativa = tentativa || 1;
+    const btn = document.getElementById('btn-notificacao');
+    if (btn) btn.textContent = '⏳ Conectando... (' + tentativa + '/5)';
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 20000);
+      const resp = await fetch(SERVIDOR + '/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+        signal: controller.signal
+      });
+      clearTimeout(timeout);
+      const data = await resp.json();
+      console.log('Token registrado:', data);
+      if (btn) { btn.textContent = '✅ Notificações ativas!'; setTimeout(() => btn.style.display = 'none', 3000); }
+    } catch (e) {
+      console.warn('Tentativa ' + tentativa + ' falhou:', e.message);
+      if (tentativa < 5) {
+        setTimeout(() => registrarToken(token, tentativa + 1), 15000);
+      } else {
+        mostrarTokenNaTela(token);
+        if (btn) btn.textContent = '⚠️ Copie o token abaixo';
+      }
+    }
+  }
+
   async function ativarNotificacoes() {
     const btn = document.getElementById('btn-notificacao');
     if (btn) btn.textContent = '⏳ Ativando...';
@@ -674,20 +702,7 @@
         const token = await messaging.getToken({ vapidKey: VAPID_KEY });
         if (token) {
           localStorage.setItem('fcm_token', token);
-          try {
-            const resp = await fetch(SERVIDOR + '/register', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ token })
-            });
-            const data = await resp.json();
-            console.log('Token registrado:', data);
-            if (btn) { btn.textContent = '✅ Notificações ativas!'; setTimeout(() => btn.style.display = 'none', 3000); }
-          } catch (e) {
-            console.warn('Servidor offline. Token:', token);
-            mostrarTokenNaTela(token);
-            if (btn) btn.textContent = '⚠️ Copie o token abaixo';
-          }
+          await registrarToken(token, 1);
         }
       } else {
         if (btn) btn.textContent = '🔕 Permissão negada';
