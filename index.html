@@ -8,9 +8,7 @@
   <link rel="manifest" href="/jornal-mapear-geo/manifest.json" />
   <meta name="theme-color" content="#d4af37" />
   <style>
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --gold:    #d4af37;
       --gold-lt: #e8d07a;
@@ -21,7 +19,6 @@
       --ink-lt:  #3a2e1a;
       --red-alert:#8b1a1a;
     }
-
     body {
       background-color: #2a1f0e;
       font-family: Georgia, 'Times New Roman', serif;
@@ -29,8 +26,6 @@
       min-height: 100vh;
       padding: 12px 8px 40px;
     }
-
-    /* ===== WRAPPER ===== */
     .wrapper {
       max-width: 680px;
       margin: 0 auto;
@@ -38,8 +33,6 @@
       border: 3px double var(--gold);
       box-shadow: 0 0 0 6px #2a1f0e, 0 0 0 9px var(--gold-dk), 0 8px 40px rgba(0,0,0,.7);
     }
-
-    /* ===== MASTHEAD ===== */
     .masthead {
       background: var(--ink);
       padding: 18px 16px 12px;
@@ -79,8 +72,6 @@
       color: #a08040;
       letter-spacing: 0.08em;
     }
-
-    /* ===== ORNAMENTAL DIVIDER ===== */
     .ornament {
       text-align: center;
       color: var(--gold);
@@ -91,8 +82,6 @@
       border-top: 1px solid var(--gold-dk);
       border-bottom: 1px solid var(--gold-dk);
     }
-
-    /* ===== SECTION HEADER ===== */
     .section-header {
       background: var(--ink);
       color: var(--gold);
@@ -103,8 +92,6 @@
       text-transform: uppercase;
       border-bottom: 2px solid var(--gold-dk);
     }
-
-    /* ===== ALERT BOX ===== */
     .alert-box {
       background: var(--red-alert);
       border: 2px solid #c0392b;
@@ -123,7 +110,7 @@
       margin-bottom: 6px;
     }
     .alert-box .alert-label::before,
-    .alert-box .alert-label::after { content: '◆'; font-size: 0.5rem; }
+    .alert-box .alert-label::after { content: "\25c6"; font-size: 0.5rem; }
     .alert-box h3 {
       font-size: 0.95rem;
       color: #fff;
@@ -148,11 +135,7 @@
       border: 1px solid #ffaaaa;
     }
     .alert-box a.btn:hover { background: #ff4444; }
-
-    /* ===== NEWS CONTENT AREA ===== */
     .content-area { padding: 0 14px; background: var(--sepia); }
-
-    /* ===== ARTICLE CARD ===== */
     .article-card {
       padding: 14px 0;
       border-bottom: 1px solid var(--sepia-dk);
@@ -204,8 +187,6 @@
       transition: background .2s;
     }
     .article-card a.saiba-mais:hover { background: var(--gold-dk); color: #fff; }
-
-    /* ===== COLUMN HEADER ===== */
     .col-header {
       background: var(--gold);
       color: var(--ink);
@@ -231,8 +212,6 @@
       margin-top: 3px;
       color: var(--ink-lt);
     }
-
-    /* ===== COLUMN CONTENT ===== */
     .col-content {
       background: var(--sepia);
       padding: 14px 16px;
@@ -313,8 +292,6 @@
       font-size: 0.65rem;
       font-weight: bold;
     }
-
-    /* ===== PHILOSOPHY ===== */
     .philosophy {
       background: var(--ink);
       padding: 16px;
@@ -341,8 +318,6 @@
       color: var(--gold-dk);
       letter-spacing: 0.1em;
     }
-
-    /* ===== FOOTER ===== */
     .footer {
       background: var(--ink);
       border-top: 2px solid var(--gold-dk);
@@ -356,11 +331,7 @@
       letter-spacing: 0.04em;
     }
     .footer .footer-ornament { color: var(--gold-dk); margin: 4px 0; font-size: 0.8rem; letter-spacing: 0.3em; }
-
-    /* ===== HORIZONTAL RULE ===== */
     hr.gold { border: none; border-top: 1px solid var(--gold-dk); margin: 0; }
-
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 420px) {
       body { padding: 6px 4px 30px; }
       .masthead h1 { font-size: 1.5rem; }
@@ -369,242 +340,155 @@
   </style>
 </head>
 <body>
-
-<!-- ════════════════════════════════════════════
-     MASTHEAD
-════════════════════════════════════════════ -->
 <div class="wrapper">
-
   <header class="masthead">
-    <p class="overline">&#9670; Informa&ccedil;&atilde;o T&eacute;cnica &amp; Profissional &#9670;</p>
-    <h1>Jornal Mapear Geo<span>Edi&ccedil;&atilde;o Di&aacute;ria</span></h1>
+    <p class="overline">&#9670; Informa&#231;&#227;o T&#233;cnica &amp; Profissional &#9670;</p>
+    <h1>Jornal Mapear Geo<span>Edi&#231;&#227;o Di&#225;ria</span></h1>
     <p class="tagline">O jornal do agrimensor que cresce com tecnologia e conhecimento</p>
     <div class="meta-bar">
-      <span>&#9670; Sexta-feira, 17 de Abril de 2026</span>
-      <span>Ano I &bull; N.&ordm; 019</span>
+      <span>&#9670; S&#225;bado, 18 de Abril de 2026</span>
+      <span>Ano I &bull; N.&ordm; 020</span>
       <span>Interior do Rio de Janeiro &#9670;</span>
     </div>
   </header>
-
   <div class="ornament">&#10022; &nbsp; &#10022; &nbsp; &#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
-
-<!-- ════════════════════════════════════════════
-     ALERTA DE GRANDE RELEVÂNCIA
-════════════════════════════════════════════ -->
   <div class="alert-box">
-    <p class="alert-label">Alerta de Grande Relev&acirc;ncia</p>
-    <h3>&#9888; TOCANTINS LANÇA PLATAFORMA CONSULTA CAR: integra&ccedil;&atilde;o de dados ambientais, PRODES e &aacute;reas embargadas em tempo real</h3>
+    <p class="alert-label">Alerta de Grande Relev&#226;ncia</p>
+    <h3>&#9888; SICAR SUSPENSO DE 20/04 A 03/05: regularize o CAR dos seus clientes ANTES de segunda-feira</h3>
     <p>
-      O Governo do Tocantins, em parceria com a UFMG, apresentou a <strong>Plataforma Consulta CAR</strong> &mdash; uma ferramenta de diagn&oacute;stico autom&aacute;tico do Cadastro Ambiental Rural que centraliza, em um &uacute;nico ambiente digital, dados de APPs, Reserva Legal, desmatamento (PRODES), &aacute;reas embargadas, autos de infra&ccedil;&atilde;o e terras ind&iacute;genas. A plataforma j&aacute; est&aacute; sendo apresentada a institui&ccedil;&otilde;es financeiras, que reagiram positivamente. <strong>Esta &eacute; uma tend&ecirc;ncia nacional:</strong> com o novo MCR exigindo CAR regular para cr&eacute;dito rural desde 1&ordm; de abril, ferramentas que integram dados ambientais e fundi&aacute;rios ser&atilde;o cada vez mais exigidas por bancos e compradores. O agrimensor que dominar essas plataformas sair&aacute; na frente.
+      O Sistema de Cadastro Ambiental Rural (SICAR) ficar&#225; <strong>completamente indispon&#237;vel de 20 de abril a 3 de maio de 2026</strong> para migra&#231;&#227;o ao SICAR/PA+. Se voc&#234; tem clientes com CAR pendente de an&#225;lise, corre&#231;&#227;o ou cadastro, <strong>tome provid&#234;ncias hoje</strong>. Al&#233;m disso, desde 1&#186; de abril o MCR exige CAR regular para cr&#233;dito rural &mdash; propriedades sem CAR aprovado est&#227;o perdendo acesso a financiamentos.
     </p>
-    <a class="btn" href="https://www.to.gov.br/secom/noticias/governo-do-tocantins-apresenta-plataforma-consulta-car-com-foco-em-seguranca-e-transparencia-para-o-agronegocio/1g3z4e41p2pk" target="_blank" rel="noopener">&#9654; Leia a not&iacute;cia completa</a>
+    <a class="btn" href="https://agenciapara.com.br/noticia/76400/semas-suspende-sicar-temporariamente-para-implantacao-de-nova-plataforma-no-para" target="_blank" rel="noopener">&#9654; Leia a not&#237;cia completa</a>
   </div>
-
-<!-- ════════════════════════════════════════════
-     SEÇÃO: NOTÍCIAS RELEVANTES
-════════════════════════════════════════════ -->
-  <div class="section-header">&#9670; &nbsp; Not&iacute;cias Relevantes &nbsp; &#9670;</div>
-
+  <div class="section-header">&#9670; &nbsp; Not&#237;cias Relevantes &nbsp; &#9670;</div>
   <div class="content-area">
-
-    <!-- NOTÍCIA 1 -->
     <article class="article-card">
-      <p class="cat-tag">&#9670; CAR &bull; GEOTECNOLOGIA &bull; TOCANTINS &bull; UFMG &bull; TRANSPAR&Ecirc;NCIA</p>
-      <h2>Plataforma Consulta CAR do Tocantins integra PRODES, APPs, &aacute;reas embargadas e Reserva Legal em mapas interativos</h2>
-      <p>
-        Desenvolvida pelo Centro de Intelig&ecirc;ncia Territorial da <strong>UFMG</strong> em parceria com a Semarh-TO e o Naturatins, a <strong>Plataforma Consulta CAR</strong> foi apresentada a representantes do agroneg&oacute;cio tocantinense em 15 de abril. A ferramenta permite consultas por n&uacute;mero do CAR e disponibiliza informa&ccedil;&otilde;es integradas por mapas interativos, incluindo: limites do im&oacute;vel, APPs, Reserva Legal, hidrografia, desmatamento identificado pelo PRODES, unidades de conserva&ccedil;&atilde;o, terras ind&iacute;genas, florestas p&uacute;blicas, &aacute;reas embargadas, autos de infra&ccedil;&atilde;o e uso e cobertura do solo. O acesso &eacute; gratuito para o produtor. Para o agrimensor, a plataforma representa um modelo de integra&ccedil;&atilde;o de dados que deve se expandir para outros estados, incluindo o Rio de Janeiro, criando demanda por profissionais que saibam interpretar e atualizar essas informa&ccedil;&otilde;es.
-      </p>
+      <p class="cat-tag">&#9670; CAR &bull; SICAR &bull; MEIO AMBIENTE &bull; PAR&#193;</p>
+      <h2>SICAR suspenso de 20 de abril a 3 de maio para implanta&#231;&#227;o do SICAR/PA+ no Par&#225;</h2>
+      <p>A Secretaria de Meio Ambiente do Par&#225; (Semas) anunciou a suspens&#227;o tempor&#225;ria do SICAR para migra&#231;&#227;o ao <strong>SICAR/PA+</strong>, nova plataforma com maior automa&#231;&#227;o, seguran&#231;a de dados e agilidade na an&#225;lise do Cadastro Ambiental Rural. A nova plataforma incorpora solu&#231;&#245;es de geotecnologias para maior precis&#227;o na identifica&#231;&#227;o de sobreposi&#231;&#245;es e monitoramento do uso do solo. Produtores e respons&#225;veis t&#233;cnicos devem se programar com anteced&#234;ncia, pois todos os servi&#231;os vinculados ao sistema ficar&#227;o suspensos durante o per&#237;odo.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Governo do Tocantins / Semarh &bull; 16/04/2026</span>
-        <a class="saiba-mais" href="https://www.to.gov.br/secom/noticias/governo-do-tocantins-apresenta-plataforma-consulta-car-com-foco-em-seguranca-e-transparencia-para-o-agronegocio/1g3z4e41p2pk" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: Ag&#234;ncia Par&#225; / Semas &bull; 15/04/2026</span>
+        <a class="saiba-mais" href="https://agenciapara.com.br/noticia/76400/semas-suspende-sicar-temporariamente-para-implantacao-de-nova-plataforma-no-para" target="_blank" rel="noopener">Saiba mais &#9658;</a>
       </div>
     </article>
-
     <hr class="gold" />
-
-    <!-- NOTÍCIA 2 -->
     <article class="article-card">
-      <p class="cat-tag">&#9670; REGISTRO DE IM&Oacute;VEIS &bull; PENHORA &bull; M&Oacute;DULO FISCAL &bull; TJ-GO &bull; PEQUENA PROPRIEDADE</p>
-      <h2>TJ-GO suspende penhora integral de im&oacute;vel rural: produtor tem direito de manter &aacute;rea m&iacute;nima de 4 m&oacute;dulos fiscais</h2>
-      <p>
-        O Tribunal de Justi&ccedil;a de Goi&aacute;s proferiu decis&atilde;o relevante para o setor rural ao suspender a penhora integral de uma propriedade e determinar que a constri&ccedil;&atilde;o recaia apenas sobre a &aacute;rea excedente a <strong>quatro m&oacute;dulos fiscais</strong> (104 hectares no munic&iacute;pio de C&oacute;rrego do Ouro/GO). O desembargador relator reconheceu a probabilidade de impenhorabilidade da &aacute;rea trabalhada pelo n&uacute;cleo familiar, evitando preju&iacute;zos irrevers&iacute;veis ao produtor. A decis&atilde;o refor&ccedil;a a prote&ccedil;&atilde;o legal da pequena propriedade rural e &eacute; relevante para agrimensores que atuam em processos de regulariza&ccedil;&atilde;o fundi&aacute;ria, invent&aacute;rios e execu&ccedil;&otilde;es envolvendo im&oacute;veis rurais, pois define com clareza os limites da impenhorabilidade baseados no conceito de m&oacute;dulo fiscal.
-      </p>
+      <p class="cat-tag">&#9670; CCIR &bull; INCRA &bull; CADASTRO RURAL &bull; 2026</p>
+      <h2>INCRA confirma: CCIR 2026 dispon&#237;vel para emiss&#227;o a partir de 19 de maio &mdash; taxa a partir de R$ 5,89</h2>
+      <p>O Certificado de Cadastro de Im&#243;vel Rural (CCIR) referente ao exerc&#237;cio de 2026 estar&#225; dispon&#237;vel no portal do INCRA a partir de <strong>19 de maio de 2026</strong>, a partir das 7h. A taxa cadastral come&#231;a em R$ 5,89 e o pagamento &#233; obrigat&#243;rio para emiss&#227;o. O CCIR &#233; exigido em transa&#231;&#245;es imobili&#225;rias rurais, financiamentos, invent&#225;rios e processos de regulariza&#231;&#227;o fundi&#225;ria. Oriente seus clientes a providenciar o documento assim que a emiss&#227;o for liberada.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: ConJur / Registro de Im&oacute;veis do Brasil &bull; 16/04/2026</span>
-        <a class="saiba-mais" href="https://www.registrodeimoveis.org.br/tj-go-limita-penhora-rural-a-area-superior-a-quatro-modulos?fe=2" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: INCRA Oficial &bull; 15/04/2026</span>
+        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br" target="_blank" rel="noopener">Saiba mais &#9658;</a>
       </div>
     </article>
-
     <hr class="gold" />
-
-    <!-- NOTÍCIA 3 -->
     <article class="article-card">
-      <p class="cat-tag">&#9670; CIB &bull; RECEITA FEDERAL &bull; SINTER &bull; CADASTRO IMOBILI&Aacute;RIO &bull; REFORMA TRIBUT&Aacute;RIA</p>
-      <h2>CIB &mdash; o &ldquo;CPF dos im&oacute;veis&rdquo; &mdash; avança em 2026: cruzamento autom&aacute;tico entre cart&oacute;rios, prefeituras e Receita Federal</h2>
-      <p>
-        A consolida&ccedil;&atilde;o do <strong>Cadastro Imobili&aacute;rio Brasileiro (CIB)</strong> em 2026 representa a maior mudan&ccedil;a na transpar&ecirc;ncia de ativos imobili&aacute;rios da hist&oacute;ria do pa&iacute;s. Vinculado ao SINTER (Sistema Nacional de Gest&atilde;o de Informa&ccedil;&otilde;es Territoriais) da Receita Federal, o CIB dar&aacute; um c&oacute;digo &uacute;nico nacional a cada im&oacute;vel, cruzando dados de Cart&oacute;rios de Im&oacute;veis, Prefeituras (IPTU/ITBI) e Receita Federal. A meta &eacute; abranger toda a malha imobili&aacute;ria nacional at&eacute; o final de 2026. Para o agrimensor, a medida gera demanda direta por regulariza&ccedil;&atilde;o documental: im&oacute;veis com averba&ccedil;&otilde;es pendentes, &aacute;reas subdeclaradas ou sem georreferenciamento ficam expostos ao cruzamento autom&aacute;tico de dados do Fisco, gerando urgência na regulariza&ccedil;&atilde;o.
-      </p>
+      <p class="cat-tag">&#9670; GEORREFERENCIAMENTO &bull; SIGEF &bull; DECRETO 12.689 &bull; PRAZO 2029</p>
+      <h2>Decreto 12.689/2025: prazo para certifica&#231;&#227;o no SIGEF prorrogado at&#233; 21 de outubro de 2029 &mdash; aten&#231;&#227;o &#224;s exce&#231;&#245;es</h2>
+      <p>O Decreto Federal n.&#186; 12.689, publicado em outubro de 2025, unificou os prazos de obrigatoriedade do georreferenciamento para todas as propriedades rurais, fixando o prazo final em <strong>21 de outubro de 2029</strong>. Por&#233;m, especialistas alertam: o georreferenciamento continua obrigat&#243;rio para compra e venda, desmembramento, invent&#225;rio e regulariza&#231;&#227;o fundi&#225;ria. N&#227;o espere o prazo final &mdash; a demanda por profissionais habilitados aumentar&#225; exponencialmente pr&#243;ximo de 2029.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Paiva Nunes Advocacia &bull; 16/04/2026</span>
-        <a class="saiba-mais" href="https://www.paivanunes.com.br/cpf-dos-imoveis-ja-e-realidade-em-2026-voce-sabe-o-que-e-o-cib-e-os-riscos-para-o-seu-patrimonio/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: JP Topografia &bull; 13/04/2026</span>
+        <a class="saiba-mais" href="https://www.jptopografia.com.br/blog/georreferenciamento-de-imoveis-rurais-novo-prazo-oficial-e-o-que-os-proprietarios-precisam-fazer-agora" target="_blank" rel="noopener">Saiba mais &#9658;</a>
       </div>
     </article>
-
     <hr class="gold" />
-
-    <!-- NOTÍCIA 4 -->
     <article class="article-card">
-      <p class="cat-tag">&#9670; MUNDOGEO CONNECT &bull; IA &bull; ARCGIS &bull; DRONES &bull; GEORREFERENCIAMENTO RURAL</p>
-      <h2>MundoGEO Connect 2026: inscri&ccedil;&otilde;es com 20% de desconto at&eacute; 30 de abril &mdash; semin&aacute;rio de georreferenciamento rural incluso</h2>
-      <p>
-        A maior feira de geotecnologia da Am&eacute;rica Latina ocorrer&aacute; de <strong>16 a 18 de junho</strong> no Expo Center Norte, S&atilde;o Paulo, com mais de 230 marcas confirmadas. A programa&ccedil;&atilde;o inclui 12 cursos, 9 semin&aacute;rios e 3 f&oacute;runs. Destaques para agrimensores: curso de <em>Automa&ccedil;&atilde;o e IA no ArcGIS Pro</em> (Deep Learning para classifica&ccedil;&atilde;o de imagens de sensores remotos), semin&aacute;rio espec&iacute;fico sobre <em>Georreferenciamento de Im&oacute;veis Rurais</em> (16 de junho, 14h&ndash;18h) e curso sobre <em>Regulamenta&ccedil;&atilde;o para opera&ccedil;&atilde;o de drones</em>. Inscri&ccedil;&otilde;es com <strong>20% de desconto at&eacute; 30 de abril</strong>, parcel&aacute;veis em at&eacute; 10 vezes sem juros. Para o agrimensor do interior do Rio de Janeiro, &eacute; uma oportunidade &uacute;nica de atualiza&ccedil;&atilde;o t&eacute;cnica antes do segundo semestre.
-      </p>
+      <p class="cat-tag">&#9670; MEIO AMBIENTE &bull; LEGISLA&#199;&#195;O &bull; PRODUTOR RURAL &bull; INFRA&#199;&#213;ES</p>
+      <h2>Novas leis ambientais de 2026: produtor rural pode ser multado por pr&#225;ticas cotidianas &mdash; 9 situa&#231;&#245;es de risco</h2>
+      <p>A partir de 2026, o Brasil vive o maior aperto fiscalizat&#243;rio ambiental da &#250;ltima d&#233;cada. Queimar lixo sem autoriza&#231;&#227;o, desmatar &#225;reas m&#237;nimas sem respaldo no CAR, usar APP como passagem de gado, abrir estradas internas sem licen&#231;a e transportar madeira pr&#243;pria sem DOF s&#227;o infra&#231;&#245;es j&#225; sendo autuadas. Especialistas alertam que <strong>80% das auto&#231;&#245;es decorrem de desinforma&#231;&#227;o</strong>, n&#227;o de m&#225;-f&#233;. O agrimensor que orienta seus clientes sobre regulariza&#231;&#227;o ambiental agrega valor e se diferencia no mercado.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: MundoGEO Connect &bull; 16/04/2026</span>
+        <span class="source-name">Fonte: Jornal Hoje Goi&#225;s &bull; 17/04/2026</span>
+        <a class="saiba-mais" href="https://jornalhojegoias.com.br/produtor-rural-muita-atencao-com-as-novas-leis-ambientais-para-2026/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+      </div>
+    </article>
+    <hr class="gold" />
+    <article class="article-card">
+      <p class="cat-tag">&#9670; POL&#205;CIA FEDERAL &bull; GRILAGEM &bull; SIGEF &bull; FRAUDE FUNDI&#193;RIA</p>
+      <h2>Opera&#231;&#227;o &#8220;Terra Forjada&#8221;: PF investiga manipula&#231;&#227;o de dados em sistemas p&#250;blicos com empresa de agrimensura</h2>
+      <p>A Pol&#237;cia Federal deflagrou a <strong>Opera&#231;&#227;o Terra Forjada</strong> em Campo Grande (MS), investigando suposta manipula&#231;&#227;o de dados em sistemas p&#250;blicos federais para simular dom&#237;nio ou posse sobre &#225;reas rurais, incluindo terras p&#250;blicas. Uma empresa de agrimensura e topografia foi alvo de mandados de busca e apreens&#227;o. A opera&#231;&#227;o tamb&#233;m apurou inser&#231;&#227;o de informa&#231;&#245;es inconsistentes para conferir apar&#234;ncia de regularidade ambiental. O caso refor&#231;a a import&#226;ncia da integridade t&#233;cnica e &#233;tica na atua&#231;&#227;o profissional do agrimensor.</p>
+      <div class="source-row">
+        <span class="source-name">Fonte: Correio do Estado &bull; 16/04/2026</span>
+        <a class="saiba-mais" href="https://correiodoestado.com.br/cidades/operacao-que-investigou-grilagem-apura-fraude-em-posse-de-terras/464765/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+      </div>
+    </article>
+    <hr class="gold" />
+    <article class="article-card">
+      <p class="cat-tag">&#9670; MUNDOGEO CONNECT &bull; GEOTECNOLOGIA &bull; IA &bull; S&#195;O PAULO</p>
+      <h2>MundoGEO Connect 2026: maior evento de geotecnologia do Brasil ter&#225; semin&#225;rio de GIS e Intelig&#234;ncia Artificial em junho</h2>
+      <p>O <strong>MundoGEO Connect 2026</strong> acontece de 16 a 18 de junho no Expo Center Norte em S&#227;o Paulo, reunindo 12 cursos, 9 semin&#225;rios e 3 f&#243;runs. Destaques incluem o <em>Curso de Georreferenciamento de Im&#243;veis Rurais</em>, o <em>Semin&#225;rio de GIS e Intelig&#234;ncia Artificial</em> e o <em>Curso de Automa&#231;&#227;o e IA no ArcGIS</em>. Inscri&#231;&#245;es com <strong>20% de desconto at&#233; 30 de abril</strong> &mdash; parcelamento em at&#233; 10 vezes sem juros.</p>
+      <div class="source-row">
+        <span class="source-name">Fonte: MundoGEO Connect &bull; 17/04/2026</span>
         <a class="saiba-mais" href="https://mundogeoconnect.com/2026/programacao/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
       </div>
     </article>
-
     <hr class="gold" />
-
-    <!-- NOTÍCIA 5 -->
     <article class="article-card">
-      <p class="cat-tag">&#9670; REGULARIZA&Ccedil;&Atilde;O FUNDI&Aacute;RIA &bull; INCRA &bull; ACRE &bull; ASSENTAMENTOS</p>
-      <h2>INCRA conclui primeira etapa de regulariza&ccedil;&atilde;o fundi&aacute;ria no Acre com entrega de CCUs e atendimentos em assentamentos</h2>
-      <p>
-        O INCRA realizou, nos dias 9 e 10 de abril de 2026, a&ccedil;&otilde;es de regulariza&ccedil;&atilde;o fundi&aacute;ria no Assentamento PA Santa Quitéria (Acre), com entrega de <strong>225 Contratos de Concess&atilde;o de Uso (CCUs)</strong>, 150 atendimentos individuais e repasse de orienta&ccedil;&otilde;es sobre georreferenciamento e regulariza&ccedil;&atilde;o. O INCRA informou que planeja ampliar as a&ccedil;&otilde;es em todo o estado, com novos mutir&otilde;es e avan&ccedil;os no georreferenciamento dos assentamentos. Paralelamente, no Acre, o governo concluiu a primeira etapa do programa de regulariza&ccedil;&atilde;o fundi&aacute;ria em Assis Brasil. As a&ccedil;&otilde;es do INCRA em assentamentos representam oportunidade de contrata&ccedil;&atilde;o de empresas de agrimensura para servi&ccedil;os de georreferenciamento em larga escala.
-      </p>
+      <p class="cat-tag">&#9670; INCRA &bull; REGULARIZA&#199;&#195;O FUNDI&#193;RIA &bull; ACRE &bull; CCU</p>
+      <h2>INCRA avan&#231;a na regulariza&#231;&#227;o fundi&#225;ria no Acre: 225 CCUs entregues e georreferenciamento de assentamentos iniciado</h2>
+      <p>O INCRA no Acre realizou a entrega de <strong>225 Contratos de Concess&#227;o de Uso (CCU)</strong> e 150 atendimentos diretos em assentamentos rurais, al&#233;m de apresentar a empresa contratada para o georreferenciamento dos lotes. A iniciativa demonstra como o georreferenciamento &#233; a etapa-chave para a seguran&#231;a jur&#237;dica de centenas de fam&#237;lias assentadas e o acesso a cr&#233;dito rural.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: INCRA / Gov.br &bull; 15/04/2026</span>
+        <span class="source-name">Fonte: Gov.br / INCRA &bull; 15/04/2026</span>
         <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/incra-entrega-de-225-ccus-faz-150-atendimentos-e-repassa-orientacoes-em-assentamentos-no-acre" target="_blank" rel="noopener">Saiba mais &#9658;</a>
       </div>
     </article>
-
-    <hr class="gold" />
-
-    <!-- NOTÍCIA 6 -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; REGULARIZA&Ccedil;&Atilde;O FUNDI&Aacute;RIA &bull; MINAS GERAIS &bull; INCRA &bull; REFORMA AGR&Aacute;RIA</p>
-      <h2>INCRA cria quatro novos assentamentos em Minas Gerais, encerrando conflito agr&aacute;rio de quase tr&ecirc;s d&eacute;cadas</h2>
-      <p>
-        O INCRA anunciou a cria&ccedil;&atilde;o de <strong>quatro novos assentamentos</strong> em Minas Gerais, encerrando um conflito agr&aacute;rio que durava quase tr&ecirc;s d&eacute;cadas. A inclus&atilde;o de benefici&aacute;rios no Programa Nacional de Reforma Agr&aacute;ria (PNRA) ser&aacute; ampliada no estado. A cria&ccedil;&atilde;o de novos assentamentos envolve, necessariamente, servi&ccedil;os de georreferenciamento, demarca&ccedil;&atilde;o de lotes, elabora&ccedil;&atilde;o de memoriais descritivos e regulariza&ccedil;&atilde;o fundi&aacute;ria, gerando demanda direta para empresas de agrimensura credenciadas junto ao INCRA. Para o agrimensor do interior do Rio de Janeiro, acompanhar os editais do INCRA para contrata&ccedil;&atilde;o de servi&ccedil;os t&eacute;cnicos &eacute; uma estrat&eacute;gia de diversifica&ccedil;&atilde;o de receita.
-      </p>
-      <div class="source-row">
-        <span class="source-name">Fonte: INCRA / Gov.br &bull; 17/04/2026</span>
-        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/criacao-de-assentamentos-encerra-conflito-agrario-de-quase-tres-decadas-em-minas-gerais" target="_blank" rel="noopener">Saiba mais &#9658;</a>
-      </div>
-    </article>
-
-    <hr class="gold" />
-
-    <!-- NOTÍCIA 7 -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; REGULARIZA&Ccedil;&Atilde;O &bull; IM&Oacute;VEL RURAL &bull; DOCUMENTOS &bull; GUIA 2026</p>
-      <h2>Guia 2026: como regularizar im&oacute;veis rurais &mdash; CCIR, escritura, registro em cart&oacute;rio e georreferenciamento</h2>
-      <p>
-        Um guia completo publicado nesta semana detalha o passo a passo para regulariza&ccedil;&atilde;o de im&oacute;veis rurais em 2026: verifica&ccedil;&atilde;o da matr&iacute;cula, formaliza&ccedil;&atilde;o da escritura p&uacute;blica, registro no cart&oacute;rio de im&oacute;veis, manuten&ccedil;&atilde;o do CCIR atualizado, inscri&ccedil;&atilde;o no CAR e georreferenciamento certificado pelo INCRA. O documento refor&ccedil;a que a regulariza&ccedil;&atilde;o completa &eacute; pr&eacute;-requisito para acesso ao cr&eacute;dito rural, venda, heran&ccedil;a e financiamentos. Para o agrimensor, este tipo de conte&uacute;do refor&ccedil;a a import&acirc;ncia de se posicionar como consultor completo de regulariza&ccedil;&atilde;o fundi&aacute;ria, n&atilde;o apenas executor de levantamentos topogr&aacute;ficos.
-      </p>
-      <div class="source-row">
-        <span class="source-name">Fonte: Chão Z&atilde;o &bull; 14/04/2026</span>
-        <a class="saiba-mais" href="https://chaozao.com.br/blog/como-regularizar-imoveis-rurais-guia-completo-com-documentos-custos-e-passo-a-passo-2026" target="_blank" rel="noopener">Saiba mais &#9658;</a>
-      </div>
-    </article>
-
-  </div><!-- /content-area -->
-
-<!-- ════════════════════════════════════════════
-     ASSESSORIA DE CRESCIMENTO
-════════════════════════════════════════════ -->
+  </div>
   <div class="col-header">
     <p class="col-title">&#9670; Assessoria de Crescimento &#9670;</p>
-    <h2>IA para Processamento de Dados de Campo: GNSS e Esta&ccedil;&atilde;o Total</h2>
-    <p class="col-sub">Por Mapear Geo &bull; Edi&ccedil;&atilde;o N.&ordm; 019 &bull; 17 de Abril de 2026</p>
+    <h2>IA para Prospectar Clientes e Fechar Contratos: o Agrimensor que usa IA vende mais</h2>
+    <p class="col-sub">Por Mapear Geo &bull; Edi&#231;&#227;o N.&ordm; 020 &bull; 18 de Abril de 2026</p>
   </div>
-
   <div class="col-content">
-    <h3>O Gargalo que Ningu&eacute;m Fala: O Escrit&oacute;rio</h3>
-    <p>
-      Todo agrimensor sabe que o trabalho de campo &eacute; intenso &mdash; horas sob o sol com o RTK, a esta&ccedil;&atilde;o total e o caderno de campo. Mas o verdadeiro gargalo da produtividade n&atilde;o est&aacute; no campo: est&aacute; no escrit&oacute;rio, no processamento dos dados brutos coletados. Importar coordenadas, limpar pontos discrepantes, classificar nuvens de pontos, gerar o memorial descritivo e montar o arquivo para o SIGEF pode consumir o dobro do tempo gasto em campo. &Eacute; exatamente nessa etapa que a <strong>Intelig&ecirc;ncia Artificial</strong> est&aacute; transformando a rotina do agrimensor moderno.
-    </p>
-
-    <h3>Passo 1: Limpeza Autom&aacute;tica de Dados GNSS com IA</h3>
-    <p>
-      Dados coletados com receptores GNSS RTK em campo frequentemente cont&ecirc;m pontos discrepantes causados por perda de sinal, multipath (reflex&atilde;o do sinal em obst&aacute;culos) ou erros de opera&ccedil;&atilde;o. O processo tradicional de identifica&ccedil;&atilde;o e remo&ccedil;&atilde;o desses outliers &eacute; manual e demorado. Hoje, &eacute; poss&iacute;vel usar <strong>scripts Python gerados pelo ChatGPT</strong> para automatizar essa limpeza: basta descrever o problema ao ChatGPT e pedir um script que leia sua planilha de coordenadas, calcule o desvio padr&atilde;o e remova automaticamente os pontos que excedem o limite de toler&acirc;ncia definido pelas normas do INCRA.
-    </p>
-
+    <h3>O Problema que Ningu&#233;m Resolve: Encontrar Clientes no Interior</h3>
+    <p>Voc&#234; &#233; um agrimensor t&#233;cnico excelente. Seus levantamentos s&#227;o precisos, seus memoriais descritivos s&#227;o impec&#225;veis e seus prazos s&#227;o cumpridos. Mas a agenda n&#227;o est&#225; t&#227;o cheia quanto deveria. O problema n&#227;o &#233; a qualidade do seu trabalho &mdash; &#233; que <strong>os donos de terra no interior do Rio de Janeiro n&#227;o sabem que voc&#234; existe</strong>. E &#233; exatamente aqui que a Intelig&#234;ncia Artificial pode mudar o seu neg&#243;cio.</p>
+    <h3>Passo 1: Use IA para Identificar Propriedades com Georreferenciamento Pendente</h3>
+    <p>O SIGEF &#233; p&#250;blico. O CAR &#233; p&#250;blico. Com as ferramentas certas, &#233; poss&#237;vel cruzar dados do SICAR com o banco de im&#243;veis rurais do seu munic&#237;pio e identificar propriedades que ainda n&#227;o t&#234;m georreferenciamento certificado. Isso &#233; uma lista de prospectos qualificados &mdash; donos de terra que <em>precisam</em> do seu servi&#231;o e ainda n&#227;o contrataram ningu&#233;m.</p>
     <div class="tool-box">
-      <p class="tool-name">&#9670; Ferramenta: ChatGPT + Python</p>
-      <p>Use o prompt: <em>"Crie um script Python que leia um arquivo CSV com colunas X, Y, Z de coordenadas UTM, calcule o desvio padr&atilde;o de cada coluna, remova os pontos que excedam 3 desvios padr&atilde;o da m&eacute;dia e salve o resultado em um novo arquivo CSV limpo."</em> O script gerado funciona no QGIS (via console Python) ou no seu computador com Python instalado.</p>
+      <p class="tool-name">&#9670; Como fazer: QGIS + ChatGPT</p>
+      <p>Baixe o shapefile do CAR do seu munic&#237;pio no SICAR (sicar.gov.br), carregue no QGIS e filtre as propriedades sem certifica&#231;&#227;o no SIGEF. Exporte a lista de propriet&#225;rios e pe&#231;a ao ChatGPT para criar um script Python que cruza os dados com o cadastro do INCRA e gera uma planilha de prospectos com &#225;rea, munic&#237;pio e situa&#231;&#227;o cadastral.</p>
     </div>
-
-    <h3>Passo 2: Classifica&ccedil;&atilde;o de Nuvens de Pontos com Deep Learning</h3>
-    <p>
-      Se voc&ecirc; utiliza drone com sensor LiDAR ou fotogrametria para levantamentos topogr&aacute;ficos, a classifica&ccedil;&atilde;o da nuvem de pontos (separar solo, vegeta&ccedil;&atilde;o, edifica&ccedil;&otilde;es e outros elementos) &eacute; uma das tarefas mais demoradas. Ferramentas como o <strong>ArcGIS Pro com Deep Learning</strong> e o <strong>CloudCompare com plugins de IA</strong> j&aacute; permitem automatizar essa classifica&ccedil;&atilde;o com precis&atilde;o superior a 90%, reduzindo horas de trabalho manual para minutos. O curso de IA no ArcGIS da MundoGEO Connect 2026 aborda exatamente esse tema.
-    </p>
-
-    <div class="tool-box">
-      <p class="tool-name">&#9670; Ferramenta: QGIS + Plugin LAStools</p>
-      <p>O QGIS (gratuito) com o plugin LAStools permite processar arquivos .LAS e .LAZ de nuvens de pontos LiDAR. Para classifica&ccedil;&atilde;o autom&aacute;tica do terreno, use o algoritmo <em>lasground</em>, que separa o solo da vegeta&ccedil;&atilde;o com par&acirc;metros ajust&aacute;veis. Combine com o ChatGPT para gerar os comandos de linha de forma r&aacute;pida.</p>
-    </div>
-
-    <h3>Passo 3: Gera&ccedil;&atilde;o Autom&aacute;tica do Memorial Descritivo a partir dos Dados da Esta&ccedil;&atilde;o Total</h3>
-    <p>
-      Ap&oacute;s o processamento dos dados da esta&ccedil;&atilde;o total e a obten&ccedil;&atilde;o das coordenadas certificadas no SIGEF, a reda&ccedil;&atilde;o do memorial descritivo ainda &eacute; feita manualmente por muitos agrimensores. Com a IA, &eacute; poss&iacute;vel automatizar essa etapa: exporte as coordenadas dos v&eacute;rtices em formato de tabela (CSV ou TXT), cole no ChatGPT e use o prompt abaixo para gerar o memorial no padr&atilde;o INCRA.
-    </p>
-
+    <h3>Passo 2: Crie Propostas Comerciais com IA em Minutos</h3>
+    <p>Uma proposta comercial bem escrita pode ser a diferen&#231;a entre fechar ou perder um contrato. Com o ChatGPT, voc&#234; pode criar um modelo de proposta profissional para georreferenciamento, regulariza&#231;&#227;o fundi&#225;ria ou levantamento topogr&#225;fico em menos de 10 minutos. Basta fornecer os dados do im&#243;vel, o tipo de servi&#231;o e o valor, e a IA monta o documento completo com justificativa t&#233;cnica, prazo, escopo e condi&#231;&#245;es de pagamento.</p>
     <div class="highlight-quote">
-      "A IA n&atilde;o assina o ART &mdash; mas ela pode redigir o memorial descritivo enquanto voc&ecirc; j&aacute; est&aacute; no pr&oacute;ximo servi&ccedil;o."
+      "O agrimensor que apresenta uma proposta profissional e bem estruturada fecha contratos que o concorrente perde &mdash; mesmo cobrando o mesmo pre&#231;o."
     </div>
-
     <div class="tool-box">
-      <p class="tool-name">&#9670; Prompt Pronto para o ChatGPT</p>
-      <p>Use: <em>"Com base nesta tabela de coordenadas UTM (V&eacute;rtice, E, N, altitude), redija o memorial descritivo do im&oacute;vel rural no padr&atilde;o INCRA, descrevendo os confrontantes como 'confronta ao norte com...', 'confronta ao sul com...', etc. O im&oacute;vel se chama [NOME], localizado no munic&iacute;pio de [MUNIC&Iacute;PIO], estado do Rio de Janeiro. &Aacute;rea total: [X] hectares."</em></p>
+      <p class="tool-name">&#9670; Prompt Pronto: Proposta de Georreferenciamento</p>
+      <p>Use: <em>"Crie uma proposta comercial profissional para servi&#231;o de georreferenciamento e certifica&#231;&#227;o no SIGEF/INCRA para o im&#243;vel rural [NOME], localizado em [MUNIC&#205;PIO/RJ], com &#225;rea aproximada de [X] hectares. O servi&#231;o inclui levantamento topogr&#225;fico com GNSS RTK, elabora&#231;&#227;o do memorial descritivo, envio ao SIGEF e acompanhamento at&#233; a certifica&#231;&#227;o. Prazo: [X] dias. Valor: R$ [X]. Tom profissional e t&#233;cnico."</em></p>
     </div>
-
-    <h3>Passo 4: Valida&ccedil;&atilde;o de Coordenadas antes do Envio ao SIGEF</h3>
-    <p>
-      Um dos erros mais comuns no envio de arquivos ao SIGEF &eacute; a inconsist&ecirc;ncia entre as coordenadas do memorial descritivo e o arquivo shapefile. A IA pode ajudar a criar uma rotina de valida&ccedil;&atilde;o autom&aacute;tica: um script Python que compara as coordenadas do memorial com as do shapefile e aponta qualquer diverg&ecirc;ncia antes do envio. Isso evita retrabalho e redu&ccedil;&atilde;o de prazo por rejei&ccedil;&atilde;o no sistema.
-    </p>
-
-    <h3>Plano de A&ccedil;&atilde;o: Implante Hoje</h3>
+    <h3>Passo 3: Use IA para Criar Conte&#250;do que Atrai Clientes no WhatsApp</h3>
+    <p>No interior do Rio de Janeiro, o WhatsApp &#233; o principal canal de comunica&#231;&#227;o de neg&#243;cios. Um agrimensor que posta conte&#250;do &#250;til &mdash; como &#8220;5 situa&#231;&#245;es em que voc&#234; precisa de georreferenciamento&#8221; ou &#8220;O que acontece se voc&#234; vender a fazenda sem o CCIR?&#8221; &mdash; se posiciona como refer&#234;ncia e recebe indica&#231;&#245;es. A IA pode criar esses textos em segundos.</p>
+    <div class="tool-box">
+      <p class="tool-name">&#9670; Ferramenta: ChatGPT + Canva</p>
+      <p>Pe&#231;a ao ChatGPT para criar 5 posts para WhatsApp sobre regulariza&#231;&#227;o de im&#243;veis rurais no Rio de Janeiro. Depois, use o Canva (canva.com) para criar artes visuais profissionais com esses textos. O Canva j&#225; tem IA integrada para gerar imagens e layouts autom&#225;ticos.</p>
+    </div>
+    <h3>Passo 4: Automatize o Follow-up com Clientes</h3>
+    <p>Quantos or&#231;amentos voc&#234; enviou nos &#250;ltimos 3 meses e nunca recebeu resposta? A maioria dos contratos &#233; fechada no 3&#186; ou 4&#186; contato. Use o <strong>Notion AI</strong> ou uma planilha com o <strong>Google Gemini</strong> para criar um sistema simples de acompanhamento: data do or&#231;amento, status, pr&#243;ximo contato. A IA pode at&#233; redigir a mensagem de follow-up personalizada para cada cliente.</p>
+    <h3>Plano de A&#231;&#227;o: Implante Esta Semana</h3>
     <ul class="step-list">
-      <li><strong>Instale o Python:</strong> Se ainda n&atilde;o tem, instale o Python 3 no seu computador (python.org). &Eacute; gratuito e necess&aacute;rio para rodar os scripts gerados pela IA.</li>
-      <li><strong>Teste o script de limpeza de dados:</strong> Pegue uma planilha de coordenadas de um servi&ccedil;o j&aacute; conclu&iacute;do e pe&ccedil;a ao ChatGPT para criar o script de limpeza. Compare o resultado com o que voc&ecirc; fez manualmente.</li>
-      <li><strong>Crie seu banco de prompts:</strong> Salve os prompts que funcionam para gerar memoriais, relat&oacute;rios e scripts. Esses prompts s&atilde;o ferramentas de trabalho &mdash; eles valem dinheiro e tempo.</li>
-      <li><strong>Explore o QGIS com Python:</strong> O QGIS tem um console Python embutido. Use o ChatGPT para gerar scripts que automatizam tarefas repetitivas como reproje&ccedil;&atilde;o de coordenadas, c&aacute;lculo de &aacute;reas e gera&ccedil;&atilde;o de mapas padronizados.</li>
+      <li><strong>Baixe o shapefile do CAR:</strong> Acesse sicar.gov.br, selecione seu munic&#237;pio no Rio de Janeiro e baixe os dados p&#250;blicos. Carregue no QGIS e visualize as propriedades sem certifica&#231;&#227;o.</li>
+      <li><strong>Crie seu modelo de proposta:</strong> Use o ChatGPT para criar um template de proposta comercial para georreferenciamento. Salve e adapte para cada cliente em minutos.</li>
+      <li><strong>Crie 3 posts para WhatsApp:</strong> Pe&#231;a ao ChatGPT para criar 3 textos curtos sobre regulariza&#231;&#227;o de im&#243;veis rurais. Poste no seu status do WhatsApp e em grupos de produtores rurais da regi&#227;o.</li>
+      <li><strong>Monte uma planilha de follow-up:</strong> Liste todos os or&#231;amentos enviados nos &#250;ltimos 60 dias e defina uma data de retorno para cada um. Use o Google Gemini para redigir as mensagens de acompanhamento.</li>
     </ul>
-
     <h3>O Impacto na sua Lucratividade</h3>
-    <p>
-      Um agrimensor que automatiza o processamento de dados de campo com IA pode reduzir o tempo de escrit&oacute;rio em <strong>40% a 60%</strong>. Se voc&ecirc; leva atualmente 2 dias para processar os dados de um georreferenciamento, a IA pode reduzir isso para menos de 1 dia &mdash; liberando tempo para um servi&ccedil;o adicional por m&ecirc;s. No interior do Rio de Janeiro, onde cada servi&ccedil;o de georreferenciamento pode representar de R$ 3.000 a R$ 8.000, essa efici&ecirc;ncia se traduz diretamente em mais receita sem precisar trabalhar mais horas.
-    </p>
-  </div><!-- /col-content -->
-
-<!-- ════════════════════════════════════════════
-     FILOSOFIA MOTIVACIONAL
-════════════════════════════════════════════ -->
+    <p>Um agrimensor que prospecta ativamente com dados p&#250;blicos e usa IA para comunica&#231;&#227;o comercial pode aumentar sua carteira de clientes em <strong>30% a 50% em 90 dias</strong>, sem investir em publicidade paga. No interior do Rio de Janeiro, onde cada servi&#231;o de georreferenciamento pode representar de R$ 3.000 a R$ 8.000, fechar apenas 2 contratos adicionais por m&#234;s representa at&#233; <strong>R$ 16.000 mensais a mais</strong> &mdash; usando ferramentas gratuitas.</p>
+    <p><em>Na pr&#243;xima edi&#231;&#227;o: como usar IA para criar relat&#243;rios t&#233;cnicos de vistoria e laudos de avalia&#231;&#227;o imobili&#225;ria rural com mais rapidez e precis&#227;o.</em></p>
+  </div>
   <div class="philosophy">
     <p class="phil-label">&#9670; Filosofia do Agrimensor &#9670;</p>
-    <blockquote>
-      "A precis&atilde;o do seu trabalho define o tamanho do seu legado. Use a tecnologia n&atilde;o para trabalhar menos, mas para entregar mais valor &mdash; e cobrar o que o seu conhecimento realmente vale."
-    </blockquote>
-    <cite>— Mapear Geo, Edi&ccedil;&atilde;o N.&ordm; 019</cite>
+    <blockquote>&#8220;A terra n&#227;o mente. Ela guarda a verdade nas suas coordenadas. O agrimensor &#233; o profissional que traduz essa verdade em seguran&#231;a jur&#237;dica &mdash; e em tranquilidade para quem trabalha nela.&#8221;</blockquote>
+    <cite>&mdash; Mapear Geo, Edi&#231;&#227;o N.&ordm; 020</cite>
   </div>
-
-<!-- ════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════ -->
   <footer class="footer">
     <p class="footer-ornament">&#10022; &#10022; &#10022;</p>
     <p>
-      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edi&ccedil;&atilde;o Di&aacute;ria &bull; N.&ordm; 019 &bull; 17 de Abril de 2026<br />
-      Curadoria jornal&iacute;stica para agrimensores do interior do Rio de Janeiro.<br />
-      As not&iacute;cias s&atilde;o extra&iacute;das de fontes p&uacute;blicas e confi&aacute;veis. Os links direcionam para as fontes originais.<br />
-      Este jornal n&atilde;o substitui orienta&ccedil;&atilde;o jur&iacute;dica ou t&eacute;cnica especializada.
+      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edi&#231;&#227;o Di&#225;ria &bull; N.&ordm; 020 &bull; 18 de Abril de 2026<br />
+      Curadoria jornal&#237;stica para agrimensores do interior do Rio de Janeiro.<br />
+      As not&#237;cias s&#227;o extra&#237;das de fontes p&#250;blicas e confi&#225;veis. Os links direcionam para as fontes originais.<br />
+      Este jornal n&#227;o substitui orienta&#231;&#227;o jur&#237;dica ou t&#233;cnica especializada.
     </p>
     <p class="footer-ornament">&#9670; &#9670; &#9670;</p>
   </footer>
-
-</div><!-- /wrapper -->
+</div>
 </body>
 </html>
