@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jornal Mapear Geo – Edição Diária</title>
-  <meta name="description" content="Jornal digital para agrimensores: notícias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regularização fundiária e tecnologia." />
+  <title>Jornal Mapear Geo &#8211; Edi&#231;&#227;o Bissemanal</title>
+  <meta name="description" content="Jornal digital para agrimensores: not&#237;cias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regulariza&#231;&#227;o fundi&#225;ria e tecnologia." />
   <link rel="manifest" href="/jornal-mapear-geo/manifest.json" />
   <meta name="theme-color" content="#d4af37" />
   <style>
@@ -199,98 +199,90 @@
       font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      font-weight: bold;
+      margin-bottom: 2px;
     }
-    .col-header h2 {
+    .col-header .col-name {
       font-size: 1.05rem;
-      line-height: 1.2;
-      margin-top: 2px;
+      font-weight: bold;
+      letter-spacing: 0.04em;
     }
     .col-header .col-sub {
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-style: italic;
-      margin-top: 3px;
+      margin-top: 2px;
       color: var(--ink-lt);
     }
-    .col-content {
+    .col-body {
+      padding: 14px 14px;
       background: var(--sepia);
-      padding: 14px 16px;
     }
-    .col-content h3 {
-      font-size: 0.85rem;
+    .col-body h3 {
+      font-size: 0.88rem;
       color: var(--ink);
-      margin-top: 14px;
-      margin-bottom: 5px;
+      margin: 14px 0 6px;
       border-left: 3px solid var(--gold);
       padding-left: 8px;
     }
-    .col-content h3:first-child { margin-top: 0; }
-    .col-content p {
+    .col-body p {
       font-size: 0.78rem;
       line-height: 1.65;
       color: var(--ink-lt);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .col-content .tool-box {
-      background: var(--sepia-dk);
-      border: 1px solid var(--gold-dk);
+    .col-body ul, .col-body ol {
+      margin: 0 0 10px 18px;
+    }
+    .col-body li {
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: var(--ink-lt);
+      margin-bottom: 5px;
+    }
+    .tool-box {
+      background: var(--ink);
       border-left: 4px solid var(--gold);
       padding: 10px 12px;
-      margin: 12px 0;
+      margin: 10px 0;
     }
-    .col-content .tool-box .tool-name {
-      font-size: 0.7rem;
-      font-weight: bold;
-      color: var(--ink);
-      letter-spacing: 0.05em;
+    .tool-box .tool-name {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
     }
-    .col-content .tool-box p {
-      font-size: 0.74rem;
+    .tool-box p {
+      font-size: 0.75rem;
+      color: var(--sepia-dk);
+      line-height: 1.55;
       margin-bottom: 0;
-      margin-top: 4px;
     }
-    .col-content .highlight-quote {
-      border-left: 3px solid var(--gold);
-      padding: 8px 12px;
-      background: var(--sepia-dk);
+    .highlight-quote {
+      border: 1px solid var(--gold-dk);
+      background: #f0e8d0;
+      padding: 10px 14px;
       font-style: italic;
       font-size: 0.8rem;
       color: var(--ink);
-      margin: 12px 0;
-      line-height: 1.5;
-    }
-    .col-content .step-list {
-      counter-reset: step-counter;
-      list-style: none;
-      margin: 8px 0 12px;
-      padding: 0;
-    }
-    .col-content .step-list li {
-      counter-increment: step-counter;
-      font-size: 0.77rem;
       line-height: 1.55;
-      color: var(--ink-lt);
-      padding: 5px 0 5px 32px;
-      position: relative;
-      border-bottom: 1px dashed var(--sepia-dk);
+      margin: 12px 0;
+      border-left: 4px solid var(--gold);
     }
-    .col-content .step-list li:last-child { border-bottom: none; }
-    .col-content .step-list li::before {
-      content: counter(step-counter);
+    .step-list { list-style: none; margin: 0 0 10px 0; padding: 0; }
+    .step-list li {
+      padding: 6px 0 6px 18px;
+      position: relative;
+      font-size: 0.78rem;
+      color: var(--ink-lt);
+      border-bottom: 1px dotted var(--sepia-dk);
+    }
+    .step-list li::before {
+      content: "&#9670;";
       position: absolute;
       left: 0;
-      top: 5px;
-      background: var(--gold);
-      color: var(--ink);
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.65rem;
-      font-weight: bold;
+      color: var(--gold-dk);
+      font-size: 0.55rem;
+      top: 9px;
     }
     .philosophy {
       background: var(--ink);
@@ -299,218 +291,235 @@
       border-top: 3px double var(--gold);
     }
     .philosophy .phil-label {
-      font-size: 0.58rem;
-      letter-spacing: 0.25em;
-      color: var(--gold-lt);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      color: var(--gold-lt);
+      margin-bottom: 10px;
     }
     .philosophy blockquote {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
+      color: var(--sepia);
       font-style: italic;
-      color: var(--gold-lt);
-      line-height: 1.6;
-      max-width: 480px;
+      line-height: 1.65;
+      max-width: 520px;
       margin: 0 auto 8px;
     }
     .philosophy cite {
-      font-size: 0.62rem;
-      color: var(--gold-dk);
+      font-size: 0.6rem;
+      color: var(--gold-lt);
       letter-spacing: 0.1em;
     }
     .footer {
       background: var(--ink);
-      border-top: 2px solid var(--gold-dk);
       padding: 12px 16px;
       text-align: center;
+      border-top: 2px solid var(--gold-dk);
     }
     .footer p {
       font-size: 0.6rem;
-      color: #6a5030;
+      color: #7a6030;
       line-height: 1.7;
-      letter-spacing: 0.04em;
     }
-    .footer .footer-ornament { color: var(--gold-dk); margin: 4px 0; font-size: 0.8rem; letter-spacing: 0.3em; }
-    hr.gold { border: none; border-top: 1px solid var(--gold-dk); margin: 0; }
+    .footer-ornament {
+      color: var(--gold);
+      letter-spacing: 0.4em;
+      font-size: 0.7rem;
+      margin: 4px 0;
+    }
     @media (max-width: 420px) {
-      body { padding: 6px 4px 30px; }
       .masthead h1 { font-size: 1.5rem; }
-      .col-header h2 { font-size: 0.95rem; }
+      .article-card h2 { font-size: 0.92rem; }
+      .col-header .col-name { font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 <div class="wrapper">
+
+  <!-- CABE&#199;ALHO -->
   <header class="masthead">
-    <p class="overline">&#9670; Informa&#231;&#227;o T&#233;cnica &amp; Profissional &#9670;</p>
+    <p class="overline">&#9670; Informa&#231;&#227;o T&#233;cnica &amp; Estrat&#233;gica para o Agrimensor &#9670;</p>
     <h1>Jornal Mapear Geo<span>Edi&#231;&#227;o Bissemanal</span></h1>
-    <p class="tagline">O jornal do agrimensor que cresce com tecnologia e conhecimento</p>
+    <p class="tagline">&#8220;Quem mede o mundo, governa o futuro.&#8221;</p>
     <div class="meta-bar">
-      <span>&#9670; Segunda-feira, 27 de Abril de 2026</span>
-      <span>Ano I &bull; N.&ordm; 022</span>
-      <span>Interior do Rio de Janeiro &#9670;</span>
+      <span>Sexta-feira, 01 de Maio de 2026</span>
+      <span>Por Mapear Geo &bull; Edi&#231;&#227;o N.&ordm; 023 &bull; 01 de Maio de 2026</span>
+      <span>Interior do Rio de Janeiro</span>
     </div>
   </header>
 
-  <!-- ALERTA DE GRANDE RELEVÂNCIA -->
+  <div class="ornament">&#10022; &#10022; &#10022;</div>
+
+  <!-- ALERTA ESPECIAL -->
+  <div class="section-header">&#9670; Alerta Especial &#9670;</div>
   <div class="alert-box">
-    <p class="alert-label">Alerta de Grande Relev&#226;ncia</p>
-    <h3>&#9888; STF VALIDA RESTRI&#199;&#213;ES &#192; COMPRA DE TERRAS RURAIS POR EMPRESAS CONTROLADAS POR ESTRANGEIROS &mdash; decis&#227;o por unanimidade impacta o mercado fundi&#225;rio</h3>
-    <p>
-      O Supremo Tribunal Federal (STF) validou, por unanimidade, as regras restritivas da <strong>Lei n&#186; 5.709/1971</strong> que exigem autoriza&#231;&#227;o pr&#233;via do Minist&#233;rio da Agricultura para aquisi&#231;&#227;o de im&#243;veis rurais por empresas brasileiras controladas por estrangeiros. A decis&#227;o refor&#231;a o controle sobre o mercado de terras no Brasil e tem impacto direto em transa&#231;&#245;es, registros e georreferenciamentos de grandes propriedades. Cart&#243;rios e registradores j&#225; devem observar a nova orienta&#231;&#227;o do STF em todos os atos registrais envolvendo essas empresas.
-    </p>
-    <a class="btn" href="https://www.mpf.mp.br/o-mpf/unidades/procuradoria-geral-da-republica-pgr/noticias/aquisicao-de-imoveis-rurais-por-estrangeiros-depende-de-previa-autorizacao-do-ministerio-da-agricultura-decide-stf" target="_blank" rel="noopener">&#9654; Leia a not&#237;cia completa</a>
+    <p class="alert-label">Aten&#231;&#227;o Urgente</p>
+    <h3>CCIR 2026: Emiss&#227;o Liberada a Partir de 19 de Maio &#8212; Novos Requisitos Obrigat&#243;rios</h3>
+    <p>O INCRA concluiu os preparativos t&#233;cnicos para a emiss&#227;o do Certificado de Cadastro de Im&#243;vel Rural (CCIR) 2026, dispon&#237;vel a partir das 7h do dia 19 de maio, exclusivamente por meio digital. A grande mudan&#231;a: o CCIR <strong>n&#227;o ser&#225; emitido</strong> se os dados do im&#243;vel ou do detentor n&#227;o estiverem atualizados no SNCR. Al&#233;m disso, o acesso exige pagamento da Taxa de Servi&#231;os Cadastrais (a partir de R&#36; 5,89), dispon&#237;vel em 18 de maio. A inadimpl&#234;ncia gera multa e juros ap&#243;s 30 dias. O documento &#233; obrigat&#243;rio para transfer&#234;ncia, arrendamento, hipoteca, desmembramento e cr&#233;dito rural.</p>
+    <a class="btn" href="https://ribpr.org.br/noticias/view/incra-anuncia-emissao-do-ccir-2026-com-novas-orientacoes-para-proprietarios-rurais" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="section-header">&#9670; &nbsp; Not&#237;cias Relevantes &nbsp; &#9670;</div>
+  <div class="ornament">&#9670; &#9670; &#9670;</div>
+
+  <!-- NOT&#205;CIAS -->
+  <div class="section-header">&#9670; Not&#237;cias Relevantes &#9670;</div>
   <div class="content-area">
 
-    <!-- NOTÍCIA 1: CCIR 2026 -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; CCIR &bull; INCRA &bull; CADASTRO RURAL &bull; MAIO 2026</p>
-      <h2>CCIR 2026 ser&#225; emitido exclusivamente online a partir de 19 de maio &mdash; taxa m&#237;nima de R&#36; 5,89 e prazo de 30 dias para pagamento</h2>
-      <p>O INCRA confirmou que o <strong>Certificado de Cadastro de Im&#243;vel Rural (CCIR) 2026</strong> estar&#225; dispon&#237;vel para emiss&#227;o a partir das 7h do dia 19 de maio, exclusivamente pelos portais digitais gov.br/incra e sncr.serpro.gov.br. A Taxa de Servi&#231;os Cadastrais ser&#225; lan&#231;ada em 18 de maio, com valor m&#237;nimo de R&#36; 5,89, vari&#225;vel conforme o im&#243;vel. Ap&#243;s 30 dias sem pagamento, incidem multa e juros. O documento n&#227;o ser&#225; enviado pelos Correios &mdash; aten&#231;&#227;o a tentativas de fraude. O CCIR &#233; indispens&#225;vel para compra, venda, arrendamento, hipoteca, desmembramento e financiamentos rurais.</p>
+    <!-- Not&#237;cia 1 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; Georreferenciamento &amp; SIGEF</p>
+      <h2>Georreferenciamento e Certifica&#231;&#227;o Rural em 2026: O Que Realmente Mudou com o Decreto 12.689</h2>
+      <p>O Decreto n.&ordm; 12.689/2025 unificou e prorrogou at&#233; <strong>21 de outubro de 2029</strong> a obrigatoriedade da certifica&#231;&#227;o no INCRA para qualquer transfer&#234;ncia, desmembramento ou parcelamento de im&#243;vel rural. A principal li&#231;&#227;o de 2026 &#233; distinguir o levantamento t&#233;cnico (georreferenciamento) do cadastro administrativo (certifica&#231;&#227;o no SIGEF): o primeiro continua sendo imperativo para retifica&#231;&#227;o de &#225;rea e especialidade objetiva da matr&#237;cula; o segundo permanece facultativo para a maioria dos casos at&#233; 2029. Agrimensores devem orientar seus clientes com precis&#227;o sobre essa diferen&#231;a para evitar retrabalho e inseguran&#231;a jur&#237;dica.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: BA de Valor / INCRA &bull; 23/04/2026</span>
-        <a class="saiba-mais" href="https://badevalor.com.br/incra-libera-emissao-do-ccir-2026-a-partir-de-maio-documento-sera-100-online/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: Blog Prof. Marcos Salom&#227;o &mdash; 29/04/2026</span>
+        <a class="saiba-mais" href="https://professormarcossalomao.com.br/georreferenciamento-e-certificacao-rural-o-cenario-atual-em-2026/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
-    <hr class="gold" />
+    </div>
 
-    <!-- NOTÍCIA 2: Falhas georreferenciamento SC -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; GEORREFERENCIAMENTO &bull; SIGEF &bull; QUALIDADE T&#201;CNICA &bull; SANTA CATARINA</p>
-      <h2>Deputado denuncia falhas graves em programa de georreferenciamento rural em SC &mdash; cart&#243;rios recusam registros e produtores arcam com preju&#237;zos</h2>
-      <p>O deputado estadual Padre Pedro Baldissera (PT-SC) denunciou inconsist&#234;ncias t&#233;cnicas graves nos memoriais descritivos produzidos por empresa contratada pelo Governo de Santa Catarina para o <strong>Programa Terra Legal</strong>. Cart&#243;rios de registro de im&#243;veis est&#227;o recusando os documentos por falhas nos levantamentos, obrigando produtores a refazer servi&#231;os j&#225; pagos com recursos p&#250;blicos. O programa foi temporariamente suspenso por recomenda&#231;&#227;o do Tribunal de Justi&#231;a de SC e passa por reformula&#231;&#227;o. O caso refor&#231;a a import&#226;ncia da qualidade t&#233;cnica e da responsabilidade do profissional habilitado.</p>
+    <!-- Not&#237;cia 2 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; INCRA &amp; Reforma Agr&#225;ria</p>
+      <h2>Georreferenciamento Abre Caminho para Titula&#231;&#227;o no Assentamento Cip&#243; (CE)</h2>
+      <p>T&#233;cnicos do INCRA/CE realizaram georreferenciamento completo no assentamento Cip&#243;, em Morada Nova (CE), delimitando lotes individuais, &#225;reas coletivas e recursos h&#237;dricos. O pr&#243;ximo passo &#233; a certifica&#231;&#227;o no SIGEF, seguida do envio das pe&#231;as t&#233;cnicas (planta, memorial descritivo e ART) ao cart&#243;rio de registro de im&#243;veis para emiss&#227;o dos T&#237;tulos de Dom&#237;nio. O caso ilustra o fluxo completo que agrimensores devem conhecer: georreferenciamento &#8594; certifica&#231;&#227;o SIGEF &#8594; registro &#8594; titula&#231;&#227;o.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Portal Peperi &bull; 24/04/2026</span>
-        <a class="saiba-mais" href="https://peperi.com.br/noticia-detalhes/deputado-do-pt-denuncia-falhas-em-georreferenciamento-rural-e-cobra-investigacao" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: INCRA / Gov.br &mdash; 24/04/2026</span>
+        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/georreferenciamento-abre-caminho-para-titulacao-no-assentamento-cipo-ce" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
-    <hr class="gold" />
+    </div>
 
-    <!-- NOTÍCIA 3: Goiás Lei regularização fundiária -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; REGULARIZA&#199;&#195;O FUNDI&#193;RIA &bull; GOIS &bull; LEGISLA&#199;&#195;O &bull; 2026</p>
-      <h2>Goi&#225;s sanciona Lei n&#186; 24.229/2026 e cria novo marco para regulariza&#231;&#227;o de im&#243;veis rurais estaduais &mdash; tr&#234;s modalidades e prazo at&#233; dezembro de 2019</h2>
-      <p>Sancionada em 14 de abril de 2026, a <strong>Lei n&#186; 24.229/2026</strong> estabelece regras para regularizar im&#243;veis rurais de dom&#237;nio do Estado de Goi&#225;s ocupados at&#233; 31 de dezembro de 2019. A lei prev&#234; tr&#234;s modalidades: <strong>doa&#231;&#227;o</strong> (para agricultura familiar com at&#233; dois m&#243;dulos fiscais), <strong>venda direta</strong> (com parcelamento em at&#233; 120 vezes sem juros ou 25% de desconto &#224; vista) e <strong>concess&#227;o de direito real de uso onerosa</strong> (por at&#233; 35 anos). A lei traz seguran&#231;a jur&#237;dica para ocupa&#231;&#245;es hist&#243;ricas e abre oportunidades para agrimensores atuarem na regulariza&#231;&#227;o desses im&#243;veis.</p>
+    <!-- Not&#237;cia 3 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; CAR &amp; Licen&#231;as Ambientais</p>
+      <h2>Regra que Trava Licen&#231;as Ambientais Pode Cair: CAR Paralisa Autoriza&#231;&#245;es no Campo</h2>
+      <p>A C&#226;mara dos Deputados aprovou parecer que questiona resolu&#231;&#227;o do CONAMA que condiciona a emiss&#227;o e validade de autoriza&#231;&#245;es ambientais &#224; aprova&#231;&#227;o do CAR &#8212; cadastro cuja an&#225;lise pelos &#243;rg&#227;os p&#250;blicos &#233; extremamente morosa. Na pr&#225;tica, produtores rurais que j&#225; cumprem a legisla&#231;&#227;o est&#227;o impedidos de obter licen&#231;as para supress&#227;o legal de vegeta&#231;&#227;o. A proposta de derrubar a norma avalia que o excesso de burocracia compromete safras, contratos de exporta&#231;&#227;o e obras de infraestrutura. Para agrimensores que elaboram laudos e ARTs ambientais, esta mudan&#231;a pode impactar diretamente a demanda por servi&#231;os.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Souto Correa Advogados &bull; 22/04/2026</span>
-        <a class="saiba-mais" href="https://www.soutocorrea.com.br/client-alerts/goias-sanciona-lei-no-24-229-2026-sobre-regularizacao-fundiaria-de-imoveis-rurais-de-dominio-do-estado/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: O Presente Rural &mdash; 29/04/2026</span>
+        <a class="saiba-mais" href="https://opresenterural.com.br/regra-que-trava-licencas-ambientais-pode-cair-apos-exigencia-ligada-ao-car-paralisar-autorizacoes/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
-    <hr class="gold" />
+    </div>
 
-    <!-- NOTÍCIA 4: INCRA Goiás metas -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; INCRA &bull; TITULA&#199;&#195;O &bull; REFORMA AGR&#193;RIA &bull; GOIS</p>
-      <h2>INCRA/GO supera metas em 55% e emite 233 T&#237;tulos de Dom&#237;nio no primeiro trimestre de 2026 &mdash; 1.050 CCUs entregues</h2>
-      <p>O INCRA em Goi&#225;s encerrou o primeiro trimestre de 2026 com resultados expressivos: foram emitidos <strong>233 T&#237;tulos de Dom&#237;nio (TDs)</strong>, superando em 55% a meta de 150 t&#237;tulos. Al&#233;m disso, 1.050 Contratos de Concess&#227;o de Uso (CCU) foram entregues &mdash; 61% acima da meta &mdash; e 248 fam&#237;lias tiveram suas ocupa&#231;&#245;es regularizadas. A Divis&#227;o de Territ&#243;rios Quilombolas dobrou a meta ao concluir dois Relat&#243;rios T&#233;cnicos de Identifica&#231;&#227;o e Delimita&#231;&#227;o (RTID). O desempenho demonstra acelera&#231;&#227;o nas pol&#237;ticas de regulariza&#231;&#227;o fundi&#225;ria no pa&#237;s.</p>
+    <!-- Not&#237;cia 4 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; Regulariza&#231;&#227;o Fundi&#225;ria</p>
+      <h2>Subcomiss&#227;o da C&#226;mara vai Mapear Conflitos por Terra e Gargalos na Regulariza&#231;&#227;o Rural</h2>
+      <p>A Comiss&#227;o de Agricultura da C&#226;mara dos Deputados aprovou o plano de trabalho de uma subcomiss&#227;o espec&#237;fica para acompanhar o direito de propriedade e a regulariza&#231;&#227;o fundi&#225;ria no pa&#237;s. Com pelo menos tr&#234;s audi&#234;ncias p&#250;blicas previstas entre maio e agosto, o grupo solicitar&#225; dados ao INCRA, minist&#233;rios, tribunais e ao CNJ para identificar causas dos conflitos e falhas institucionais. Em 2026, j&#225; foram registradas mais de 30 invas&#245;es de terras no pa&#237;s. Um relat&#243;rio final com propostas de mudan&#231;a legislativa est&#225; previsto para dezembro.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Gov.br / INCRA &bull; 22/04/2026</span>
-        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/incra-supera-metas-de-acoes-do-primeiro-trimestre-de-2026-em-goias" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: O Presente Rural &mdash; 29/04/2026</span>
+        <a class="saiba-mais" href="https://opresenterural.com.br/subcomissao-da-camara-vai-mapear-conflitos-por-terra-e-gargalos-na-regularizacao-rural/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
-    <hr class="gold" />
+    </div>
 
-    <!-- NOTÍCIA 5: Georreferenciamento assentamento Cipó CE -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; GEORREFERENCIAMENTO &bull; SIGEF &bull; INCRA &bull; TITULA&#199;&#195;O</p>
-      <h2>Georreferenciamento abre caminho para titula&#231;&#227;o de 48 fam&#237;lias no assentamento Cip&#243; (CE) &mdash; certifica&#231;&#227;o no SIGEF &#233; pr&#243;ximo passo</h2>
-      <p>Equipe do INCRA no Cear&#225; concluiu o georreferenciamento do assentamento Cip&#243;, em Morada Nova, delimitando lotes individuais, &#225;reas coletivas e recursos h&#237;dricos. Ap&#243;s a certifica&#231;&#227;o no <strong>SIGEF</strong>, as pe&#231;as t&#233;cnicas (planta, memorial descritivo e ART) ser&#227;o encaminhadas ao cart&#243;rio para averba&#231;&#227;o. S&#243; ent&#227;o o INCRA poder&#225; emitir os T&#237;tulos de Dom&#237;nio das 48 fam&#237;lias. O caso ilustra o fluxo completo: georreferenciamento &#8594; certifica&#231;&#227;o SIGEF &#8594; registro em cart&#243;rio &#8594; titula&#231;&#227;o definitiva.</p>
+    <!-- Not&#237;cia 5 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; INCRA &amp; Reforma Agr&#225;ria</p>
+      <h2>Portaria 1.786/2026: INCRA Cria Novo Assentamento Quilombo Campo Grande V em Minas Gerais</h2>
+      <p>O INCRA oficializou a cria&#231;&#227;o do assentamento Quilombo Campo Grande V, em Campo do Meio (MG), com 248 hectares e capacidade para 20 fam&#237;lias. Publicada no Di&#225;rio Oficial de 28/04/2026, a Portaria n.&ordm; 1.786/2026 encerra um conflito de 28 anos pelas terras da falida Usina Ariadn&#243;polis. No total, 3.884 hectares foram destinados &#224; Reforma Agr&#225;ria no munic&#237;pio, beneficiando 498 fam&#237;lias. A cria&#231;&#227;o do assentamento abre demanda imediata por georreferenciamento, certifica&#231;&#227;o no SIGEF e elabora&#231;&#227;o de pe&#231;as t&#233;cnicas para titula&#231;&#227;o.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Gov.br / INCRA &bull; 24/04/2026</span>
-        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/georreferenciamento-abre-caminho-para-titulacao-no-assentamento-cipo-ce" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: INCRA / Gov.br &mdash; 30/04/2026</span>
+        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/portaria-cria-mais-um-assentamento-de-reforma-agraria-em-minas-gerais" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
-    <hr class="gold" />
+    </div>
 
-    <!-- NOTÍCIA 6: Topcon Agrishow 2026 -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; TECNOLOGIA &bull; GNSS &bull; AGRISHOW 2026 &bull; PRECIS&#195;O</p>
-      <h2>Topcon lan&#231;a receptor GNSS modular XR-1P e expande solu&#231;&#245;es de precis&#227;o na Agrishow 2026 &mdash; tecnologia mais acess&#237;vel para o campo</h2>
-      <p>Na <strong>Agrishow 2026</strong> (27/04 a 01/05, Ribeir&#227;o Preto), a Topcon Agriculture apresentou o receptor <strong>GNSS modular XR-1P</strong>, projetado para preencher a lacuna entre solu&#231;&#245;es de entrada e sistemas de alta performance. Com arquitetura modular, o equipamento pode ser usado de forma independente ou integrado a sistemas maiores, tornando a tecnologia de posicionamento avan&#231;ado mais acess&#237;vel. Tamb&#233;m foi anunciada a expans&#227;o do portf&#243;lio Value Line para pulveriza&#231;&#227;o de precis&#227;o em caf&#233; e citros. Solu&#231;&#245;es como essa tendem a ampliar a demanda por servi&#231;os de calibra&#231;&#227;o e levantamento topogr&#225;fico.</p>
+    <!-- Not&#237;cia 6 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; ITR &amp; Tributa&#231;&#227;o Rural</p>
+      <h2>VTN 2026: Prazo para Envio do Valor da Terra Nua &#224; Receita Federal Encerrou em 30/04</h2>
+      <p>O prazo para que munic&#237;pios enviassem &#224; Receita Federal os dados do Valor da Terra Nua (VTN) &#8212; base de c&#225;lculo do ITR 2026 &#8212; encerrou em 30 de abril, conforme a Instru&#231;&#227;o Normativa RFB. Prefeituras que n&#227;o cumpriram o prazo podem ter seus valores substitu&#237;dos por tabelas federais. Para o produtor rural, o VTN impacta diretamente o valor do Imposto Territorial Rural a ser declarado at&#233; 31 de agosto. Agrimensores que atuam com laudos de avalia&#231;&#227;o de im&#243;veis rurais devem verificar as tabelas publicadas pelos munic&#237;pios de sua regi&#227;o.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: Topcon Positioning &bull; 23/04/2026</span>
-        <a class="saiba-mais" href="https://www.topconpositioning.com/br/pt/articles/topcon-agriculture-unveils-new-innovations-at-agrishow-2026-in-brazil" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: Folha MS / AMP Paran&#225; &mdash; 27/04/2026</span>
+        <a class="saiba-mais" href="https://folhams.com.br/2026/04/27/valor-terra-nua-vtn-calculo-itr-prazo-municipios/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
-    <hr class="gold" />
+    </div>
 
-    <!-- NOTÍCIA 7: VTN prazo 30 de abril -->
-    <article class="article-card">
-      <p class="cat-tag">&#9670; ITR &bull; VTN &bull; RECEITA FEDERAL &bull; PRAZO URGENTE</p>
-      <h2>PRAZO URGENTE: Munic&#237;pios t&#234;m at&#233; 30 de abril para enviar o Valor da Terra Nua (VTN) &#224; Receita Federal &mdash; base de c&#225;lculo do ITR 2026</h2>
-      <p>Termina nesta quarta-feira, <strong>30 de abril de 2026</strong>, o prazo para que os munic&#237;pios enviem as informa&#231;&#245;es sobre o <strong>Valor da Terra Nua (VTN)</strong> &#224; Receita Federal. O VTN &#233; a base de c&#225;lculo do Imposto Territorial Rural (ITR) e sua entrega &#233; obrigat&#243;ria para a manuten&#231;&#227;o de conv&#234;nios municipais. Agrimensores que atuam com avalia&#231;&#245;es de im&#243;veis rurais devem orientar prefeituras e clientes sobre a import&#226;ncia do VTN correto &mdash; valores subestimados ou superestimados geram passivos tribut&#225;rios para os propriet&#225;rios rurais.</p>
+    <!-- Not&#237;cia 7 -->
+    <div class="article-card">
+      <p class="cat-tag">&#9670; Agrishow &amp; Tecnologia</p>
+      <h2>Agrishow 2026: SP Anuncia Pacote de R&#36; 455 Milh&#245;es para o Agro e Exige CAR para Acesso ao Cr&#233;dito</h2>
+      <p>O governador Tarcísio de Freitas anunciou na Agrishow 2026, em Ribeir&#227;o Preto, o maior pacote de cr&#233;dito rural da hist&#243;ria de S&#227;o Paulo: R&#36; 455 milh&#245;es em investimentos, sendo R&#36; 400 milh&#245;es para cr&#233;dito, seguro agr&#237;cola e regulariza&#231;&#227;o fundi&#225;ria. O pacote j&#225; regularizou mais de 5.375 t&#237;tulos rurais no estado. Destaque para a nova exig&#234;ncia: o acesso &#224;s linhas de cr&#233;dito e subven&#231;&#245;es passa a requerer o <strong>CAR em andamento</strong>, refor&#231;ando a import&#226;ncia da regulariza&#231;&#227;o ambiental como pr&#233;-requisito para financiamento no campo.</p>
       <div class="source-row">
-        <span class="source-name">Fonte: AMP Paran&#225; &bull; 24/04/2026</span>
-        <a class="saiba-mais" href="https://ampr.org.br/atencao-termina-em-30-04-prazo-para-envio-do-valor-da-terra-nua-a-receita-federal-amp-orienta-prefeituras/" target="_blank" rel="noopener">Saiba mais &#9658;</a>
+        <span class="source-name">Fonte: Ag&#234;ncia SP &mdash; 28/04/2026</span>
+        <a class="saiba-mais" href="https://www.agenciasp.sp.gov.br/agrishow-2026-com-o-maior-credito-rural-da-historia-sp-anuncia-pacote-de-r-455-mi-para-o-agro-paulista/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
-    </article>
+    </div>
 
   </div><!-- /content-area -->
 
+  <div class="ornament">&#10022; &#10022; &#10022;</div>
+
   <!-- ASSESSORIA DE CRESCIMENTO -->
   <div class="col-header">
-    <p class="col-title">&#9670; Assessoria de Crescimento &#9670;</p>
-    <h2>Drones + IA: A Dupla que Est&#225; Transformando os Levantamentos Topogr&#225;ficos</h2>
-    <p class="col-sub">Por Mapear Geo &bull; Edi&#231;&#227;o N.&ordm; 022 &bull; 27 de Abril de 2026</p>
+    <p class="col-title">&#9670; Coluna Exclusiva &#9670;</p>
+    <p class="col-name">Assessoria de Crescimento</p>
+    <p class="col-sub">Por Mapear Geo &bull; Edi&#231;&#227;o N.&ordm; 023 &bull; 01 de Maio de 2026</p>
   </div>
-  <div class="col-content">
+  <div class="col-body">
 
-    <h3>O Novo Canteiro de Obras do Agrimensor Moderno</h3>
-    <p>Se voc&#234; ainda processa imagens de drone manualmente, ponto a ponto, est&#225; deixando dinheiro e tempo na mesa. A integra&#231;&#227;o de <strong>VANTs (drones) com Intelig&#234;ncia Artificial</strong> j&#225; &#233; uma realidade acess&#237;vel no Brasil &mdash; e os agrimensores que dominam essa combina&#231;&#227;o est&#227;o entregando levantamentos mais r&#225;pidos, mais precisos e com maior valor percebido pelo cliente. N&#227;o se trata de substituir o profissional de campo: trata-se de multiplicar sua capacidade produtiva sem aumentar a equipe.</p>
+    <h3>IA para An&#225;lise de Legisla&#231;&#227;o e Conformidade T&#233;cnica: O Agrimensor que Interpreta a Lei em Minutos</h3>
 
-    <h3>O que a IA Faz pelos Seus Levantamentos com Drone</h3>
-    <p>A IA aplicada &#224; fotogrametria e ao processamento de nuvens de pontos oferece tr&#234;s ganhos concretos que impactam diretamente a sua lucratividade:</p>
-    <ul class="step-list">
-      <li><strong>Classifica&#231;&#227;o autom&#225;tica de nuvem de pontos:</strong> Algoritmos de machine learning identificam e separam automaticamente solo, vegeta&#231;&#227;o, edifica&#231;&#245;es e corpos d&#8217;&#225;gua, gerando Modelos Digitais de Terreno (MDT) muito mais precisos em uma fra&#231;&#227;o do tempo que o processo manual.</li>
-      <li><strong>Extra&#231;&#227;o autom&#225;tica de fei&#231;&#245;es:</strong> A IA extrai automaticamente estradas, cercas, postes, limites de propriedades e curvas de n&#237;vel a partir das ortofotos, agilizando dramaticamente a vetoriza&#231;&#227;o e a elabora&#231;&#227;o de plantas.</li>
-      <li><strong>Detec&#231;&#227;o de mudan&#231;as entre voos:</strong> Ao comparar imagens de diferentes datas, a IA aponta automaticamente &#225;reas desmatadas, novas constru&#231;&#245;es ou movimenta&#231;&#227;o de terra &mdash; ideal para laudos ambientais, per&#237;cias e monitoramento de obras.</li>
+    <p>Voc&#234; j&#225; perdeu horas &#8212; ou at&#233; dias &#8212; tentando interpretar uma Instru&#231;&#227;o Normativa do INCRA, um artigo do C&#243;digo Florestal ou um decreto sobre georreferenciamento? Ou pior: j&#225; entregou um servi&#231;o e descobriu depois que havia uma exig&#234;ncia legal que voc&#234; n&#227;o conhecia? Em 2026, isso n&#227;o precisa mais acontecer. As ferramentas de Intelig&#234;ncia Artificial chegaram ao n&#237;vel em que qualquer agrimensor pode ter um <strong>consultor jur&#237;dico-t&#233;cnico virtual dispon&#237;vel 24 horas por dia</strong>, sem pagar horas de advocacia.</p>
+
+    <h3>O Problema Real: Legisla&#231;&#227;o Complexa, Tempo Escasso</h3>
+
+    <p>O agrimensor que atua no interior do Rio de Janeiro precisa dominar simultaneamente: normas do INCRA (SIGEF, certifica&#231;&#227;o, georreferenciamento), legisla&#231;&#227;o ambiental (CAR, Reserva Legal, APP, C&#243;digo Florestal), tributa&#231;&#227;o rural (ITR, VTN), registro de im&#243;veis (Lei 6.015/73, Lei 13.465/17) e normas t&#233;cnicas do CONFEA/CREA. S&#227;o dezenas de normas que mudam com frequ&#234;ncia &#8212; como vimos nesta pr&#243;pria edi&#231;&#227;o com o Decreto 12.689/2025 e as novas regras do CCIR 2026. Quem n&#227;o acompanha perde contratos, comete erros t&#233;cnicos e perde credibilidade.</p>
+
+    <h3>Como a IA Resolve Isso na Pr&#225;tica</h3>
+
+    <p>As ferramentas de IA generativa, especialmente o <strong>ChatGPT (GPT-4o)</strong> e o <strong>Google Gemini</strong>, s&#227;o capazes de ler, resumir e interpretar documentos legais em segundos. Veja como usar isso no dia a dia:</p>
+
+    <ul>
+      <li><strong>Cole o texto da norma e pe&#231;a um resumo executivo:</strong> Copie o artigo ou decreto e pe&#231;a &#224; IA: &#8220;Resuma em 5 pontos o que muda para o agrimensor com este decreto&#8221;. Em segundos voc&#234; tem o essencial.</li>
+      <li><strong>Pergunte sobre casos pr&#225;ticos espec&#237;ficos:</strong> &#8220;Um im&#243;vel rural de 15 hectares em zona rural do Rio de Janeiro precisa de certifica&#231;&#227;o no SIGEF para ser vendido em 2026?&#8221; A IA responde com base no Decreto 12.689/2025.</li>
+      <li><strong>Verifique conformidade antes de entregar um laudo:</strong> Descreva o servi&#231;o que voc&#234; realizou e pe&#231;a &#224; IA para verificar se h&#225; alguma exig&#234;ncia legal que voc&#234; possa ter esquecido.</li>
+      <li><strong>Monitore mudan&#231;as legislativas:</strong> Configure alertas no Google Alerts com termos como &#8220;INCRA georreferenciamento&#8221; e &#8220;CCIR 2026&#8221;, e use a IA para interpretar rapidamente cada nova publica&#231;&#227;o no Di&#225;rio Oficial.</li>
     </ul>
 
-    <h3>Caso Pr&#225;tico: Levantamento Planialtim&#233;trico em 1/3 do Tempo</h3>
-    <p>Um agrimensor do interior de Minas Gerais relatou que, ao adotar o <strong>DroneDeploy</strong> com processamento em nuvem baseado em IA, reduziu o tempo de processamento de um levantamento de 50 hectares de <strong>14 horas para menos de 4 horas</strong>. O ortomosaico, o MDT e as curvas de n&#237;vel foram gerados automaticamente, com precis&#227;o centim&#233;trica (usando GCPs). O cliente recebeu o arquivo final em menos de 24 horas ap&#243;s o voo &mdash; algo imposs&#237;vel no fluxo tradicional. Resultado: o agrimensor aumentou o pre&#231;o do servi&#231;o em 30% e o cliente ficou mais satisfeito pela agilidade.</p>
+    <h3>Caso Pr&#225;tico: Do Decreto &#224; Orienta&#231;&#227;o ao Cliente em 10 Minutos</h3>
+
+    <p>Um agrimensor do interior do Rio de Janeiro recebeu uma liga&#231;&#227;o de um cliente perguntando se precisava georreferenciar e certificar a fazenda antes de vend&#234;-la. A propriedade tem 80 hectares. Em vez de pesquisar por horas, ele abriu o ChatGPT e digitou: <em>&#8220;Com base no Decreto 12.689/2025, um im&#243;vel rural de 80 hectares no Rio de Janeiro precisa de certifica&#231;&#227;o no INCRA para transfer&#234;ncia em 2026?&#8221;</em>. Em menos de 30 segundos, a IA explicou que a certifica&#231;&#227;o &#233; obrigat&#243;ria para transfer&#234;ncia independente da &#225;rea, mas que o prazo final foi prorrogado para outubro de 2029, e que o georreferenciamento t&#233;cnico continua sendo necess&#225;rio para garantir a especialidade objetiva da matr&#237;cula. O agrimensor orientou o cliente com precis&#227;o, ganhou confian&#231;a e fechou o contrato.</p>
 
     <div class="tool-box">
       <p class="tool-name">&#9670; Ferramentas Reais para Implementar Hoje</p>
-      <p><strong>DroneDeploy</strong> (dronedeploy.com): plataforma de processamento em nuvem com IA integrada para fotogrametria, classifica&#231;&#227;o de terreno e extra&#231;&#227;o de fei&#231;&#245;es. Possui plano gratuito limitado e planos pagos a partir de US&#36; 329/m&#234;s. <strong>Pix4Dmapper</strong> (pix4d.com): software profissional com algoritmos de machine learning para processamento de imagens de drone, amplamente usado em levantamentos topogr&#225;ficos e mapeamentos cadastrais. <strong>QGIS + Plugin Orfeo Toolbox:</strong> combina&#231;&#227;o gratuita e poderosa para classifica&#231;&#227;o autom&#225;tica de imagens de sat&#233;lite e drone com algoritmos de IA diretamente no desktop.</p>
+      <p><strong>ChatGPT (chatgpt.com):</strong> Use o plano gratuito ou o Plus (US&#36; 20/m&#234;s) para interpretar normas, redigir pareceres t&#233;cnicos e verificar conformidade legal. Cole PDFs de decretos diretamente na conversa. <strong>Google Gemini (gemini.google.com):</strong> Integrado ao Google Drive, permite analisar documentos PDF diretamente, incluindo normas do INCRA e resolu&#231;&#245;es do CONAMA. <strong>Perplexity AI (perplexity.ai):</strong> Ideal para pesquisa legislativa com cita&#231;&#227;o de fontes &#8212; pe&#231;a &#8220;Quais as normas vigentes para georreferenciamento de im&#243;veis rurais no Brasil em 2026?&#8221; e receba respostas com links para as fontes originais. <strong>NotebookLM (notebooklm.google.com):</strong> Ferramenta gratuita do Google que permite criar um &#8220;notebook&#8221; com todas as normas que voc&#234; usa e fazer perguntas sobre elas como se fosse um especialista.</p>
     </div>
 
-    <h3>A Equa&#231;&#227;o Financeira que Voc&#234; Precisa Conhecer</h3>
-    <p>No interior do Rio de Janeiro, um levantamento topogr&#225;fico com drone de uma propriedade rural de 50 a 100 hectares pode ser cobrado entre <strong>R&#36; 3.500 e R&#36; 8.000</strong>, dependendo da complexidade. Com IA no processamento, voc&#234; reduz o tempo de entrega de 3&#8211;5 dias para 1&#8211;2 dias. Isso significa que, no mesmo per&#237;odo, voc&#234; pode atender <strong>o dobro de clientes</strong> sem contratar ningu&#233;m. Se voc&#234; fizer 4 levantamentos por m&#234;s em vez de 2, o aumento de receita mensal pode chegar a R&#36; 14.000 &mdash; apenas com a mudan&#231;a no fluxo de trabalho.</p>
+    <h3>A Vantagem Competitiva que Poucos Agrimensores T&#234;m</h3>
+
+    <p>No interior do Rio de Janeiro, a maioria dos agrimensores ainda depende de liga&#231;&#245;es para colegas, consultas a advogados ou horas de pesquisa para responder d&#250;vidas legais dos clientes. O agrimensor que usa IA para isso responde na hora, com seguran&#231;a e precis&#227;o. Isso gera <strong>confian&#231;a imediata</strong>, diferencia&#231;&#227;o no mercado e justifica cobrar mais pelo servi&#231;o. Al&#233;m disso, reduz o risco de erros t&#233;cnicos que podem gerar responsabilidade civil e cancelamento de ART.</p>
 
     <div class="highlight-quote">
-      &#8220;O drone voa, a IA processa, e o agrimensor entrega. Quem entende essa cadeia de valor antes dos concorrentes cobra mais, trabalha menos horas e constr&#243;i uma reputa&#231;&#227;o de modernidade que atrai os melhores clientes.&#8221;
+      &#8220;O agrimensor que entende a lei t&#227;o bem quanto entende o terreno &#233; insubstitu&#237;vel. Em 2026, a IA &#233; o atalho que transforma qualquer profissional dedicado em um especialista multidisciplinar &#8212; sem anos extras de estudo.&#8221;
     </div>
 
     <h3>Dica de A&#231;&#227;o Imediata: Implante Esta Semana</h3>
     <ul class="step-list">
-      <li><strong>Teste o DroneDeploy gratuitamente:</strong> Cadastre-se no plano gratuito e processe as imagens do seu pr&#243;ximo voo pela plataforma. Compare o resultado e o tempo com o seu fluxo atual.</li>
-      <li><strong>Instale o Orfeo Toolbox no QGIS:</strong> &#201; gratuito e permite classifica&#231;&#227;o autom&#225;tica de imagens de drone. Siga um tutorial no YouTube para classifica&#231;&#227;o de uso do solo em 30 minutos.</li>
-      <li><strong>Crie um portf&#243;lio de levantamentos com drone:</strong> Documente um levantamento com antes e depois do processamento com IA. Use isso como argumento comercial para justificar pre&#231;os mais altos e prazos menores.</li>
-      <li><strong>Pesquise o XR-1P da Topcon:</strong> O novo receptor GNSS modular apresentado na Agrishow 2026 promete democratizar o posicionamento de alta precis&#227;o. Avalie se ele pode substituir ou complementar seu equipamento atual a um custo menor.</li>
+      <li><strong>Crie seu &#8220;assistente jur&#237;dico&#8221; no ChatGPT:</strong> Abra uma conversa e comece com: &#8220;Voc&#234; &#233; meu consultor especializado em legisla&#231;&#227;o de im&#243;veis rurais no Brasil. Sempre que eu perguntar sobre normas, cite a lei ou decreto espec&#237;fico.&#8221; Salve essa conversa como modelo.</li>
+      <li><strong>Teste com o Decreto 12.689/2025:</strong> Cole o texto do decreto no ChatGPT e pe&#231;a: &#8220;Quais s&#227;o as 5 principais mudan&#231;as pr&#225;ticas para agrimensores que fazem georreferenciamento no interior do Rio de Janeiro?&#8221;</li>
+      <li><strong>Use o NotebookLM para criar sua base de normas:</strong> Fa&#231;a upload das principais normas que voc&#234; usa (IN INCRA, resolu&#231;&#245;es CONAMA, C&#243;digo Florestal) e consulte sempre que tiver d&#250;vida.</li>
+      <li><strong>Crie um checklist de conformidade com IA:</strong> Pe&#231;a ao ChatGPT: &#8220;Crie um checklist de conformidade legal para entrega de laudo de georreferenciamento de im&#243;vel rural no Brasil em 2026&#8221;. Use esse checklist em todos os seus servi&#231;os.</li>
     </ul>
 
-    <p><em>Na pr&#243;xima edi&#231;&#227;o: como usar IA para an&#225;lise de legisla&#231;&#227;o e conformidade t&#233;cnica &mdash; ferramentas que ajudam o agrimensor a interpretar normas do INCRA, SIGEF e legisla&#231;&#227;o ambiental em minutos.</em></p>
+    <p><em>Na pr&#243;xima edi&#231;&#227;o: Marketing digital com IA para agrimensores &#8212; como atrair clientes no interior do Rio de Janeiro usando ferramentas gratuitas de intelig&#234;ncia artificial.</em></p>
   </div>
 
   <!-- FILOSOFIA MOTIVACIONAL -->
   <div class="philosophy">
     <p class="phil-label">&#9670; Filosofia do Agrimensor &#9670;</p>
-    <blockquote>&#8220;O cart&#243;grafo n&#227;o teme o terreno desconhecido &mdash; ele o transforma em conhecimento. Cada coordenada lan&#231;ada &#233; um ato de coragem intelectual: afirmar que o mundo tem ordem, e que voc&#234; &#233; capaz de revelar essa ordem. Medir &#233; compreender. E compreender &#233; a primeira forma de mudar.&#8221;</blockquote>
-    <cite>&mdash; Mapear Geo, Edi&#231;&#227;o N.&ordm; 022</cite>
+    <blockquote>&#8220;A lei &#233; o mapa do territ&#243;rio social. Assim como o agrimensor que conhece o terreno n&#227;o se perde na mata, o profissional que conhece a norma n&#227;o se perde na burocracia. Medir com precis&#227;o &#233; um ato t&#233;cnico; agir com conformidade &#233; um ato de sabedoria. E a sabedoria, hoje, tem um atalho chamado intelig&#234;ncia artificial.&#8221;</blockquote>
+    <cite>&mdash; Mapear Geo, Edi&#231;&#227;o N.&ordm; 023</cite>
   </div>
+
   <footer class="footer">
     <p class="footer-ornament">&#10022; &#10022; &#10022;</p>
     <p>
-      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edi&#231;&#227;o Bissemanal &bull; N.&ordm; 022 &bull; 27 de Abril de 2026<br />
+      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edi&#231;&#227;o Bissemanal &bull; N.&ordm; 023 &bull; 01 de Maio de 2026<br />
       Curadoria jornal&#237;stica para agrimensores do interior do Rio de Janeiro.<br />
       As not&#237;cias s&#227;o extra&#237;das de fontes p&#250;blicas e confi&#225;veis. Os links direcionam para as fontes originais.<br />
       Este jornal n&#227;o substitui orienta&#231;&#227;o jur&#237;dica ou t&#233;cnica especializada.
     </p>
     <p class="footer-ornament">&#9670; &#9670; &#9670;</p>
   </footer>
+
 </div>
 </body>
 </html>
