@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jornal Mapear Geo – Edição Bissemanal</title>
-  <meta name="description" content="Jornal digital para agrimensores: notícias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regularização fundiária e tecnologia." />
+  <title>Jornal Mapear Geo &ndash; Edi&ccedil;&atilde;o Bissemanal</title>
+  <meta name="description" content="Jornal digital para agrimensores: not&iacute;cias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regulariza&ccedil;&atilde;o fundi&aacute;ria e tecnologia." />
   <link rel="manifest" href="/jornal-mapear-geo/manifest.json" />
   <meta name="theme-color" content="#d4af37" />
   <style>
@@ -21,7 +21,7 @@
     }
     body {
       background-color: #2a1f0e;
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: Georgia, serif;
       color: var(--ink);
       min-height: 100vh;
       padding: 12px 8px 40px;
@@ -109,8 +109,6 @@
       gap: 6px;
       margin-bottom: 6px;
     }
-    .alert-box .alert-label::before,
-    .alert-box .alert-label::after { content: "\25c6"; font-size: 0.5rem; }
     .alert-box h3 {
       font-size: 0.95rem;
       color: #fff;
@@ -134,7 +132,6 @@
       text-decoration: none;
       border: 1px solid #ffaaaa;
     }
-    .alert-box a.btn:hover { background: #ff4444; }
     .content-area { padding: 0 14px; background: var(--sepia); }
     .article-card {
       padding: 14px 0;
@@ -172,7 +169,6 @@
       font-size: 0.6rem;
       color: #7a6030;
       font-style: italic;
-      letter-spacing: 0.04em;
     }
     .article-card a.saiba-mais {
       display: inline-block;
@@ -184,9 +180,7 @@
       padding: 4px 10px;
       text-decoration: none;
       border: 1px solid var(--gold-dk);
-      transition: background .2s;
     }
-    .article-card a.saiba-mais:hover { background: var(--gold-dk); color: #fff; }
     .col-header {
       background: var(--gold);
       color: var(--ink);
@@ -229,13 +223,16 @@
       color: var(--ink-lt);
       margin-bottom: 10px;
     }
-    .col-body ul, .col-body ol { margin: 0 0 10px 18px; }
+    .col-body ul { margin: 0 0 10px 0; padding: 0; list-style: none; }
     .col-body li {
       font-size: 0.78rem;
       line-height: 1.6;
       color: var(--ink-lt);
       margin-bottom: 5px;
+      padding-left: 14px;
+      position: relative;
     }
+    .col-body li::before { content: "\25c6"; position: absolute; left: 0; color: var(--gold-dk); font-size: 0.5rem; top: 5px; }
     .tool-box {
       background: var(--ink);
       border-left: 4px solid var(--gold);
@@ -335,12 +332,12 @@
 <body>
 <div class="wrapper">
   <header class="masthead">
-    <p class="overline">&#9670; Informação Técnica &amp; Estratégica para o Agrimensor &#9670;</p>
-    <h1>Jornal Mapear Geo<span>Edição Bissemanal</span></h1>
-    <p class="tagline">&#8220;Quem mede o mundo, governa o futuro.&#8221;</p>
+    <p class="overline">&#9670; Informa&ccedil;&atilde;o T&eacute;cnica &amp; Estrat&eacute;gica para o Agrimensor &#9670;</p>
+    <h1>Jornal Mapear Geo<span>Edi&ccedil;&atilde;o Bissemanal</span></h1>
+    <p class="tagline">&ldquo;Quem mede o mundo, governa o futuro.&rdquo;</p>
     <div class="meta-bar">
-      <span>Domingo, 04 de Maio de 2026</span>
-      <span>Por Mapear Geo &bull; Edição N.&ordm; 024 &bull; 04 de Maio de 2026</span>
+      <span>Sexta-feira, 08 de Maio de 2026</span>
+      <span>Por Mapear Geo &bull; Edi&ccedil;&atilde;o N.&ordm; 025 &bull; 08 de Maio de 2026</span>
       <span>Interior do Rio de Janeiro</span>
     </div>
   </header>
@@ -349,123 +346,135 @@
 
   <div class="section-header">&#9670; Alerta Especial &#9670;</div>
   <div class="alert-box">
-    <p class="alert-label">Atenção Urgente</p>
-    <h3>CCIR 2026 disponível a partir de 19 de maio &#8212; nova regra: dados desatualizados bloqueiam a emissão</h3>
-    <p>O INCRA concluiu os preparativos e o Certificado de Cadastro de Imóvel Rural (CCIR) 2026 estará disponível a partir das 7h do dia <strong>19 de maio de 2026</strong>, exclusivamente pela internet. A grande novidade desta edição: o certificado <strong>não será emitido</strong> se os dados do imóvel ou do detentor estiverem desatualizados no Sistema Nacional de Cadastro de Imóvel Rural (SNCR) do INCRA. A Taxa de Serviços Cadastrais será lançada em 18 de maio, com valor mínimo de R$ 5,89 (variando conforme tamanho e localização do imóvel), e há multa e juros após 30 dias sem quitação. Agrimensores devem orientar seus clientes com antecedência para regularizar pendências cadastrais antes da data de abertura.</p>
-    <a class="btn" href="https://www.nativa87fm.com.br/noticia/170/ccir-2026-podera-ser-emitido-a-partir-de-19-de-maio/" target="_blank" rel="noopener">Saiba mais</a>
+    <p class="alert-label">Aten&ccedil;&atilde;o Urgente</p>
+    <h3>Nova plataforma CAR lan&ccedil;ada pelo Governo Federal &mdash; mapa interativo com dados por im&oacute;vel e download geoespacial j&aacute; dispon&iacute;vel em consulta.car.gov.br</h3>
+    <p>O Minist&eacute;rio da Gest&atilde;o e da Inova&ccedil;&atilde;o (MGI) lan&ccedil;ou em 06/05/2026 a nova plataforma de consulta p&uacute;blica ao Cadastro Ambiental Rural (CAR), acess&iacute;vel em <strong>consulta.car.gov.br</strong>. A ferramenta totalmente redesenhada traz mapa interativo com filtros at&eacute; o n&iacute;vel de im&oacute;vel, download de arquivos geoespaciais por munic&iacute;pio, Painel de BI com gr&aacute;ficos e indicadores consolidados, e um novo campo que exibe o n&uacute;mero de retifica&ccedil;&otilde;es no hist&oacute;rico de cada im&oacute;vel. Para agrimensores que atuam com regulariza&ccedil;&atilde;o ambiental, a plataforma representa um salto significativo na qualidade e acessibilidade dos dados p&uacute;blicos do CAR &mdash; com possibilidade de cruzamento geoespacial e auditorias de consist&ecirc;ncia cadastral.</p>
+    <a class="btn" href="https://plantaonews.com.br/mgi-lanca-nova-plataforma-de-consulta-a-dados-publicos-do-car/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="section-header">&#9670; Notícias Relevantes &#9670;</div>
+  <div class="section-header">&#9670; Not&iacute;cias Relevantes &#9670;</div>
   <div class="content-area">
 
     <div class="article-card">
-      <p class="cat-tag">&#9670; Tributário / Agronegócio</p>
-      <h2>CNPJ Rural obrigatório a partir de julho de 2026 &#8212; Reforma Tributária chega ao campo</h2>
-      <p>A partir de julho de 2026, produtores rurais pessoa física terão o CPF convertido em CNPJ alfanumérico obrigatório para todas as operações comerciais, emissão de notas fiscais e acesso a crédito rural. A mudança, prevista na Lei Complementar n.&ordm; 214/2025, também impõe que arrendamentos e cessões onerosas de imóveis rurais passem a ser tributados por IBS e CBS, com redução de 70% na alíquota. Agrimensores que elaboram contratos, laudos e ARTs para propriedades rurais devem se preparar para orientar seus clientes sobre essa transição fiscal.</p>
+      <p class="cat-tag">&#9670; CCIR 2026</p>
+      <h2>CCIR 2026 dispon&iacute;vel a partir de 19 de maio &mdash; dados desatualizados no SNCR bloqueiam a emiss&atilde;o</h2>
+      <p>O INCRA concluiu os preparativos t&eacute;cnicos e administrativos para a emiss&atilde;o do Certificado de Cadastro de Im&oacute;vel Rural 2026, dispon&iacute;vel a partir das 7h do dia 19 de maio, exclusivamente pelo portal digital. A taxa cadastral &mdash; a partir de R$ 5,89 &mdash; ser&aacute; disponibilizada em 18 de maio. Qualquer diverg&ecirc;ncia cadastral no SNCR impede a libera&ccedil;&atilde;o do documento, podendo travar transfer&ecirc;ncias, arrendamentos, hipotecas e financiamentos rurais. O INCRA alerta para fraudes por e-mail e sites n&atilde;o oficiais: a emiss&atilde;o deve ser feita exclusivamente pelo portal oficial ou nas unidades do INCRA.</p>
       <div class="source-row">
-        <span class="source-name">Portal da Reforma Tributária &#8212; 29/04/2026</span>
-        <a class="saiba-mais" href="https://www.reformatributaria.com/opiniao/reflexos-da-reforma-tributaria-para-o-produtor-rural-o-que-muda-no-campo-brasileiro/" target="_blank" rel="noopener">Saiba mais</a>
+        <span class="source-name">RIB-PR / INCRA &mdash; 04/05/2026</span>
+        <a class="saiba-mais" href="https://ribpr.org.br/noticias/view/incra-anuncia-emissao-do-ccir-2026-com-novas-orientacoes-para-proprietarios-rurais" target="_blank" rel="noopener">Saiba mais</a>
       </div>
     </div>
 
     <div class="article-card">
-      <p class="cat-tag">&#9670; Registro de Imóveis / Jurídico</p>
-      <h2>STF valida por unanimidade as restrições à compra de terras rurais por empresas estrangeiras</h2>
-      <p>O Plenário do Supremo Tribunal Federal concluiu, em 23 de abril de 2026, o julgamento da ADPF 342 e da ACO 2.463, confirmando por unanimidade a constitucionalidade das restrições à aquisição e arrendamento de imóveis rurais por empresas brasileiras sob controle de capital estrangeiro. A decisão reafirma o regime da Lei Federal n.&ordm; 5.709/71 e declara nulo o Parecer da Corregedoria de São Paulo que dispensava tabelães e oficiais de registro da aplicação da norma. Para registradores e agrimensores, a decisão traz maior previsibilidade e segurança jurídica nas operações imobiliárias rurais.</p>
+      <p class="cat-tag">&#9670; Cr&eacute;dito Rural</p>
+      <h2>Desenrola Rural 3 prorrogado at&eacute; dezembro de 2026 &mdash; 800 mil fam&iacute;lias rurais podem renegociar d&iacute;vidas</h2>
+      <p>O Governo Federal prorrogou o programa Desenrola Rural at&eacute; 20 de dezembro de 2026, ampliando as condi&ccedil;&otilde;es de renegocia&ccedil;&atilde;o de d&eacute;bitos vinculados ao cr&eacute;dito rural e ao Pronaf. A estimativa da Contag &eacute; que cerca de 800 mil fam&iacute;lias rurais estejam em condi&ccedil;&otilde;es de aderir, com descontos e parcelamentos especiais. A medida &eacute; relevante para agrimensores: produtores com d&iacute;vidas regularizadas voltam a demandar servi&ccedil;os de georreferenciamento e regulariza&ccedil;&atilde;o fundi&aacute;ria para acessar novas linhas de cr&eacute;dito.</p>
       <div class="source-row">
-        <span class="source-name">CGM Advogados &#8212; 28/04/2026</span>
-        <a class="saiba-mais" href="https://cgmlaw.com.br/stf-reafirma-restricoes-a-aquisicao-e-ao-arrendamento-de-imoveis-rurais-por-empresas-brasileiras-sob-controle-estrangeiro/" target="_blank" rel="noopener">Saiba mais</a>
+        <span class="source-name">MeuTudo / Governo Federal &mdash; 07/05/2026</span>
+        <a class="saiba-mais" href="https://meutudo.com.br/blog/noticias/2026/05/07/programa-desenrola-rural-e-prorrogado-ate-dezembro-de-2026-veja-regras/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
     </div>
 
     <div class="article-card">
-      <p class="cat-tag">&#9670; Regularização Fundiária / INCRA</p>
-      <h2>Programa federal investe R$ 10 milhões em georreferenciamento e regularização fundiária no Acre</h2>
-      <p>O INCRA assinou contrato de R$ 10 milhões no âmbito do Programa União com Municípios para regularização fundiária e ambiental em cinco municípios do Acre (Rio Branco, Sena Madureira, Taraucá, Feijó e Manoel Urbano), beneficiando cerca de 600 famílias. O escopo inclui demarcação, georreferenciamento, regularização ambiental e emissão de títulos definitivos, com continuidade prevista até 2030. O programa evidencia a demanda crescente por serviços técnicos de georreferenciamento em projetos de reforma agrária e regularização fundiária em todo o Brasil.</p>
+      <p class="cat-tag">&#9670; Regulariza&ccedil;&atilde;o Fundi&aacute;ria</p>
+      <h2>S&atilde;o Paulo bate recorde: 5.375 t&iacute;tulos rurais emitidos &mdash; 90% para pequenos e m&eacute;dios produtores</h2>
+      <p>O governo de S&atilde;o Paulo emitiu 5.375 t&iacute;tulos rurais entre 2023 e o 1.&ordm; trimestre de 2026, volume 16 vezes superior ao per&iacute;odo 2011-2022. Na abertura da Agrishow 2026, foram entregues mais 42 t&iacute;tulos, totalizando mais de 250 mil hectares regularizados. Do total, 90% foram destinados a pequenos e m&eacute;dios produtores. A meta do governo paulista &eacute; titular 100% dos assentamentos rurais at&eacute; o fim de 2026, representando demanda expressiva por servi&ccedil;os de georreferenciamento e medi&ccedil;&atilde;o em todo o estado.</p>
       <div class="source-row">
-        <span class="source-name">AC24Horas &#8212; 30/04/2026</span>
-        <a class="saiba-mais" href="https://ac24horas.com/2026/04/30/programa-uniao-com-os-municipios-assina-contrato-de-r-10-milhoes-para-regularizacao-no-acre/" target="_blank" rel="noopener">Saiba mais</a>
+        <span class="source-name">Poder360 / Ag&ecirc;ncia SP &mdash; 03/05/2026</span>
+        <a class="saiba-mais" href="https://www.poder360.com.br/poder-agro/sp-bate-recorde-em-regularizacao-fundiaria-com-5-375-titulos/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
     </div>
 
     <div class="article-card">
-      <p class="cat-tag">&#9670; Tecnologia / Regularização Fundiária</p>
-      <h2>Plataforma Terras do Brasil completa 2 anos, expande para 14 estados e incorporará IA do Google</h2>
-      <p>O Ministério do Desenvolvimento Agrário celebra 2 anos da Plataforma Terras do Brasil com acordos de cooperação técnica firmados em 14 estados para unificar dados fundiários federais e estaduais no SINARF. A plataforma foi selecionada no edital &#8220;Desafio IA Natureza &amp; Clima&#8221; do Google Brasil para incorporar inteligência artificial na automação e interpretação de imagens fundiárias, incluindo comprovação de uso e exploração da terra. O SICARF Federativo já permite solicitar regularização de imóveis rurais diretamente pela plataforma Gov.Br com acompanhamento em tempo real.</p>
+      <p class="cat-tag">&#9670; Regulariza&ccedil;&atilde;o Fundi&aacute;ria / Judicial</p>
+      <h2>TRF1 d&aacute; prazo de 1 ano para INCRA concluir regulariza&ccedil;&atilde;o de terras quilombolas na Bahia &mdash; multa di&aacute;ria de R$ 500</h2>
+      <p>O Tribunal Regional Federal da 1.&ordf; Regi&atilde;o determinou que o INCRA conclua, em at&eacute; 12 meses, a regulariza&ccedil;&atilde;o fundi&aacute;ria de tr&ecirc;s comunidades quilombolas em Vit&oacute;ria da Conquista (BA): Ribeir&atilde;o do Paneleiro, Batalha e Lagoa do Arroz. O processo administrativo, iniciado em 2008, estava paralisado h&aacute; quase duas d&eacute;cadas. Em caso de descumprimento, ser&aacute; aplicada multa di&aacute;ria de R$ 500. A decis&atilde;o refor&ccedil;a a obriga&ccedil;&atilde;o do Estado de concluir processos fundi&aacute;rios em prazo razo&aacute;vel, independentemente de limita&ccedil;&otilde;es or&ccedil;ament&aacute;rias.</p>
       <div class="source-row">
-        <span class="source-name">Ministério do Desenvolvimento Agrário (Gov.br) &#8212; 30/04/2026</span>
-        <a class="saiba-mais" href="https://www.gov.br/mda/pt-br/noticias/2026/04/terras-do-brasil-completa-2-anos-e-avanca-na-regularizacao-fundiaria" target="_blank" rel="noopener">Saiba mais</a>
+        <span class="source-name">G1 Bahia / TRF1 &mdash; 04/05/2026</span>
+        <a class="saiba-mais" href="https://g1.globo.com/ba/bahia/noticia/2026/05/04/trf-da-prazo-de-um-ano-para-incra-concluir-regularizacao-de-terras-quilombolas-na-bahia.ghtml" target="_blank" rel="noopener">Saiba mais</a>
       </div>
     </div>
 
     <div class="article-card">
-      <p class="cat-tag">&#9670; Georreferenciamento / SIGEF</p>
-      <h2>Georreferenciamento x Certificação SIGEF: a distinção essencial que todo agrimensor deve dominar em 2026</h2>
-      <p>Com o Decreto n.&ordm; 12.689/2025 prorrogando a obrigatoriedade da certificação no INCRA até 21 de outubro de 2029, a principal lição de 2026 é distinguir o levantamento técnico (georreferenciamento) do cadastro administrativo (certificação no SIGEF). O georreferenciamento continua imperativo para retificação de área e garantia da especialidade objetiva da matrícula; já a certificação permanece facultativa para a maioria dos casos até 2029. Agrimensores que orientam clientes com precisão sobre essa diferença evitam retrabalho, insegurança jurídica e perda de contratos.</p>
+      <p class="cat-tag">&#9670; Geoinforma&ccedil;&atilde;o</p>
+      <h2>ANM lan&ccedil;a novo SIGMINE com dados georreferenciados abertos &mdash; poligonais de processos miner&aacute;rios para planejamento territorial</h2>
+      <p>A Ag&ecirc;ncia Nacional de Minera&ccedil;&atilde;o (ANM) lan&ccedil;ou o novo portal SIGMINE, disponibilizando conjuntos de dados essenciais para estudos t&eacute;cnicos e planejamento territorial, incluindo poligonais de processos miner&aacute;rios georreferenciadas. A iniciativa est&aacute; alinhada ao Plano de Dados Abertos 2024-2026. Para agrimensores que atuam em &aacute;reas com sobreposi&ccedil;&atilde;o de processos miner&aacute;rios, o portal &eacute; uma ferramenta estrat&eacute;gica para verifica&ccedil;&atilde;o de restri&ccedil;&otilde;es antes de iniciar levantamentos e elaborar laudos t&eacute;cnicos.</p>
       <div class="source-row">
-        <span class="source-name">Blog Prof. Marcos Salomão &#8212; 29/04/2026</span>
-        <a class="saiba-mais" href="https://professormarcossalomao.com.br/georreferenciamento-e-certificacao-rural-o-cenario-atual-em-2026/" target="_blank" rel="noopener">Saiba mais</a>
+        <span class="source-name">ANM / MundoGEO &mdash; 05/05/2026</span>
+        <a class="saiba-mais" href="https://mundogeoconnect.com/2026/agencia-nacional-de-mineracao-anuncia-novo-portal-de-geoinformacao/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
     </div>
 
     <div class="article-card">
-      <p class="cat-tag">&#9670; Meio Ambiente / CAR</p>
-      <h2>Novas leis ambientais 2026: 9 práticas rurais comuns que agora são infrações com multa pesada</h2>
-      <p>A partir de 2026, o Brasil vive a maior pressão fiscalizatória ambiental da última década. Práticas antes corriqueiras &#8212; como queimar lixo sem autorização, desmatar pequenas áreas sem CAR regularizado, usar APP como passagem de gado, abrir estradas internas sem licença ou represar água em APP &#8212; passam a ser infrações com multa automática. Especialistas alertam que cerca de 80% das autuações decorrem de desinformação, não de má-fé, tornando urgente a orientação técnica especializada. Agrimensores que atuam com laudos ambientais e ARTs têm oportunidade de se posicionar como consultores preventivos.</p>
+      <p class="cat-tag">&#9670; Cartografia</p>
+      <h2>Dia do Engenheiro Cart&oacute;grafo: IBGE destaca evolu&ccedil;&atilde;o tecnol&oacute;gica e import&acirc;ncia estrat&eacute;gica da profiss&atilde;o em 2026</h2>
+      <p>Celebrado em 6 de maio, o Dia do Engenheiro Cart&oacute;grafo foi marcado por homenagens do IBGE, CREA-SP e entidades do setor. Especialistas destacaram que a tecnologia &mdash; GNSS, imagens de sat&eacute;lite, SIG e IA &mdash; fortaleceu a profiss&atilde;o sem substituir o julgamento t&eacute;cnico humano. Um levantamento geod&eacute;sico que antes exigia semanas e equipes numerosas hoje &eacute; conclu&iacute;do em meia hora com equipamentos GNSS. A data refor&ccedil;a o valor estrat&eacute;gico do profissional que mede, representa e garante a seguran&ccedil;a jur&iacute;dica do territ&oacute;rio brasileiro.</p>
       <div class="source-row">
-        <span class="source-name">Jornal Hoje Goiás &#8212; 30/04/2026</span>
-        <a class="saiba-mais" href="https://jornalhojegoias.com.br/produtor-rural-muita-atencao-com-as-novas-leis-ambientais-para-2026/" target="_blank" rel="noopener">Saiba mais</a>
+        <span class="source-name">Ag&ecirc;ncia IBGE Not&iacute;cias &mdash; 06/05/2026</span>
+        <a class="saiba-mais" href="https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/46582-dia-do-cartografo-destaca-evolucao-tecnologica-e-importancia-estrategica-da-area-no-ibge" target="_blank" rel="noopener">Saiba mais</a>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <p class="cat-tag">&#9670; Evento GEO</p>
+      <h2>MundoGEO Connect 2026 confirma mais de 150 expositores e Encontro sobre Agricultura Digital &mdash; inscri&ccedil;&otilde;es com 10% de desconto</h2>
+      <p>O MundoGEO Connect 2026, maior evento de geotecnologia da Am&eacute;rica Latina, acontece de 16 a 18 de junho no Expo Center Norte em S&atilde;o Paulo. O evento re&uacute;ne mais de 10 mil participantes, 150 expositores e 200 palestrantes de mais de 30 pa&iacute;ses. Destaques desta edi&ccedil;&atilde;o: Encontro sobre Agricultura Digital, 3.&ordm; Encontro Women in GIS Brasil e pain&eacute;is sobre IA, drones, LiDAR, BIM e g&ecirc;meos digitais. As inscri&ccedil;&otilde;es est&atilde;o abertas com 10% de desconto pelo site oficial.</p>
+      <div class="source-row">
+        <span class="source-name">MundoGEO Connect &mdash; 07/05/2026</span>
+        <a class="saiba-mais" href="https://mundogeoconnect.com/2026/" target="_blank" rel="noopener">Saiba mais</a>
       </div>
     </div>
 
   </div>
-
-  <div class="ornament">&#9670; &nbsp; &#9670; &nbsp; &#9670;</div>
 
   <div class="col-header">
     <p class="col-title">&#9670; Assessoria de Crescimento &#9670;</p>
-    <p class="col-name">Marketing Digital com IA para Agrimensores</p>
-    <p class="col-sub">Por Mapear Geo &bull; Edição N.&ordm; 024 &bull; 04 de Maio de 2026</p>
+    <p class="col-name">IA para Gest&atilde;o de Projetos e Clientes</p>
+    <p class="col-sub">Por Mapear Geo &bull; Edi&ccedil;&atilde;o N.&ordm; 025 &bull; 08 de Maio de 2026</p>
   </div>
   <div class="col-body">
-    <h3>O Agrimensor Invisível Perde Contratos Todo Dia</h3>
-    <p>No interior do Rio de Janeiro, um produtor rural que precisa de georreferenciamento faz o quê primeiro? Abre o Google. Se o seu nome não aparece nos primeiros resultados, ele liga para o concorrente. Em 2026, <strong>presença digital não é luxo &#8212; é o primeiro passo do funil de vendas</strong>. A boa notícia: a inteligência artificial democratizou o marketing digital e qualquer agrimensor pode construir uma presença profissional e atrativa sem contratar agência, sem gastar fortunas e sem perder tempo que deveria estar no campo.</p>
-    <h3>Por Que o Agrimensor Precisa de Marketing Digital em 2026</h3>
-    <p>O mercado de georreferenciamento, regularização fundiária e topografia está aquecido. Com o CCIR 2026 abrindo em maio, o CNPJ rural obrigatório em julho e as novas exigências ambientais, os produtores rurais estão mais ansiosos do que nunca por profissionais de confiança. Quem aparece no Google, no Instagram e no WhatsApp Business com conteúdo técnico de qualidade captura essa demanda antes que ela chegue ao concorrente. O agrimensor que usa IA para criar conteúdo técnico se posiciona como autoridade &#8212; e autoridade cobra mais e escolhe os melhores clientes.</p>
-    <h3>Caso Prático: O Agrimensor que Triplicou a Carteira com Conteúdo no Instagram</h3>
-    <p>Um agrimensor do interior fluminense começou a postar no Instagram três vezes por semana conteúdo técnico simples: &#8220;O que é o CCIR e por que seu imóvel rural precisa dele&#8221;, &#8220;Antes e depois de um georreferenciamento em Campos&#8221;, &#8220;3 erros que impedem a emissão do CCIR&#8221;. Todo o conteúdo foi escrito com o ChatGPT em menos de 10 minutos por post. Em seis meses, a carteira de clientes triplicou &#8212; e os novos clientes chegavam já convencidos do valor do serviço, sem precisar de desconto. O segredo: <strong>conteúdo técnico relevante, publicado com consistência, posiciona o profissional como referência regional</strong>.</p>
-    <h3>Ferramentas de IA para Criar Conteúdo de Marketing</h3>
+
+    <h3>O Problema Silencioso que Drena o Lucro do Agrimensor</h3>
+    <p>Voc&ecirc; fecha um contrato, vai a campo, entrega o servi&ccedil;o &mdash; mas esquece de cobrar no prazo. Ou perde tempo procurando o contato de um cliente antigo. Ou descobre que dois projetos t&ecirc;m o mesmo prazo e n&atilde;o h&aacute; como atender os dois. Esse caos administrativo silencioso &eacute; respons&aacute;vel por at&eacute; 30% da perda de receita em escrit&oacute;rios de agrimensura de pequeno e m&eacute;dio porte. A boa not&iacute;cia: ferramentas de IA dispon&iacute;veis hoje &mdash; muitas gratuitas &mdash; resolvem exatamente esses problemas sem exigir que voc&ecirc; contrate um assistente ou um gerente de projetos.</p>
+
+    <h3>Caso Pr&aacute;tico: O Agrimensor que Parou de Perder Prazo</h3>
+    <p>Um agrimensor do interior do Rio de Janeiro com carteira de 40 clientes ativos usava caderno e WhatsApp para gerenciar tudo. Frequentemente esquecia de enviar ART, atrasava a entrega de memorial descritivo ou cobrava o cliente dias depois do combinado. Ap&oacute;s implementar um sistema simples com <strong>Notion + ChatGPT</strong>, em 30 dias ele reduziu os atrasos a zero, automatizou os lembretes de cobran&ccedil;a e passou a ter vis&atilde;o clara de quais projetos eram mais lucrativos. O tempo economizado: 4 horas por semana. O resultado financeiro: R$ 3.200 recuperados em cobran&ccedil;as que estavam esquecidas.</p>
+
+    <h3>Ferramentas de IA para Gest&atilde;o de Projetos e Clientes</h3>
     <div class="tool-box">
       <p class="tool-name">&#9670; Arsenal de Ferramentas Reais</p>
-      <p><strong>ChatGPT (chatgpt.com):</strong> Gera posts técnicos, legendas para Instagram, roteiros de vídeo e respostas para clientes. Use o prompt: &#8220;Escreva uma legenda de Instagram para um agrimensor do interior do Rio de Janeiro explicando a importância do CCIR 2026 para produtores rurais. Tom: profissional mas acessível. Máximo 150 palavras.&#8221; <strong>Canva AI (canva.com):</strong> Cria artes profissionais para Instagram, WhatsApp e LinkedIn com templates prontos para o setor agro. Use o recurso &#8220;Magic Write&#8221; para gerar textos dentro dos designs. <strong>Meta AI (Instagram/WhatsApp):</strong> Integrado diretamente ao Instagram, sugere legendas e hashtags com base no seu nicho. <strong>Google Gemini (gemini.google.com):</strong> Ideal para pesquisar tendências do setor e gerar conteúdo baseado em dados reais. <strong>Notion AI (notion.so):</strong> Organize seu calendário editorial e gere ideias de conteúdo para o mês inteiro em minutos.</p>
+      <p><strong>Notion AI (notion.so &mdash; gratuito):</strong> Crie um banco de dados de clientes com campos para nome, im&oacute;vel, servi&ccedil;o contratado, valor, prazo de entrega e status. O Notion AI gera automaticamente resumos de projetos, rascunhos de e-mails e checklists de entrega. Use o prompt: &ldquo;Crie um checklist de entrega para um projeto de georreferenciamento de im&oacute;vel rural com certifica&ccedil;&atilde;o SIGEF.&rdquo; <strong>Trello + Butler (trello.com &mdash; gratuito):</strong> Organize projetos em quadros Kanban: A Fazer, Em Campo, Em Escrit&oacute;rio, Aguardando Cliente, Conclu&iacute;do. O Butler automatiza movimenta&ccedil;&otilde;es e envia notifica&ccedil;&otilde;es de prazo. <strong>ChatGPT (chatgpt.com):</strong> Gere contratos, propostas comerciais, e-mails de cobran&ccedil;a e respostas para clientes em segundos. Use o prompt: &ldquo;Escreva um e-mail profissional de cobran&ccedil;a amig&aacute;vel para um cliente com 15 dias de atraso no pagamento de um servi&ccedil;o de topografia no valor de R$ 4.500.&rdquo; <strong>Google Agenda + Gemini (gratuito):</strong> Organize compromissos de campo, reuni&otilde;es e prazos de entrega. O Gemini AI sugere reorganiza&ccedil;&otilde;es de agenda quando h&aacute; conflitos de prazo. <strong>WhatsApp Business + Meta AI:</strong> Configure respostas autom&aacute;ticas para clientes fora do hor&aacute;rio comercial, crie cat&aacute;logo de servi&ccedil;os e use o Meta AI para redigir propostas diretamente no WhatsApp.</p>
     </div>
-    <h3>Estratégia de Conteúdo para o Agrimensor do Interior do RJ</h3>
-    <p>A estratégia mais eficiente combina três tipos de conteúdo: <strong>educativo</strong> (explica o que é CCIR, CAR, georreferenciamento), <strong>social</strong> (fotos de campo, equipe, equipamentos, antes e depois de levantamentos) e <strong>autoridade</strong> (cases de clientes, resultados, depoimentos). Publique no Instagram e no WhatsApp Business com consistência &#8212; três posts por semana já são suficientes para construir referência regional. Complemente com o <strong>Google Meu Negócio</strong> (gratuito): cadastre sua empresa com fotos, serviços e área de atuação. Clientes que pesquisam &#8220;agrimensor em [sua cidade]&#8221; no Google encontram você primeiro.</p>
+
+    <h3>Como Montar Seu Sistema de Gest&atilde;o em 1 Hora</h3>
+    <p>O sistema ideal para o agrimensor do interior do RJ tem tr&ecirc;s pilares: <strong>cadastro de clientes</strong> (Notion ou planilha Google), <strong>gest&atilde;o de projetos</strong> (Trello ou Notion) e <strong>controle financeiro</strong> (planilha Google com f&oacute;rmulas autom&aacute;ticas geradas pelo ChatGPT). N&atilde;o &eacute; necess&aacute;rio software caro. O ChatGPT pode criar toda a estrutura para voc&ecirc; em minutos. Pe&ccedil;a: &ldquo;Crie uma planilha Google para controle financeiro de um escrit&oacute;rio de agrimensura com colunas para cliente, servi&ccedil;o, valor contratado, valor recebido, data de vencimento e status de pagamento. Inclua f&oacute;rmulas para calcular o total a receber e o total recebido no m&ecirc;s.&rdquo;</p>
+
     <div class="highlight-quote">
-      &#8220;Em 2026, o agrimensor que aparece no Google e no Instagram com conteúdo técnico de qualidade não precisa correr atrás de clientes. Os clientes chegam até ele já convencidos do valor do serviço &#8212; e dispostos a pagar o preço justo. A IA é o assistente que torna isso possível sem contratar uma agência.&#8221;
+      &ldquo;O agrimensor que n&atilde;o controla seus projetos e clientes trabalha para o caos. Em 2026, a IA elimina esse caos em uma tarde &mdash; sem custo, sem contrata&ccedil;&atilde;o, sem complica&ccedil;&atilde;o. O profissional que organiza seu neg&oacute;cio com ferramentas inteligentes n&atilde;o apenas entrega mais: ele cobra mais, porque demonstra profissionalismo em cada etapa do processo.&rdquo;
     </div>
-    <h3>Dica de Ação Imediata: Implante Esta Semana</h3>
+
+    <h3>Dica de A&ccedil;&atilde;o Imediata: Implante Esta Semana</h3>
     <ul class="step-list">
-      <li><strong>Crie ou otimize seu Google Meu Negócio:</strong> Acesse business.google.com, cadastre sua empresa com nome, cidade, serviços (georreferenciamento, topografia, CCIR, CAR) e adicione fotos de campo. Isso é gratuito e coloca você no mapa do Google.</li>
-      <li><strong>Gere 5 posts com o ChatGPT agora:</strong> Abra o ChatGPT e peça: &#8220;Crie 5 ideias de posts para Instagram de um agrimensor do interior do Rio de Janeiro sobre CCIR 2026, georreferenciamento e regularização fundiária. Inclua legenda e sugestão de imagem para cada post.&#8221;</li>
-      <li><strong>Crie um template no Canva:</strong> Use o Canva AI para criar um template com a identidade visual da sua empresa (cores, logo, fonte). Replique para todos os posts e mantenha consistência visual profissional.</li>
-      <li><strong>Configure o WhatsApp Business:</strong> Ative o catálogo de serviços, configure a mensagem automática de boas-vindas e adicione o link do seu perfil na bio do Instagram. Use o ChatGPT para escrever a mensagem de boas-vindas.</li>
+      <li><strong>Crie seu banco de clientes no Notion:</strong> Acesse notion.so, crie uma conta gratuita e pe&ccedil;a ao ChatGPT: &ldquo;Crie um template de banco de dados Notion para um escrit&oacute;rio de agrimensura com campos para nome do cliente, CPF/CNPJ, im&oacute;vel, servi&ccedil;o, valor, prazo e status.&rdquo; Copie o resultado e monte sua base em 20 minutos.</li>
+      <li><strong>Automatize a cobran&ccedil;a com ChatGPT:</strong> Crie 3 modelos de e-mail de cobran&ccedil;a (lembrete antes do vencimento, cobran&ccedil;a no dia e cobran&ccedil;a com atraso) usando o ChatGPT. Salve os modelos no Notion e use-os com um clique sempre que precisar.</li>
+      <li><strong>Monte seu quadro de projetos no Trello:</strong> Crie um quadro com as colunas: Proposta Enviada, Contrato Assinado, Em Campo, Em Escrit&oacute;rio, Aguardando Aprova&ccedil;&atilde;o SIGEF, Conclu&iacute;do, Pago. Em 10 minutos voc&ecirc; tem vis&atilde;o total da sua opera&ccedil;&atilde;o.</li>
+      <li><strong>Gere seu contrato padr&atilde;o com ChatGPT:</strong> Pe&ccedil;a: &ldquo;Crie um contrato de presta&ccedil;&atilde;o de servi&ccedil;os de georreferenciamento de im&oacute;vel rural para um agrimensor aut&ocirc;nomo no estado do Rio de Janeiro, com cl&aacute;usulas de prazo, valor, forma de pagamento, responsabilidades e rescis&atilde;o.&rdquo; Revise com um advogado e use como base para todos os projetos.</li>
     </ul>
-    <p><em>Na próxima edição: IA para gestão de projetos e clientes &#8212; como organizar sua agenda, contratos e cobranças com ferramentas inteligentes e gratuitas.</em></p>
+    <p><em>Na pr&oacute;xima edi&ccedil;&atilde;o: Ferramentas de geoespacial com IA &mdash; como usar QGIS com plugins de intelig&ecirc;ncia artificial para aumentar a produtividade nos levantamentos e na entrega de projetos.</em></p>
   </div>
 
   <div class="philosophy">
     <p class="phil-label">&#9670; Filosofia do Agrimensor &#9670;</p>
-    <blockquote>&#8220;A terra não fala, mas o agrimensor lhe dá voz. Cada coordenada registrada é uma palavra na escritura do mundo. Em tempos de transformação &#8212; tributária, ambiental, tecnológica &#8212; o profissional que se atualiza não apenas sobrevive: ele se torna indispensável. Medir com precisão é o ofício; crescer com inteligência é a escolha.&#8221;</blockquote>
-    <cite>&mdash; Mapear Geo, Edição N.&ordm; 024</cite>
+    <blockquote>&ldquo;Medir a terra &eacute; um ato de justi&ccedil;a. Organizar o pr&oacute;prio neg&oacute;cio &eacute; um ato de respeito &mdash; consigo mesmo, com o cliente e com a profiss&atilde;o. O agrimensor que domina o campo e o escrit&oacute;rio n&atilde;o depende da sorte: ele constr&oacute;i, com precis&atilde;o, o caminho do seu crescimento.&rdquo;</blockquote>
+    <cite>&mdash; Mapear Geo, Edi&ccedil;&atilde;o N.&ordm; 025</cite>
   </div>
   <footer class="footer">
     <p class="footer-ornament">&#10022; &#10022; &#10022;</p>
     <p>
-      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edição Bissemanal &bull; N.&ordm; 024 &bull; 04 de Maio de 2026<br />
-      Curadoria jornalística para agrimensores do interior do Rio de Janeiro.<br />
-      As notícias são extraídas de fontes públicas e confiáveis. Os links direcionam para as fontes originais.<br />
-      Este jornal não substitui orientação jurídica ou técnica especializada.
+      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edi&ccedil;&atilde;o Bissemanal &bull; N.&ordm; 025 &bull; 08 de Maio de 2026<br />
+      Curadoria jornal&iacute;stica para agrimensores do interior do Rio de Janeiro.<br />
+      As not&iacute;cias s&atilde;o extra&iacute;das de fontes p&uacute;blicas e confi&aacute;veis. Os links direcionam para as fontes originais.<br />
+      Este jornal n&atilde;o substitui orienta&ccedil;&atilde;o jur&iacute;dica ou t&eacute;cnica especializada.
     </p>
     <p class="footer-ornament">&#9670; &#9670; &#9670;</p>
   </footer>
