@@ -3,491 +3,245 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jornal Mapear Geo &ndash; Edi&ccedil;&atilde;o Bissemanal</title>
-  <meta name="description" content="Jornal digital para agrimensores: not&iacute;cias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regulariza&ccedil;&atilde;o fundi&aacute;ria e tecnologia." />
+  <meta name="theme-color" content="#1a1a1a" />
   <link rel="manifest" href="/jornal-mapear-geo/manifest.json" />
-  <meta name="theme-color" content="#d4af37" />
+  <meta name="description" content="Jornal digital para agrimensores: notícias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regularização fundiária e tecnologia." />
+  <title>Jornal Mapear Geo — Edição N.º 028</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --gold:    #d4af37;
-      --gold-lt: #e8d07a;
-      --gold-dk: #a07c10;
-      --sepia:   #f5efe0;
-      --sepia-dk:#e8dcc8;
-      --ink:     #1a1208;
-      --ink-lt:  #3a2e1a;
-      --red-alert:#8b1a1a;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: #2a1f0e;
-      font-family: Georgia, serif;
-      color: var(--ink);
-      min-height: 100vh;
-      padding: 12px 8px 40px;
-    }
-    .wrapper {
-      max-width: 680px;
-      margin: 0 auto;
-      background: var(--sepia);
-      border: 3px double var(--gold);
-      box-shadow: 0 0 0 6px #2a1f0e, 0 0 0 9px var(--gold-dk), 0 8px 40px rgba(0,0,0,.7);
-    }
-    .masthead {
-      background: var(--ink);
-      padding: 18px 16px 12px;
-      text-align: center;
-      border-bottom: 4px double var(--gold);
-    }
-    .masthead .overline {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      color: var(--gold-lt);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .masthead h1 {
-      font-size: clamp(1.6rem, 6vw, 2.4rem);
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      line-height: 1.1;
-      text-shadow: 1px 1px 3px rgba(0,0,0,.8);
-    }
-    .masthead h1 span { display: block; font-size: 0.45em; letter-spacing: 0.18em; color: var(--gold-lt); margin-top: 2px; }
-    .masthead .tagline {
-      font-size: 0.62rem;
-      color: #b09050;
-      font-style: italic;
-      margin-top: 6px;
-      letter-spacing: 0.06em;
-    }
-    .masthead .meta-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px solid var(--gold-dk);
-      font-size: 0.6rem;
-      color: #a08040;
-      letter-spacing: 0.08em;
-    }
-    .ornament {
-      text-align: center;
-      color: var(--gold);
-      font-size: 1rem;
-      letter-spacing: 0.3em;
-      padding: 6px 0;
-      background: var(--ink);
-      border-top: 1px solid var(--gold-dk);
-      border-bottom: 1px solid var(--gold-dk);
-    }
-    .section-header {
-      background: var(--ink);
-      color: var(--gold);
-      text-align: center;
-      padding: 8px 16px;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      border-bottom: 2px solid var(--gold-dk);
-    }
-    .alert-box {
-      background: var(--red-alert);
-      border: 2px solid #c0392b;
-      margin: 0;
-      padding: 12px 16px;
-      border-left: 6px solid #ff6b6b;
-    }
-    .alert-box .alert-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #ffcccc;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-    .alert-box h3 {
-      font-size: 0.95rem;
-      color: #fff;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-    .alert-box p {
-      font-size: 0.75rem;
-      color: #f5cccc;
-      line-height: 1.5;
-      margin-bottom: 8px;
-    }
-    .alert-box a.btn {
-      display: inline-block;
-      background: #ff6b6b;
-      color: #fff;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      text-decoration: none;
-      border: 1px solid #ffaaaa;
-    }
-    .content-area { padding: 0 14px; background: var(--sepia); }
-    .article-card {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--sepia-dk);
-    }
-    .article-card:last-child { border-bottom: none; }
-    .article-card .cat-tag {
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold-dk);
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-    .article-card h2 {
-      font-size: 1.0rem;
-      line-height: 1.3;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .article-card p {
-      font-size: 0.78rem;
-      line-height: 1.6;
-      color: var(--ink-lt);
-      margin-bottom: 8px;
-    }
-    .article-card .source-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .article-card .source-name {
-      font-size: 0.6rem;
-      color: #7a6030;
-      font-style: italic;
-    }
-    .article-card a.saiba-mais {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--gold);
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      text-decoration: none;
-      border: 1px solid var(--gold-dk);
-    }
-    .col-header {
-      background: var(--gold);
-      color: var(--ink);
-      text-align: center;
-      padding: 10px 16px;
-      border-top: 3px double var(--ink);
-      border-bottom: 3px double var(--ink);
-    }
-    .col-header .col-title {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .col-header .col-name {
-      font-size: 1.05rem;
-      font-weight: bold;
-      letter-spacing: 0.04em;
-    }
-    .col-header .col-sub {
-      font-size: 0.6rem;
-      font-style: italic;
-      margin-top: 2px;
-      color: var(--ink-lt);
-    }
-    .col-body {
-      padding: 14px 14px;
-      background: var(--sepia);
-    }
-    .col-body h3 {
-      font-size: 0.88rem;
-      color: var(--ink);
-      margin: 14px 0 6px;
-      border-left: 3px solid var(--gold);
-      padding-left: 8px;
-    }
-    .col-body p {
-      font-size: 0.78rem;
-      line-height: 1.65;
-      color: var(--ink-lt);
-      margin-bottom: 10px;
-    }
-    .col-body ul { margin: 0 0 10px 0; padding: 0; list-style: none; }
-    .col-body li {
-      font-size: 0.78rem;
-      line-height: 1.6;
-      color: var(--ink-lt);
-      margin-bottom: 5px;
-      padding-left: 14px;
-      position: relative;
-    }
-    .col-body li::before { content: "\25c6"; position: absolute; left: 0; color: var(--gold-dk); font-size: 0.5rem; top: 5px; }
-    .tool-box {
-      background: var(--ink);
-      border-left: 4px solid var(--gold);
-      padding: 10px 12px;
-      margin: 10px 0;
-    }
-    .tool-box .tool-name {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-    .tool-box p {
-      font-size: 0.75rem;
-      color: var(--sepia-dk);
-      line-height: 1.55;
-      margin-bottom: 0;
-    }
-    .highlight-quote {
-      border: 1px solid var(--gold-dk);
-      background: #f0e8d0;
-      padding: 10px 14px;
-      font-style: italic;
-      font-size: 0.8rem;
-      color: var(--ink);
-      line-height: 1.55;
-      margin: 12px 0;
-      border-left: 4px solid var(--gold);
-    }
-    .step-list { list-style: none; margin: 0 0 10px 0; padding: 0; }
-    .step-list li {
-      padding: 6px 0 6px 18px;
-      position: relative;
-      font-size: 0.78rem;
-      color: var(--ink-lt);
-      border-bottom: 1px dotted var(--sepia-dk);
-    }
-    .step-list li::before {
-      content: "\25c6";
-      position: absolute;
-      left: 0;
-      color: var(--gold-dk);
-      font-size: 0.55rem;
-      top: 9px;
-    }
-    .philosophy {
-      background: var(--ink);
-      padding: 16px;
-      text-align: center;
-      border-top: 3px double var(--gold);
-    }
-    .philosophy .phil-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold-lt);
-      margin-bottom: 10px;
-    }
-    .philosophy blockquote {
-      font-size: 0.82rem;
-      color: var(--sepia);
-      font-style: italic;
-      line-height: 1.65;
-      max-width: 520px;
-      margin: 0 auto 8px;
-    }
-    .philosophy cite {
-      font-size: 0.6rem;
-      color: var(--gold-lt);
-      letter-spacing: 0.1em;
-    }
-    .footer {
-      background: var(--ink);
-      padding: 12px 16px;
-      text-align: center;
-      border-top: 2px solid var(--gold-dk);
-    }
-    .footer p {
-      font-size: 0.6rem;
-      color: #7a6030;
+      background-color: #1a1a1a;
+      color: #e8dcc8;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
       line-height: 1.7;
+      padding: 0 0 40px 0;
     }
-    .footer-ornament {
-      color: var(--gold);
-      letter-spacing: 0.4em;
-      font-size: 0.7rem;
-      margin: 4px 0;
+    .container { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+    .header {
+      background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+      border-bottom: 3px double #d4af37;
+      padding: 28px 16px 20px;
+      text-align: center;
     }
-    @media (max-width: 420px) {
-      .masthead h1 { font-size: 1.5rem; }
-      .article-card h2 { font-size: 0.92rem; }
-      .col-header .col-name { font-size: 0.95rem; }
+    .header-top-line { font-size: 10px; letter-spacing: 3px; color: #d4af37; text-transform: uppercase; margin-bottom: 6px; }
+    .header h1 { font-size: 2.2rem; color: #d4af37; letter-spacing: 2px; text-transform: uppercase; line-height: 1.15; text-shadow: 0 0 18px rgba(212,175,55,0.35); }
+    .header-subtitle { font-size: 11px; color: #b8a87a; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
+    .header-meta { margin-top: 14px; display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; font-size: 11px; color: #a09070; letter-spacing: 1px; }
+    .header-meta span { border: 1px solid #3a3020; padding: 3px 10px; border-radius: 2px; }
+    .header-edition { margin-top: 12px; font-size: 13px; color: #d4af37; font-style: italic; }
+    .divider { border: none; border-top: 1px solid #3a3020; margin: 20px 0; }
+    .divider-gold { border: none; border-top: 2px solid #d4af37; margin: 24px 0; }
+    .alert-box {
+      background: linear-gradient(135deg, #1f1800 0%, #2a2000 100%);
+      border: 2px solid #d4af37; border-radius: 4px; padding: 18px 20px; margin: 20px 0; position: relative;
     }
+    .alert-box::before { content: "⚠ ALERTA ESPECIAL"; display: block; font-size: 10px; letter-spacing: 3px; color: #d4af37; text-transform: uppercase; margin-bottom: 10px; font-family: Georgia, serif; }
+    .alert-box h2 { font-size: 1.15rem; color: #f0d060; margin-bottom: 10px; line-height: 1.4; }
+    .alert-box p { font-size: 0.92rem; color: #d4c89a; line-height: 1.65; }
+    .alert-box .saiba-mais { display: inline-block; margin-top: 12px; background: #d4af37; color: #1a1a1a; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 16px; border-radius: 2px; text-decoration: none; font-family: Georgia, serif; }
+    .alert-box .saiba-mais:hover { background: #f0d060; }
+    .section-title { font-size: 10px; letter-spacing: 4px; color: #d4af37; text-transform: uppercase; text-align: center; margin: 28px 0 16px; }
+    .section-title::before, .section-title::after { content: "◆"; margin: 0 10px; font-size: 8px; vertical-align: middle; }
+    .news-item { border-bottom: 1px solid #2e2820; padding: 18px 0; }
+    .news-item:last-child { border-bottom: none; }
+    .cat-tag { font-size: 10px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 6px; }
+    .news-item h2 { font-size: 1.08rem; color: #e8dcc8; margin-bottom: 8px; line-height: 1.45; }
+    .news-item p { font-size: 0.9rem; color: #b8a87a; line-height: 1.65; margin-bottom: 10px; }
+    .news-source { font-size: 10px; color: #7a6a50; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .saiba-mais { display: inline-block; background: transparent; border: 1px solid #d4af37; color: #d4af37; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; text-decoration: none; font-family: Georgia, serif; transition: background 0.2s, color 0.2s; }
+    .saiba-mais:hover { background: #d4af37; color: #1a1a1a; }
+    .assessoria-box { background: linear-gradient(135deg, #111800 0%, #1a2200 100%); border: 1px solid #4a6020; border-left: 4px solid #8ab020; border-radius: 4px; padding: 22px 20px; margin: 20px 0; }
+    .assessoria-box .assessoria-label { font-size: 10px; letter-spacing: 3px; color: #8ab020; text-transform: uppercase; margin-bottom: 10px; }
+    .assessoria-box h2 { font-size: 1.15rem; color: #c8e060; margin-bottom: 12px; line-height: 1.4; }
+    .assessoria-box h3 { font-size: 0.95rem; color: #a0c040; margin: 16px 0 6px; letter-spacing: 0.5px; }
+    .assessoria-box p { font-size: 0.9rem; color: #c0c8a0; line-height: 1.7; margin-bottom: 10px; }
+    .assessoria-box ul { padding-left: 18px; margin-bottom: 10px; }
+    .assessoria-box ul li { font-size: 0.9rem; color: #c0c8a0; line-height: 1.65; margin-bottom: 4px; }
+    .dica-box { background: #0d1500; border: 1px dashed #6a9010; border-radius: 3px; padding: 12px 16px; margin-top: 14px; }
+    .dica-box p { font-size: 0.88rem; color: #a8c060; margin: 0; }
+    .dica-box strong { color: #c8e060; }
+    .reflexao-box { background: #111111; border-top: 1px solid #3a3020; border-bottom: 1px solid #3a3020; padding: 20px; margin: 24px 0; text-align: center; }
+    .reflexao-box .reflexao-label { font-size: 10px; letter-spacing: 3px; color: #a09070; text-transform: uppercase; margin-bottom: 10px; }
+    .reflexao-box blockquote { font-size: 1rem; color: #d4c89a; font-style: italic; line-height: 1.7; border: none; padding: 0; margin: 0 0 8px 0; }
+    .reflexao-box cite { font-size: 11px; color: #7a6a50; letter-spacing: 1px; }
+    .footer { background: #0d0d0d; border-top: 2px solid #d4af37; padding: 22px 16px; text-align: center; margin-top: 30px; }
+    .footer p { font-size: 11px; color: #6a5a40; line-height: 1.8; letter-spacing: 0.5px; }
+    .footer a { color: #d4af37; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer .footer-title { font-size: 14px; color: #d4af37; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    #install-btn { display: none; position: fixed; bottom: 20px; right: 16px; background: #d4af37; color: #1a1a1a; font-size: 12px; font-weight: bold; letter-spacing: 1px; padding: 10px 18px; border-radius: 3px; border: none; cursor: pointer; font-family: Georgia, serif; box-shadow: 0 4px 16px rgba(0,0,0,0.5); z-index: 999; }
+    @media (max-width: 480px) { .header h1 { font-size: 1.7rem; } .header-meta { gap: 8px; } }
   </style>
 </head>
 <body>
-<div class="wrapper">
-  <header class="masthead">
-    <p class="overline">&#9670; Informa&ccedil;&atilde;o T&eacute;cnica &amp; Estrat&eacute;gica para o Agrimensor &#9670;</p>
-    <h1>Jornal Mapear Geo<span>Edi&ccedil;&atilde;o Bissemanal</span></h1>
-    <p class="tagline">&ldquo;Quem mede o mundo, governa o futuro.&rdquo;</p>
-    <div class="meta-bar">
-      <span>Quinta-feira, 15 de Maio de 2026</span>
-      <span>Por Mapear Geo &bull; Edi&ccedil;&atilde;o N.&ordm; 027 &bull; 15 de Maio de 2026</span>
-      <span>Interior do Rio de Janeiro</span>
+<div class="header">
+  <div class="container">
+    <p class="header-top-line">Informação técnica para o agrimensor empreendedor</p>
+    <h1>Jornal Mapear Geo</h1>
+    <p class="header-subtitle">Agrimensura &bull; Georreferenciamento &bull; Regularização Fundiária</p>
+    <div class="header-meta">
+      <span>Segunda-feira, 19 de maio de 2026</span>
+      <span>Edição N.º 028</span>
+      <span>Bissemanal</span>
     </div>
-  </header>
-
-  <div class="ornament">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
-
-  <!-- ALERTA ESPECIAL -->
-  <div class="section-header">&#9670; Alerta Especial &#9670;</div>
-  <div class="alert-box">
-    <p class="alert-label">&#9888; Aten&ccedil;&atilde;o Urgente &mdash; Georreferenciamento</p>
-    <h3>Justi&ccedil;a Federal suspende parcialmente Decreto 12.689 &mdash; certifica&ccedil;&atilde;o volta a ser obrigat&oacute;ria para im&oacute;veis acima de 100 ha</h3>
-    <p>Em decis&atilde;o com alc&acirc;nce nacional publicada em 14 de maio, a Justi&ccedil;a Federal do Maranh&atilde;o suspendeu parcialmente os efeitos do Decreto 12.689/2025, que havia prorrogado para 2029 a exig&ecirc;ncia de georreferenciamento para todos os im&oacute;veis rurais. Com a decis&atilde;o, volta a ser <strong>obrigat&oacute;ria a certifica&ccedil;&atilde;o no SIGEF para propriedades com &aacute;rea superior a 100 hectares</strong> em opera&ccedil;&otilde;es de compra, venda, desmembramento, financiamento e registro. A prorroga&ccedil;&atilde;o at&eacute; 2029 permanece v&aacute;lida apenas para im&oacute;veis com menos de 101 hectares. Propriet&aacute;rios e agrimensores devem retomar a aten&ccedil;&atilde;o imediata sobre os processos em andamento.</p>
-    <a class="btn" href="https://www.registrodeimoveis.org.br/certificacao-de-imovel-rural-acima-de-100-ha-e-restabelecida" target="_blank" rel="noopener">Saiba mais</a>
+    <p class="header-edition">Interior do Rio de Janeiro — Brasil</p>
   </div>
-
-  <!-- NOT&Iacute;CIAS RELEVANTES -->
-  <div class="section-header">&#9670; Not&iacute;cias Relevantes &#9670;</div>
-  <div class="content-area">
-
-    <div class="article-card">
-      <p class="cat-tag">&#9670; Cr&eacute;dito Rural &amp; Meio Ambiente</p>
-      <h2>CMN adia bloqueio ambiental no cr&eacute;dito rural para 2027 &mdash; nova regra impede financiamento a produtores com desmate ilegal</h2>
-      <p>O Conselho Monet&aacute;rio Nacional (CMN) adiou para janeiro de 2027 a regra que impede a concess&atilde;o de cr&eacute;dito rural subsidiado a produtores com registro de desmatamento ilegal ap&oacute;s julho de 2019, detectado pelo sistema PRODES/INPE. A exig&ecirc;ncia valer&aacute; a partir de 2027 para im&oacute;veis acima de 15 m&oacute;dulos fiscais, em 2027 para &aacute;reas entre 4 e 15 m&oacute;dulos, e apenas em 2028 para pequenas propriedades. Para agrimensores, a mudan&ccedil;a refor&ccedil;a a import&acirc;ncia do CAR atualizado e da regulariza&ccedil;&atilde;o ambiental como pr&eacute;-requisito para o cr&eacute;dito rural.</p>
-      <div class="source-row">
-        <span class="source-name">Ag&ecirc;ncia Brasil &mdash; 13/05/2026</span>
-        <a class="saiba-mais" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-05/cmn-adia-bloqueio-ambiental-no-credito-rural-para-2027" target="_blank" rel="noopener">Saiba mais</a>
-      </div>
-    </div>
-
-    <div class="article-card">
-      <p class="cat-tag">&#9670; Registro de Im&oacute;veis Digital</p>
-      <h2>ONR publica ITN 004/2026 e padroniza escritura&ccedil;&atilde;o digital de im&oacute;veis em todo o Brasil</h2>
-      <p>O Operador Nacional do Sistema de Registro Eletr&ocirc;nico de Im&oacute;veis (ONR) publicou a Instru&ccedil;&atilde;o T&eacute;cnica de Normaliza&ccedil;&atilde;o n.&ordm; 004/2026 (ITN 004), que estabelece as especifica&ccedil;&otilde;es t&eacute;cnicas do Sistema de Registro Eletr&ocirc;nico de Im&oacute;veis (SREI) e consolida a base para a escritura&ccedil;&atilde;o eletr&ocirc;nica nacional. A norma institui a Lista Nacional de Atos, padroniza a modelagem de dados de pessoas e im&oacute;veis, e facilita a integra&ccedil;&atilde;o entre cart&oacute;rios, institui&ccedil;&otilde;es financeiras e &oacute;rg&atilde;os p&uacute;blicos. Uma live de apresenta&ccedil;&atilde;o est&aacute; programada para 19 de maio, &agrave;s 9h, no canal do ONR no YouTube.</p>
-      <div class="source-row">
-        <span class="source-name">Registro de Im&oacute;veis do Brasil / ONR &mdash; 14/05/2026</span>
-        <a class="saiba-mais" href="https://www.registrodeimoveis.org.br/norma-que-padroniza-escrituracao-digital-ja-esta-disponivel?fe=2" target="_blank" rel="noopener">Saiba mais</a>
-      </div>
-    </div>
-
-    <div class="article-card">
-      <p class="cat-tag">&#9670; CAR &amp; Regulariza&ccedil;&atilde;o Ambiental</p>
-      <h2>Par&aacute; lan&ccedil;a SICAR+ com an&aacute;lise autom&aacute;tica do CAR e integra&ccedil;&atilde;o com Pagamento por Servi&ccedil;os Ambientais</h2>
-      <p>O governo do Par&aacute; inaugurou o SICAR+, plataforma avan&ccedil;ada para o Cadastro Ambiental Rural que agiliza a regulariza&ccedil;&atilde;o ambiental com pr&eacute;-an&aacute;lises automatizadas e formul&aacute;rios inteligentes que detectam inconsist&ecirc;ncias em tempo real. O sistema est&aacute; integrado ao Gov.br e permite que produtores rurais acessem programas de Pagamento por Servi&ccedil;os Ambientais (PSA), como o Cheque Pecu&aacute;ria. O Par&aacute; tem 379 mil CAR inscritos, dos quais 65% ainda est&atilde;o em an&aacute;lise &mdash; a nova plataforma deve acelerar significativamente esse processo.</p>
-      <div class="source-row">
-        <span class="source-name">G1 Par&aacute; &mdash; 13/05/2026</span>
-        <a class="saiba-mais" href="https://g1.globo.com/pa/para/noticia/2026/05/13/sicar-plataforma-agiliza-cadastro-ambiental-rural-e-libera-pagamento-por-servicos-ambientais-no-pa.ghtml" target="_blank" rel="noopener">Saiba mais</a>
-      </div>
-    </div>
-
-    <div class="article-card">
-      <p class="cat-tag">&#9670; CCIR &amp; Interior do RJ</p>
-      <h2>Campos dos Goytacazes mant&eacute;m conv&ecirc;nio com INCRA para emiss&atilde;o gratuita do CCIR &mdash; 200 atendimentos j&aacute; realizados em 2026</h2>
-      <p>A Prefeitura de Campos dos Goytacazes, por meio da Secretaria de Agricultura, mant&eacute;m ativo o conv&ecirc;nio com o INCRA para emiss&atilde;o e atualiza&ccedil;&atilde;o gratuita do CCIR na Casa do Produtor Rural. Em 2026, j&aacute; foram realizados cerca de 200 atendimentos, a maioria relacionada &agrave; atualiza&ccedil;&atilde;o cadastral por transfer&ecirc;ncia de propriedade. O servi&ccedil;o &eacute; realizado de segunda a sexta, das 8h &agrave;s 17h, na Av. Presidente Vargas, 180, sem necessidade de deslocamento at&eacute; a capital ou contrata&ccedil;&atilde;o de despachantes.</p>
-      <div class="source-row">
-        <span class="source-name">Prefeitura de Campos dos Goytacazes &mdash; 08/05/2026</span>
-        <a class="saiba-mais" href="https://www.campos.rj.gov.br/exibirNoticia.php?id_noticia=104187" target="_blank" rel="noopener">Saiba mais</a>
-      </div>
-    </div>
-
-    <div class="article-card">
-      <p class="cat-tag">&#9670; Cr&eacute;dito Rural &amp; Agrimensura</p>
-      <h2>Pronaf Regulariza&ccedil;&atilde;o Fundi&aacute;ria deve ampliar contratos no Plano Safra 2026/2027 &mdash; georreferenciamento e agrimensura financiados</h2>
-      <p>Com dois anos de opera&ccedil;&atilde;o, a linha Pronaf Regulariza&ccedil;&atilde;o Fundi&aacute;ria j&aacute; financiou servi&ccedil;os de georreferenciamento, agrimensura (planta e memorial descritivo), taxas de cart&oacute;rio e certifica&ccedil;&atilde;o no SIGEF para agricultores familiares. O Minist&eacute;rio do Desenvolvimento Agr&aacute;rio projeta crescimento da demanda no Plano Safra 2026/2027, com integra&ccedil;&atilde;o ao Programa Terras do Brasil. Para agrimensores do interior do RJ, a linha representa uma fonte direta de contratos: produtores podem financiar os servi&ccedil;os sem desembolso imediato.</p>
-      <div class="source-row">
-        <span class="source-name">Agrolink / MDA &mdash; 08/05/2026</span>
-        <a class="saiba-mais" href="https://www.agrolink.com.br/noticias/pronaf-regularizacao-fundiaria-avanca-no-plano-safra-2025-2026_514164.html" target="_blank" rel="noopener">Saiba mais</a>
-      </div>
-    </div>
-
-    <div class="article-card">
-      <p class="cat-tag">&#9670; Programa Terra Cidad&atilde;</p>
-      <h2>INCRA amplia ades&otilde;es ao Programa Terra Cidad&atilde; e leva servi&ccedil;os de regulariza&ccedil;&atilde;o fundi&aacute;ria aos munic&iacute;pios</h2>
-      <p>O Programa Terra Cidad&atilde; do INCRA continua ampliando parcerias com munic&iacute;pios e entidades sociais para levar servi&ccedil;os de regulariza&ccedil;&atilde;o fundi&aacute;ria ao campo sem custos adicionais. A iniciativa permite que entes federativos colaborem na execu&ccedil;&atilde;o das tarefas do INCRA, acelerando a titula&ccedil;&atilde;o de propriedades rurais e a reforma agr&aacute;ria. No Rio Grande do Sul, o INCRA realizou capacita&ccedil;&otilde;es para fortalecer o Cadastro Rural, e em Goi&aacute;s foi realizado o 3&ordm; Mutil&atilde;o da Trabalhadora Rural de 2026.</p>
-      <div class="source-row">
-        <span class="source-name">INCRA / Gov.br &mdash; 14/05/2026</span>
-        <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/programa-terra-cidada-amplia-adesoes-em-todo-o-brasil" target="_blank" rel="noopener">Saiba mais</a>
-      </div>
-    </div>
-
-  </div><!-- /content-area -->
-
-  <!-- ASSESSORIA DE CRESCIMENTO -->
-  <div class="col-header">
-    <p class="col-title">&#9670; Assessoria de Crescimento &#9670;</p>
-    <p class="col-name">Or&ccedil;amentos Precisos com Intelig&ecirc;ncia Artificial</p>
-    <p class="col-sub">Como usar IA para precificar servi&ccedil;os de agrimensura sem deixar dinheiro na mesa</p>
-  </div>
-  <div class="col-body">
-
-    <h3>O Fim do &ldquo;Chute&rdquo; na Precifica&ccedil;&atilde;o</h3>
-    <p>Muitos agrimensores ainda precificam seus servi&ccedil;os baseados apenas no tamanho da &aacute;rea ou no pre&ccedil;o da concorr&ecirc;ncia. Isso frequentemente resulta em preju&iacute;zo quando surgem imprevistos no campo, burocracia no cart&oacute;rio ou retrabalho no SIGEF. Com a Intelig&ecirc;ncia Artificial, &eacute; poss&iacute;vel analisar o hist&oacute;rico de projetos, estimar custos ocultos e gerar or&ccedil;amentos detalhados que garantem a margem de lucro desejada &mdash; em minutos, n&atilde;o em dias.</p>
-
-    <h3>Caso Pr&aacute;tico: O Or&ccedil;amento que Fechou o Contrato</h3>
-    <p>Um escrit&oacute;rio de topografia no interior do RJ perdia 40% das propostas por enviar or&ccedil;amentos gen&eacute;ricos e demorados. Ao adotar o ChatGPT para estruturar as propostas, o agrimensor passou a inserir os dados b&aacute;sicos do servi&ccedil;o (tipo de levantamento, &aacute;rea, relevo, dist&acirc;ncia, objetivo) e a IA gerava um documento profissional em minutos. O or&ccedil;amento detalhava as etapas do trabalho, os equipamentos utilizados (GNSS, drone) e o valor agregado da precis&atilde;o t&eacute;cnica. O resultado foi imediato: a taxa de convers&atilde;o subiu para 75% e o tempo de resposta caiu de 2 dias para menos de 1 hora.</p>
-
-    <h3>Ferramentas de IA para Precifica&ccedil;&atilde;o e Propostas</h3>
-
-    <div class="tool-box">
-      <p class="tool-name">&#9670; ChatGPT / Claude &mdash; Propostas Comerciais Profissionais</p>
-      <p>Excelentes para redigir propostas comerciais persuasivas e detalhadas. Crie um &ldquo;prompt padr&atilde;o&rdquo; com seus custos fixos e vari&aacute;veis, e a IA calcula o pre&ccedil;o final sugerido com base na margem de lucro desejada. Voc&ecirc; pode pedir que a IA destaque a seguran&ccedil;a jur&iacute;dica do servi&ccedil;o, os riscos de n&atilde;o regularizar e os benef&iacute;cios do georreferenciamento &mdash; argumentos que fecham contratos.</p>
-    </div>
-
-    <div class="tool-box">
-      <p class="tool-name">&#9670; Google Sheets + GPT for Sheets &mdash; Planilha Inteligente de Custos</p>
-      <p>A extens&atilde;o &ldquo;GPT for Sheets&rdquo; (gratuita at&eacute; certo limite) permite analisar dados de servi&ccedil;os anteriores para prever o tempo gasto em campo e no escrit&oacute;rio em novos projetos semelhantes. Crie uma planilha com hist&oacute;rico de projetos (tipo, &aacute;rea, horas gastas, valor cobrado) e pe&ccedil;a &agrave; IA para identificar padr&otilde;es e sugerir o pre&ccedil;o ideal para o pr&oacute;ximo servi&ccedil;o.</p>
-    </div>
-
-    <div class="tool-box">
-      <p class="tool-name">&#9670; Canva + IA &mdash; Propostas Visuais em PDF</p>
-      <p>O Canva possui recursos de IA que geram layouts profissionais para propostas comerciais. Combine com o texto gerado pelo ChatGPT e exporte em PDF com a identidade visual da sua empresa. Uma proposta bem apresentada, com capa, descri&ccedil;&atilde;o do servi&ccedil;o, cronograma e valor, transmite profissionalismo e justifica pre&ccedil;os mais altos do que um or&ccedil;amento enviado por mensagem de texto.</p>
-    </div>
-
-    <div class="highlight-quote">
-      &ldquo;O agrimensor que precifica com dados e apresenta com profissionalismo n&atilde;o compete por pre&ccedil;o &mdash; ele compete por confian&ccedil;a. E confian&ccedil;a &eacute; o ativo mais valioso no mercado de regulariza&ccedil;&atilde;o fundi&aacute;ria.&rdquo;
-    </div>
-
-    <h3>Dica de A&ccedil;&atilde;o Imediata: Implante Esta Semana</h3>
-    <ul class="step-list">
-      <li><strong>Crie seu Prompt de Precifica&ccedil;&atilde;o:</strong> Abra o ChatGPT e digite: <em>&ldquo;Sou agrimensor no interior do RJ. Meu custo di&aacute;rio de equipe em campo &eacute; R$ [X] e no escrit&oacute;rio &eacute; R$ [Y]. Preciso or&ccedil;ar um georreferenciamento de [Z] hectares, relevo acidentado, a [W] km de dist&acirc;ncia. Calcule o custo estimado, adicione 30% de margem de lucro e redija uma proposta comercial profissional destacando a seguran&ccedil;a jur&iacute;dica do servi&ccedil;o e a obrigatoriedade da certifica&ccedil;&atilde;o para im&oacute;veis acima de 100 ha.&rdquo;</em></li>
-      <li><strong>Padronize a Apresenta&ccedil;&atilde;o:</strong> Use a resposta da IA para criar um modelo de proposta no Canva ou Word com a identidade visual da sua empresa. Inclua logo, descri&ccedil;&atilde;o do servi&ccedil;o, cronograma, valor e forma de pagamento.</li>
-      <li><strong>Responda R&aacute;pido:</strong> No pr&oacute;ximo pedido de or&ccedil;amento, use o modelo para enviar a proposta em menos de 1 hora. A velocidade de resposta &eacute; um dos maiores fatores de fechamento de contratos &mdash; o cliente que recebe a proposta primeiro tende a fechar com quem respondeu primeiro.</li>
-      <li><strong>Use a Decis&atilde;o Judicial a seu Favor:</strong> Com a certifica&ccedil;&atilde;o voltando a ser obrigat&oacute;ria para im&oacute;veis acima de 100 ha (decis&atilde;o de 14/05/2026), inclua em suas propostas um alerta sobre a obrigatoriedade legal e os riscos de n&atilde;o regularizar. Isso cria urg&ecirc;ncia e justifica a contrata&ccedil;&atilde;o imediata.</li>
-    </ul>
-    <p><em>Na pr&oacute;xima edi&ccedil;&atilde;o: Como usar drones e IA para levantamentos topogr&aacute;ficos mais r&aacute;pidos e lucrativos no interior do RJ.</em></p>
-  </div>
-
-  <!-- FILOSOFIA DO AGRIMENSOR -->
-  <div class="philosophy">
-    <p class="phil-label">&#9670; Filosofia do Agrimensor &#9670;</p>
-    <blockquote>&ldquo;O valor do seu trabalho n&atilde;o est&aacute; apenas na precis&atilde;o das coordenadas que voc&ecirc; coleta, mas na tranquilidade que voc&ecirc; entrega. A lei pode mudar, os decretos podem ser suspensos &mdash; mas a seguran&ccedil;a jur&iacute;dica que voc&ecirc; proporciona ao cliente &eacute; permanente. Cobre pelo valor da seguran&ccedil;a, n&atilde;o apenas pelo tempo da medi&ccedil;&atilde;o.&rdquo;</blockquote>
-    <cite>&mdash; Mapear Geo, Edi&ccedil;&atilde;o N.&ordm; 027</cite>
-  </div>
-
-  <footer class="footer">
-    <p class="footer-ornament">&#10022; &#10022; &#10022;</p>
-    <p>
-      <strong style="color:#a08040;">Jornal Mapear Geo</strong> &bull; Edi&ccedil;&atilde;o Bissemanal &bull; N.&ordm; 027 &bull; 15 de Maio de 2026<br />
-      Curadoria jornal&iacute;stica para agrimensores do interior do Rio de Janeiro.<br />
-      As not&iacute;cias s&atilde;o extra&iacute;das de fontes p&uacute;blicas e confi&aacute;veis. Os links direcionam para as fontes originais.<br />
-      Este jornal n&atilde;o substitui orienta&ccedil;&atilde;o jur&iacute;dica ou t&eacute;cnica especializada.
-    </p>
-    <p class="footer-ornament">&#9670; &#9670; &#9670;</p>
-  </footer>
 </div>
+
+<div class="container">
+  <hr class="divider" />
+
+  <div class="alert-box">
+    <h2>SIGEF em manutenção hoje (18/05) — CCIR 2026 disponível a partir de amanhã, 19 de maio</h2>
+    <p>
+      O INCRA programou manutenção no Sistema de Gestão Fundiária (SIGEF) para esta segunda-feira, 18 de maio, com previsão de retorno na terça-feira (19/05). Simultaneamente, a partir das 7h do dia 19 de maio, o Certificado de Cadastro de Imóvel Rural (CCIR) referente ao exercício de 2026 estará disponível para emissão no portal do INCRA. O documento é obrigatório para operações de compra, venda, financiamento, partilha e transferência de imóveis rurais. A taxa cadastral começa em R&nbsp;5,89. Proprietários rurais e agrimensores devem se preparar para atender à demanda imediata de emissão e atualização cadastral.
+    </p>
+    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/aviso-manutencao-programada-do-sigef-no-dia-18-05-2026" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <hr class="divider-gold" />
+
+  <p class="section-title">Notícias Relevantes da Semana</p>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; Georreferenciamento &amp; SIGEF</p>
+    <h2>Justiça Federal restabelece obrigatoriedade de georreferenciamento para imóveis acima de 100 hectares</h2>
+    <p>
+      A 3.ª Vara Federal Cível de São Luís (MA) suspendeu parcialmente os efeitos do Decreto n.º 12.689/2025, que havia prorrogado até 2029 a exigência de certificação no SIGEF/INCRA para todos os imóveis rurais. Com a decisão, volta a ser obrigatória, de forma imediata, a certificação do georreferenciamento para propriedades com área superior a 100 hectares em operações de compra, venda, desmembramento, financiamento e registro. A prorrogação até 2029 permanece válida apenas para imóveis com menos de 101 hectares. A decisão ainda cabe recurso, mas está em vigor até nova deliberação judicial.
+    </p>
+    <p class="news-source">Fonte: Vertice MT / IRIB — 14 de maio de 2026</p>
+    <a class="saiba-mais" href="https://verticemt.com.br/2026/05/14/justica-suspende-parcialmente-efeitos-do-decreto-no-12-689-2025-e-volta-a-exigir-certificacao-para-imoveis-acima-de-100-hectares/" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; CCIR &amp; Cadastro Rural</p>
+    <h2>CCIR 2026 disponível a partir de 19 de maio — obrigatório para transações imobiliárias rurais</h2>
+    <p>
+      O INCRA confirmou que o Certificado de Cadastro de Imóvel Rural (CCIR) do exercício de 2026 estará disponível para emissão a partir das 7h do dia 19 de maio, pelo portal oficial da autarquia. O documento é exigido para venda, financiamento, partilha, desmembramento e qualquer transferência de imóvel rural. Quem não quitar a taxa cadastral (a partir de R&nbsp;5,89) não poderá emitir o CCIR atualizado. Agrimensores do interior do RJ devem orientar seus clientes a regularizarem a situação cadastral antes de iniciar qualquer processo de georreferenciamento ou registro.
+    </p>
+    <p class="news-source">Fonte: INCRA Oficial — 14 de maio de 2026</p>
+    <a class="saiba-mais" href="https://www.instagram.com/p/DYVudzeseKj/" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; Crédito Rural &amp; CAR</p>
+    <h2>CMN aprova Resolução 5.303/2026 e reajusta prazos ambientais para concessão de crédito rural</h2>
+    <p>
+      O Conselho Monetário Nacional (CMN) publicou a Resolução n.º 5.303/2026, que reajusta os prazos de verificação ambiental para crédito rural. A exigência de conformidade com o PRODES/INPE passará a valer a partir de janeiro de 2027 para imóveis acima de 15 módulos fiscais; de julho de 2027 para imóveis entre 4 e 15 módulos; e de janeiro de 2028 para propriedades com até 4 módulos. Produtores que tiveram crédito recusado durante a vigência anterior da norma poderão reapresentar propostas. A medida reforça a importância do CAR atualizado como pré-requisito para financiamento rural.
+    </p>
+    <p class="news-source">Fonte: Ministério da Fazenda / CMN — 12 de maio de 2026</p>
+    <a class="saiba-mais" href="https://www.gov.br/fazenda/pt-br/canais_atendimento/imprensa/notas-do-cmn/2026/maio/cmn-ajusta-normas-referentes-a-impedimentos-sociais-ambientais-e-climaticos-para-a-concessao-de-credito-rural" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; INCRA &amp; Regularização Fundiária</p>
+    <h2>INCRA libera R$ 1 bilhão em crédito habitacional para famílias de assentamentos do PNRA</h2>
+    <p>
+      O INCRA iniciou, em 15 de maio, a liberação de R&nbsp;1 bilhão em Crédito Instalação nas modalidades Habitacional e Reforma Habitacional, via Caixa Econômica Federal, para famílias atendidas pelo Programa Nacional de Reforma Agrária (PNRA). O financiamento prevê até R&nbsp;107 mil para construção de novas moradias na região Norte e até R&nbsp;97,5 mil nas demais regiões. Os recursos incluem materiais, mão de obra e projetos técnicos — abrindo demanda direta para agrimensores e engenheiros que prestam serviços em assentamentos rurais.
+    </p>
+    <p class="news-source">Fonte: INCRA / Gov.br — 15 de maio de 2026</p>
+    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/incra-inicia-a-liberacao-de-r-1-bilhao-em-creditos-para-construcao-e-reformas-de-casas-para-familias-do-pnra-1" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; Registro de Imóveis &amp; Normas</p>
+    <h2>Provimento 18/2026-CGJ (RS) atualiza regras de georreferenciamento e certificação SIGEF para cartórios</h2>
+    <p>
+      O Tribunal de Justiça do Rio Grande do Sul publicou, em 12 de maio, o Provimento n.º 18/2026-CGJ, que altera a redação do artigo 804 e parágrafos da Consolidação Normativa Notarial e Registral (CNNR), atualizando as exigências de georreferenciamento e certificação do SIGEF para os cartórios de registro de imóveis gaúchos. A norma adequa os procedimentos registrais às recentes mudanças legislativas e à decisão judicial que restabeleceu a obrigatoriedade para imóveis acima de 100 hectares. Profissionais que atuam com registros imobiliários rurais devem acompanhar as atualizações dos provimentos estaduais.
+    </p>
+    <p class="news-source">Fonte: SINDIREGIS / Tabelionato Xangrila — 13 de maio de 2026</p>
+    <a class="saiba-mais" href="https://www.tabelionatoxangrila.com.br/noticias/2026/provimento-no-18-2026-cgj-altera-a-redacao-do-art.-804-que-trata-do-georreferenciamento-e-certificacao-do-sigef" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; Georreferenciamento &amp; Registro</p>
+    <h2>CNJ publica Recomendação 56/2026 — dispensa de anuência de confrontantes no georreferenciamento é consolidada</h2>
+    <p>
+      O Conselho Nacional de Justiça (CNJ) publicou a Recomendação n.º 56/2026, revogando a antiga Recomendação n.º 41/2019 e consolidando as hipóteses de dispensa da anuência de confrontantes nos processos de averbação de georreferenciamento e retificação de imóveis rurais. A norma organiza e atualiza o que já havia sido estabelecido pela legislação vigente, facilitando a tramitação de processos em cartório. Para agrimensores, a medida pode agilizar a conclusão de trabalhos em que a obtenção de assinaturas de vizinhos era um gargalo operacional.
+    </p>
+    <p class="news-source">Fonte: Conjur — 17 de maio de 2026</p>
+    <a class="saiba-mais" href="https://www.conjur.com.br/2026-mai-17/recomendacao-no-56-2026-e-a-dispensa-de-anuencia-de-confrontantes-no-georreferenciamento-e-retificacao-de-imoveis-rurais-na-atualidade/" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <div class="news-item">
+    <p class="cat-tag">&#9670; Tecnologia &amp; Eventos</p>
+    <h2>MundoGEO Connect 2026 (16–18/jun, SP) terá painel Geo + IA com Embrapa e Serviço Geográfico</h2>
+    <p>
+      A MundoGEO Connect 2026, maior evento de geotecnologias da América Latina, acontece de 16 a 18 de junho no Expo Center Norte, Pavilhão Azul, em São Paulo. A edição deste ano inclui um encontro especial sobre Geo e Inteligência Artificial no Serviço Geográfico, além de painel da Embrapa sobre agricultura digital. O evento reúne cursos, seminários, fóruns e exposição de soluções em drones, sensoriamento remoto, mapeamento, GNSS e geoprocessamento. Inscrições abertas para profissionais, estudantes e empresas do setor.
+    </p>
+    <p class="news-source">Fonte: MundoGEO / Canal Rural — 13–15 de maio de 2026</p>
+    <a class="saiba-mais" href="https://mundogeoconnect.com/2026/" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
+
+  <hr class="divider-gold" />
+
+  <p class="section-title">Assessoria de Crescimento</p>
+
+  <div class="assessoria-box">
+    <p class="assessoria-label">&#9670; Edição 028 — Tecnologia &amp; Produtividade</p>
+    <h2>QGIS com IA: como o agrimensor do interior pode trabalhar como uma grande empresa de geoprocessamento</h2>
+    <p>
+      O QGIS deixou de ser apenas um software de visualização de mapas. Com os plugins certos e a integração com ferramentas de Inteligência Artificial, ele se tornou uma plataforma completa de análise geoespacial — capaz de automatizar tarefas que antes levavam horas, reduzir erros de interpretação e gerar produtos técnicos de alto valor agregado. Para o agrimensor do interior do Rio de Janeiro, dominar esse ecossistema representa uma vantagem competitiva real frente a concorrentes que ainda operam de forma manual.
+    </p>
+    <h3>Por que QGIS + IA é a combinação do momento?</h3>
+    <p>
+      O QGIS é gratuito, open-source e amplamente aceito por órgãos públicos, cartórios e clientes rurais. Quando combinado com plugins de IA e automação, ele permite que um único profissional execute análises que antes exigiam uma equipe técnica especializada. A curva de aprendizado é acessível, e o retorno financeiro é imediato.
+    </p>
+    <h3>Plugins e ferramentas essenciais para começar hoje</h3>
+    <ul>
+      <li><strong>Semi-Automatic Classification Plugin (SCP):</strong> classifica imagens de satélite automaticamente, identificando uso do solo, vegetação nativa e APP com precisão. Fundamental para laudos de CAR e análise ambiental.</li>
+      <li><strong>QGIS Model Designer + PyQGIS:</strong> permite criar fluxos de trabalho automatizados que executam sequências de análise com um único clique — ideal para processar lotes de imóveis rurais.</li>
+      <li><strong>Orfeo Toolbox (OTB):</strong> integrado ao QGIS, processa imagens de alta resolução com algoritmos de machine learning para detecção de feições, estradas, construções e limites de propriedades.</li>
+      <li><strong>WhiteboxTools:</strong> análise hidrológica avançada (bacias, drenagens, declividade) integrada ao QGIS — essencial para laudos de APP de cursos d'água e reservatórios.</li>
+      <li><strong>ChatGPT + QGIS via API:</strong> é possível usar o ChatGPT para gerar scripts PyQGIS sob demanda, automatizando tarefas personalizadas sem precisar saber programar do zero.</li>
+    </ul>
+    <h3>Caso prático: análise de CAR em 3 horas</h3>
+    <p>
+      Um agrimensor no interior do RJ recebeu a demanda de verificar a conformidade ambiental de 12 imóveis rurais para um escritório de advocacia. Usando o SCP com imagens Sentinel-2 (gratuitas) e o Model Designer do QGIS, ele criou um modelo automatizado que baixou as imagens, classificou o uso do solo, sobrepôs os polígonos do CAR e gerou um relatório de inconsistências para cada imóvel. O trabalho que levaria dois dias foi concluído em menos de 3 horas — com relatório em PDF pronto para entrega.
+    </p>
+    <h3>Como a IA potencializa o QGIS além dos plugins</h3>
+    <p>
+      Ferramentas como o <strong>Google Earth Engine</strong> (com interface no QGIS via plugin GEE) permitem processar séries temporais de imagens de satélite para detectar mudanças na cobertura vegetal — útil para laudos de desmatamento e análise de PRODES. O <strong>Copernicus Browser</strong> oferece imagens gratuitas de alta resolução que podem ser diretamente importadas. E o <strong>ChatGPT</strong> pode ser usado para interpretar resultados de análises, redigir laudos técnicos e até sugerir a metodologia mais adequada para cada tipo de imóvel.
+    </p>
+    <div class="dica-box">
+      <p><strong>&#9654; Dica de ação imediata:</strong> Instale o plugin <em>Semi-Automatic Classification Plugin</em> no QGIS esta semana. Baixe uma imagem Sentinel-2 gratuita da sua região no Copernicus Browser e faça uma classificação de uso do solo de um imóvel rural que você já conhece. Compare o resultado com o CAR registrado. Você vai se surpreender com o que pode identificar — e com o quanto isso vale como serviço adicional para seus clientes.</p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="reflexao-box">
+    <p class="reflexao-label">&#9670; Reflexão do Dia</p>
+    <blockquote>
+      "A terra não pertence a nós — nós pertencemos à terra. Mas é o agrimensor quem lhe dá nome, limite e história."
+    </blockquote>
+    <cite>— Adaptado de Chief Seattle, com reverência ao trabalho técnico do agrimensor</cite>
+  </div>
+
+  <div class="footer">
+    <p class="footer-title">Jornal Mapear Geo</p>
+    <p>
+      Publicação bissemanal para profissionais de agrimensura, topografia e georreferenciamento.<br />
+      Interior do Rio de Janeiro — Brasil<br />
+      <a href="https://bicudodelison-beep.github.io/jornal-mapear-geo/" target="_blank" rel="noopener">bicudodelison-beep.github.io/jornal-mapear-geo</a>
+    </p>
+    <hr class="divider" style="margin: 14px 0;" />
+    <p>
+      Edição N.º 028 &bull; Segunda-feira, 19 de maio de 2026<br />
+      As informações publicadas têm caráter informativo. Consulte sempre um profissional habilitado para decisões técnicas e jurídicas.<br />
+      &copy; 2026 Jornal Mapear Geo — Todos os direitos reservados.
+    </p>
+  </div>
+
+</div>
+
+<button id="install-btn">&#8659; Instalar App</button>
 
 <!-- Firebase / FCM Scripts -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js";
-
   const firebaseConfig = {
     apiKey: "AIzaSyBvQ2HvNMHJRLnDFIkMvwEGkXqhPNKyBGc",
     authDomain: "mapear-geo.firebaseapp.com",
@@ -496,10 +250,8 @@
     messagingSenderId: "123456789012",
     appId: "1:123456789012:web:abcdef1234567890"
   };
-
   const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
-
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/jornal-mapear-geo/firebase-messaging-sw.js')
       .then(registration => {
@@ -517,11 +269,10 @@
         }).catch(() => {});
       }).catch(() => {});
   }
-
   onMessage(messaging, payload => {
     if (payload.notification) {
       new Notification(payload.notification.title || 'Jornal Mapear Geo', {
-        body: payload.notification.body || 'Nova edi\u00e7\u00e3o dispon\u00edvel!',
+        body: payload.notification.body || 'Nova edição disponível!',
         icon: '/jornal-mapear-geo/icon-192.png'
       });
     }
