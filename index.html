@@ -3,240 +3,413 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#1a1a1a" />
   <link rel="manifest" href="/jornal-mapear-geo/manifest.json" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Mapear Geo" />
+  <link rel="apple-touch-icon" href="/jornal-mapear-geo/icon-192.png" />
   <meta name="description" content="Jornal digital para agrimensores: notícias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regularização fundiária e tecnologia." />
-  <title>Jornal Mapear Geo — Edição N.º 028</title>
+  <title>Jornal Mapear Geo — Edição N.º 029</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: #1a1a1a;
       color: #e8dcc8;
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 16px;
-      line-height: 1.7;
-      padding: 0 0 40px 0;
+      font-size: 15px;
+      line-height: 1.65;
     }
-    .container { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 0 40px;
+    }
+    /* CABEÇALHO */
     .header {
       background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
       border-bottom: 3px double #d4af37;
-      padding: 28px 16px 20px;
+      padding: 22px 18px 16px;
       text-align: center;
     }
-    .header-top-line { font-size: 10px; letter-spacing: 3px; color: #d4af37; text-transform: uppercase; margin-bottom: 6px; }
-    .header h1 { font-size: 2.2rem; color: #d4af37; letter-spacing: 2px; text-transform: uppercase; line-height: 1.15; text-shadow: 0 0 18px rgba(212,175,55,0.35); }
-    .header-subtitle { font-size: 11px; color: #b8a87a; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
-    .header-meta { margin-top: 14px; display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; font-size: 11px; color: #a09070; letter-spacing: 1px; }
-    .header-meta span { border: 1px solid #3a3020; padding: 3px 10px; border-radius: 2px; }
-    .header-edition { margin-top: 12px; font-size: 13px; color: #d4af37; font-style: italic; }
-    .divider { border: none; border-top: 1px solid #3a3020; margin: 20px 0; }
-    .divider-gold { border: none; border-top: 2px solid #d4af37; margin: 24px 0; }
-    .alert-box {
-      background: linear-gradient(135deg, #1f1800 0%, #2a2000 100%);
-      border: 2px solid #d4af37; border-radius: 4px; padding: 18px 20px; margin: 20px 0; position: relative;
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: #8a7a5a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .alert-box::before { content: "⚠ ALERTA ESPECIAL"; display: block; font-size: 10px; letter-spacing: 3px; color: #d4af37; text-transform: uppercase; margin-bottom: 10px; font-family: Georgia, serif; }
-    .alert-box h2 { font-size: 1.15rem; color: #f0d060; margin-bottom: 10px; line-height: 1.4; }
-    .alert-box p { font-size: 0.92rem; color: #d4c89a; line-height: 1.65; }
-    .alert-box .saiba-mais { display: inline-block; margin-top: 12px; background: #d4af37; color: #1a1a1a; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 16px; border-radius: 2px; text-decoration: none; font-family: Georgia, serif; }
-    .alert-box .saiba-mais:hover { background: #f0d060; }
-    .section-title { font-size: 10px; letter-spacing: 4px; color: #d4af37; text-transform: uppercase; text-align: center; margin: 28px 0 16px; }
-    .section-title::before, .section-title::after { content: "◆"; margin: 0 10px; font-size: 8px; vertical-align: middle; }
-    .news-item { border-bottom: 1px solid #2e2820; padding: 18px 0; }
-    .news-item:last-child { border-bottom: none; }
-    .cat-tag { font-size: 10px; letter-spacing: 2px; color: #d4af37; text-transform: uppercase; margin-bottom: 6px; }
-    .news-item h2 { font-size: 1.08rem; color: #e8dcc8; margin-bottom: 8px; line-height: 1.45; }
-    .news-item p { font-size: 0.9rem; color: #b8a87a; line-height: 1.65; margin-bottom: 10px; }
-    .news-source { font-size: 10px; color: #7a6a50; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-    .saiba-mais { display: inline-block; background: transparent; border: 1px solid #d4af37; color: #d4af37; font-size: 10px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; text-decoration: none; font-family: Georgia, serif; transition: background 0.2s, color 0.2s; }
-    .saiba-mais:hover { background: #d4af37; color: #1a1a1a; }
-    .assessoria-box { background: linear-gradient(135deg, #111800 0%, #1a2200 100%); border: 1px solid #4a6020; border-left: 4px solid #8ab020; border-radius: 4px; padding: 22px 20px; margin: 20px 0; }
+    .header h1 {
+      font-size: 2rem;
+      color: #d4af37;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px rgba(212,175,55,0.35);
+      line-height: 1.15;
+    }
+    .header .subtitle {
+      font-size: 0.72rem;
+      color: #a08050;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .header-divider {
+      border: none;
+      border-top: 1px solid #3a3020;
+      margin: 10px 0;
+    }
+    .header-meta {
+      font-size: 0.75rem;
+      color: #8a7a5a;
+      letter-spacing: 1px;
+    }
+    /* ALERTA ESPECIAL */
+    .alerta-box {
+      background: linear-gradient(135deg, #1e1200 0%, #2a1800 100%);
+      border: 2px solid #d4af37;
+      border-radius: 4px;
+      margin: 18px 14px;
+      padding: 16px 18px;
+    }
+    .alerta-tag {
+      display: inline-block;
+      background: #d4af37;
+      color: #1a1a1a;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+    .alerta-box h2 {
+      font-size: 1.05rem;
+      color: #f0d060;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+    .alerta-box p {
+      font-size: 0.88rem;
+      color: #c8b890;
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+    .alerta-fonte {
+      font-size: 0.75rem;
+      color: #8a7a5a;
+      font-style: italic;
+    }
+    .saiba-mais {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 18px;
+      background: transparent;
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .saiba-mais:hover { background: rgba(212,175,55,0.12); }
+    /* SEÇÃO DE NOTÍCIAS */
+    .section-header {
+      padding: 10px 14px 4px;
+      border-bottom: 2px solid #3a3020;
+      margin: 18px 14px 0;
+    }
+    .section-title {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      color: #d4af37;
+      text-transform: uppercase;
+    }
+    /* CARD DE NOTÍCIA */
+    .noticia-card {
+      margin: 0 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #2a2010;
+    }
+    .noticia-card:last-child { border-bottom: none; }
+    .noticia-tag {
+      display: inline-block;
+      background: #2a2010;
+      color: #d4af37;
+      font-size: 8.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      margin-bottom: 7px;
+    }
+    .noticia-card h3 {
+      font-size: 1rem;
+      color: #e8dcc8;
+      line-height: 1.45;
+      margin-bottom: 7px;
+    }
+    .noticia-card p {
+      font-size: 0.875rem;
+      color: #b0a080;
+      line-height: 1.65;
+      margin-bottom: 7px;
+    }
+    .noticia-fonte {
+      font-size: 0.72rem;
+      color: #7a6a4a;
+      font-style: italic;
+    }
+    /* ASSESSORIA DE CRESCIMENTO */
+    .assessoria-box {
+      background: linear-gradient(135deg, #0d1a0d 0%, #0a1a10 100%);
+      border: 2px solid #6a9020;
+      border-radius: 4px;
+      margin: 18px 14px;
+      padding: 18px 18px;
+    }
     .assessoria-box .assessoria-label { font-size: 10px; letter-spacing: 3px; color: #8ab020; text-transform: uppercase; margin-bottom: 10px; }
     .assessoria-box h2 { font-size: 1.15rem; color: #c8e060; margin-bottom: 12px; line-height: 1.4; }
     .assessoria-box h3 { font-size: 0.95rem; color: #a0c040; margin: 16px 0 6px; letter-spacing: 0.5px; }
     .assessoria-box p { font-size: 0.9rem; color: #c0c8a0; line-height: 1.7; margin-bottom: 10px; }
     .assessoria-box ul { padding-left: 18px; margin-bottom: 10px; }
     .assessoria-box ul li { font-size: 0.9rem; color: #c0c8a0; line-height: 1.65; margin-bottom: 4px; }
-    .dica-box { background: #0d1500; border: 1px dashed #6a9010; border-radius: 3px; padding: 12px 16px; margin-top: 14px; }
-    .dica-box p { font-size: 0.88rem; color: #a8c060; margin: 0; }
-    .dica-box strong { color: #c8e060; }
-    .reflexao-box { background: #111111; border-top: 1px solid #3a3020; border-bottom: 1px solid #3a3020; padding: 20px; margin: 24px 0; text-align: center; }
-    .reflexao-box .reflexao-label { font-size: 10px; letter-spacing: 3px; color: #a09070; text-transform: uppercase; margin-bottom: 10px; }
-    .reflexao-box blockquote { font-size: 1rem; color: #d4c89a; font-style: italic; line-height: 1.7; border: none; padding: 0; margin: 0 0 8px 0; }
-    .reflexao-box cite { font-size: 11px; color: #7a6a50; letter-spacing: 1px; }
-    .footer { background: #0d0d0d; border-top: 2px solid #d4af37; padding: 22px 16px; text-align: center; margin-top: 30px; }
-    .footer p { font-size: 11px; color: #6a5a40; line-height: 1.8; letter-spacing: 0.5px; }
+    .assessoria-box .dica-box {
+      background: rgba(106,144,32,0.12);
+      border-left: 3px solid #8ab020;
+      padding: 10px 14px;
+      margin-top: 14px;
+      font-size: 0.875rem;
+      color: #b0c870;
+      line-height: 1.6;
+    }
+    /* REFLEXÃO DO DIA */
+    .reflexao-box {
+      background: #111;
+      border-top: 1px solid #3a3020;
+      border-bottom: 1px solid #3a3020;
+      margin: 18px 14px;
+      padding: 16px 18px;
+      text-align: center;
+    }
+    .reflexao-box .reflexao-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: #6a5a3a;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .reflexao-box blockquote {
+      font-size: 0.95rem;
+      color: #c8b890;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .reflexao-box cite {
+      display: block;
+      font-size: 0.75rem;
+      color: #8a7a5a;
+      margin-top: 8px;
+      font-style: normal;
+      letter-spacing: 1px;
+    }
+    /* RODAPÉ */
+    .footer {
+      background: #0d0d0d;
+      border-top: 3px double #d4af37;
+      padding: 18px 18px;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #6a5a3a;
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
     .footer a { color: #d4af37; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    .footer .footer-title { font-size: 14px; color: #d4af37; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-    #install-btn { display: none; position: fixed; bottom: 20px; right: 16px; background: #d4af37; color: #1a1a1a; font-size: 12px; font-weight: bold; letter-spacing: 1px; padding: 10px 18px; border-radius: 3px; border: none; cursor: pointer; font-family: Georgia, serif; box-shadow: 0 4px 16px rgba(0,0,0,0.5); z-index: 999; }
-    @media (max-width: 480px) { .header h1 { font-size: 1.7rem; } .header-meta { gap: 8px; } }
+    .footer .footer-divider { border: none; border-top: 1px solid #2a2010; margin: 10px 0; }
+    @media (max-width: 480px) {
+      .header h1 { font-size: 1.6rem; }
+      .header-top { font-size: 9px; }
+    }
   </style>
 </head>
 <body>
-<div class="header">
-  <div class="container">
-    <p class="header-top-line">Informação técnica para o agrimensor empreendedor</p>
-    <h1>Jornal Mapear Geo</h1>
-    <p class="header-subtitle">Agrimensura &bull; Georreferenciamento &bull; Regularização Fundiária</p>
-    <div class="header-meta">
-      <span>Segunda-feira, 19 de maio de 2026</span>
-      <span>Edição N.º 028</span>
-      <span>Bissemanal</span>
-    </div>
-    <p class="header-edition">Interior do Rio de Janeiro — Brasil</p>
-  </div>
-</div>
-
 <div class="container">
-  <hr class="divider" />
 
-  <div class="alert-box">
-    <h2>SIGEF em manutenção hoje (18/05) — CCIR 2026 disponível a partir de amanhã, 19 de maio</h2>
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-top">
+      <span>Agrimensura &amp; Tecnologia</span>
+      <span>Edição N.º 029</span>
+      <span>Interior do Rio de Janeiro</span>
+    </div>
+    <h1>Jornal Mapear Geo</h1>
+    <p class="subtitle">O Informativo do Agrimensor Profissional</p>
+    <hr class="header-divider" />
+    <p class="header-meta">Sexta-feira, 22 de maio de 2026 &nbsp;|&nbsp; Publicação Bissemanal &nbsp;|&nbsp; Edição N.º 029</p>
+  </header>
+
+  <!-- ALERTA ESPECIAL -->
+  <div class="alerta-box">
+    <span class="alerta-tag">&#9888; Alerta Especial</span>
+    <h2>Câmara aprova projeto que proíbe embargo ambiental por satélite — impacto direto no crédito rural e na demanda por vistoria técnica</h2>
     <p>
-      O INCRA programou manutenção no Sistema de Gestão Fundiária (SIGEF) para esta segunda-feira, 18 de maio, com previsão de retorno na terça-feira (19/05). Simultaneamente, a partir das 7h do dia 19 de maio, o Certificado de Cadastro de Imóvel Rural (CCIR) referente ao exercício de 2026 estará disponível para emissão no portal do INCRA. O documento é obrigatório para operações de compra, venda, financiamento, partilha e transferência de imóveis rurais. A taxa cadastral começa em R&nbsp;5,89. Proprietários rurais e agrimensores devem se preparar para atender à demanda imediata de emissão e atualização cadastral.
+      Na quarta-feira, 20 de maio, a Câmara dos Deputados aprovou o PL 2564/2025, que veda embargos ambientais baseados exclusivamente em imagens de satélite (como o Prodes/INPE), exigindo notificação prévia e contraditório antes de qualquer medida cautelar. O texto, aprovado no chamado "Dia do Agro", segue para o Senado. O Ministério do Meio Ambiente classificou o pacote como "retrocesso inimaginável", enquanto a bancada ruralista defende que a medida garante ampla defesa ao produtor rural.
     </p>
-    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/aviso-manutencao-programada-do-sigef-no-dia-18-05-2026" target="_blank" rel="noopener">Saiba mais</a>
+    <p>
+      Para o agrimensor, a mudança é estratégica: produtores com áreas embargadas por detecção remota poderão ter restrições de crédito rural suspensas, gerando nova demanda por laudos técnicos de vistoria in loco e georreferenciamento para comprovação de conformidade ambiental. Fique atento às movimentações no Senado.
+    </p>
+    <span class="alerta-fonte">Fonte: Estadão / Câmara dos Deputados — 21/05/2026</span><br />
+    <a class="saiba-mais" href="https://www.estadao.com.br/economia/agronegocios/camara-aprovacao-projetos-dia-do-agro/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <hr class="divider-gold" />
-
-  <p class="section-title">Notícias Relevantes da Semana</p>
-
-  <div class="news-item">
-    <p class="cat-tag">&#9670; Georreferenciamento &amp; SIGEF</p>
-    <h2>Justiça Federal restabelece obrigatoriedade de georreferenciamento para imóveis acima de 100 hectares</h2>
-    <p>
-      A 3.ª Vara Federal Cível de São Luís (MA) suspendeu parcialmente os efeitos do Decreto n.º 12.689/2025, que havia prorrogado até 2029 a exigência de certificação no SIGEF/INCRA para todos os imóveis rurais. Com a decisão, volta a ser obrigatória, de forma imediata, a certificação do georreferenciamento para propriedades com área superior a 100 hectares em operações de compra, venda, desmembramento, financiamento e registro. A prorrogação até 2029 permanece válida apenas para imóveis com menos de 101 hectares. A decisão ainda cabe recurso, mas está em vigor até nova deliberação judicial.
-    </p>
-    <p class="news-source">Fonte: Vertice MT / IRIB — 14 de maio de 2026</p>
-    <a class="saiba-mais" href="https://verticemt.com.br/2026/05/14/justica-suspende-parcialmente-efeitos-do-decreto-no-12-689-2025-e-volta-a-exigir-certificacao-para-imoveis-acima-de-100-hectares/" target="_blank" rel="noopener">Saiba mais</a>
+  <!-- NOTÍCIAS -->
+  <div class="section-header">
+    <p class="section-title">Notícias Relevantes da Semana</p>
   </div>
 
-  <div class="news-item">
-    <p class="cat-tag">&#9670; CCIR &amp; Cadastro Rural</p>
-    <h2>CCIR 2026 disponível a partir de 19 de maio — obrigatório para transações imobiliárias rurais</h2>
+  <!-- Notícia 1 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">Georreferenciamento</span>
+    <h3>Segunda liminar reforça obrigatoriedade do georreferenciamento para imóveis acima de 100 ha</h3>
     <p>
-      O INCRA confirmou que o Certificado de Cadastro de Imóvel Rural (CCIR) do exercício de 2026 estará disponível para emissão a partir das 7h do dia 19 de maio, pelo portal oficial da autarquia. O documento é exigido para venda, financiamento, partilha, desmembramento e qualquer transferência de imóvel rural. Quem não quitar a taxa cadastral (a partir de R&nbsp;5,89) não poderá emitir o CCIR atualizado. Agrimensores do interior do RJ devem orientar seus clientes a regularizarem a situação cadastral antes de iniciar qualquer processo de georreferenciamento ou registro.
+      Uma nova decisão da Justiça Federal do Maranhão (Ação Popular nº 108697-47.2025.4.01.3700) suspendeu parcialmente o Decreto nº 12.689/2025, restabelecendo a exigência de certificação no SIGEF/INCRA para imóveis rurais com área superior a 100 hectares, cujos prazos já estavam vencidos antes do decreto. Para imóveis abaixo de 101 ha, o prazo de 2029 continua válido. A decisão é liminar, mas já gera efeitos imediatos no mercado: proprietários de grandes fazendas precisam regularizar a certificação para realizar transações imobiliárias.
     </p>
-    <p class="news-source">Fonte: INCRA Oficial — 14 de maio de 2026</p>
-    <a class="saiba-mais" href="https://www.instagram.com/p/DYVudzeseKj/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-fonte">Fonte: ECO NEWS / Ação Popular nº 108697-47.2025.4.01.3700 — 18/05/2026</span><br />
+    <a class="saiba-mais" href="https://econews.com.br/o-georreferenciamento-voltou-a-ser-obrigatorio-entenda-as-mudancas-que-ocorreram-no-1-semestre-de-2026/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="news-item">
-    <p class="cat-tag">&#9670; Crédito Rural &amp; CAR</p>
-    <h2>CMN aprova Resolução 5.303/2026 e reajusta prazos ambientais para concessão de crédito rural</h2>
+  <!-- Notícia 2 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">CCIR 2026</span>
+    <h3>CCIR 2026 disponível desde 19/05 — prazo para pagamento da taxa vai até 16 de junho</h3>
     <p>
-      O Conselho Monetário Nacional (CMN) publicou a Resolução n.º 5.303/2026, que reajusta os prazos de verificação ambiental para crédito rural. A exigência de conformidade com o PRODES/INPE passará a valer a partir de janeiro de 2027 para imóveis acima de 15 módulos fiscais; de julho de 2027 para imóveis entre 4 e 15 módulos; e de janeiro de 2028 para propriedades com até 4 módulos. Produtores que tiveram crédito recusado durante a vigência anterior da norma poderão reapresentar propostas. A medida reforça a importância do CAR atualizado como pré-requisito para financiamento rural.
+      O Certificado de Cadastro de Imóvel Rural (CCIR) 2026 foi liberado pelo INCRA em 19 de maio, podendo ser emitido pelo portal sncr.serpro.gov.br/ccir/emissao ou via conta gov.br. O pagamento da Taxa de Serviços Cadastrais é obrigatório até 16 de junho de 2026, com multa e juros em caso de atraso. O valor mínimo é de R$ 5,89. Atenção: o CCIR não é enviado por Correios, e-mail ou WhatsApp — golpistas estão explorando o período de emissão com boletos falsos. Oriente seus clientes a acessar apenas os canais oficiais do INCRA.
     </p>
-    <p class="news-source">Fonte: Ministério da Fazenda / CMN — 12 de maio de 2026</p>
-    <a class="saiba-mais" href="https://www.gov.br/fazenda/pt-br/canais_atendimento/imprensa/notas-do-cmn/2026/maio/cmn-ajusta-normas-referentes-a-impedimentos-sociais-ambientais-e-climaticos-para-a-concessao-de-credito-rural" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-fonte">Fonte: INCRA / Anoreg-PR — 19–20/05/2026</span><br />
+    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/emissao-do-ccir-2026-sera-liberada-nesta-terca-feira-19-de-maio" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="news-item">
-    <p class="cat-tag">&#9670; INCRA &amp; Regularização Fundiária</p>
-    <h2>INCRA libera R$ 1 bilhão em crédito habitacional para famílias de assentamentos do PNRA</h2>
+  <!-- Notícia 3 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">Regularização Fundiária</span>
+    <h3>Programa Terra Cidadã do INCRA atinge 1.573 manifestações e 138 unidades ativas em 14 estados</h3>
     <p>
-      O INCRA iniciou, em 15 de maio, a liberação de R&nbsp;1 bilhão em Crédito Instalação nas modalidades Habitacional e Reforma Habitacional, via Caixa Econômica Federal, para famílias atendidas pelo Programa Nacional de Reforma Agrária (PNRA). O financiamento prevê até R&nbsp;107 mil para construção de novas moradias na região Norte e até R&nbsp;97,5 mil nas demais regiões. Os recursos incluem materiais, mão de obra e projetos técnicos — abrindo demanda direta para agrimensores e engenheiros que prestam serviços em assentamentos rurais.
+      O programa Terra Cidadã, criado em novembro de 2024, atingiu 1.573 manifestações de interesse em todo o Brasil, com 566 acordos formalizados e 138 unidades em pleno funcionamento. O Paraná lidera com 133 acordos, seguido por Minas Gerais (111) e Rio Grande do Sul (66). O programa oferece 42 tipos de serviços do INCRA — incluindo cadastro rural, regularização fundiária e apoio a assentamentos — por meio de parcerias com municípios, estados e organizações da sociedade civil. Para agrimensores, o programa representa oportunidade de prestação de serviços técnicos junto às unidades parceiras.
     </p>
-    <p class="news-source">Fonte: INCRA / Gov.br — 15 de maio de 2026</p>
-    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/incra-inicia-a-liberacao-de-r-1-bilhao-em-creditos-para-construcao-e-reformas-de-casas-para-familias-do-pnra-1" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-fonte">Fonte: INCRA / Cartório Kollet — 15/05/2026</span><br />
+    <a class="saiba-mais" href="https://www.cartoriokollet.com.br/noticias/2026/programa-terra-cidada-amplia-adesoes-em-todo-o-brasil" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="news-item">
-    <p class="cat-tag">&#9670; Registro de Imóveis &amp; Normas</p>
-    <h2>Provimento 18/2026-CGJ (RS) atualiza regras de georreferenciamento e certificação SIGEF para cartórios</h2>
+  <!-- Notícia 4 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">INCRA / Reforma Agrária</span>
+    <h3>INCRA entrega títulos, moradias e R$ 2,5 milhões em crédito a assentados no Tocantins</h3>
     <p>
-      O Tribunal de Justiça do Rio Grande do Sul publicou, em 12 de maio, o Provimento n.º 18/2026-CGJ, que altera a redação do artigo 804 e parágrafos da Consolidação Normativa Notarial e Registral (CNNR), atualizando as exigências de georreferenciamento e certificação do SIGEF para os cartórios de registro de imóveis gaúchos. A norma adequa os procedimentos registrais às recentes mudanças legislativas e à decisão judicial que restabeleceu a obrigatoriedade para imóveis acima de 100 hectares. Profissionais que atuam com registros imobiliários rurais devem acompanhar as atualizações dos provimentos estaduais.
+      Entre os dias 20 e 22 de maio, o INCRA no Tocantins realiza agenda de entregas em Juarina e Couto Magalhães: títulos de domínio definitivos para famílias do PA Vale do Barreira, inauguração de casas no PA Vale do Paraíso e liberação de R$ 2,5 milhões em créditos produtivos para assentados da região. Na semana anterior, cerca de 140 títulos foram entregues no extremo Norte do estado. As ações reforçam a regularização fundiária como política pública ativa e abrem demanda para agrimensores que prestam serviços em assentamentos.
     </p>
-    <p class="news-source">Fonte: SINDIREGIS / Tabelionato Xangrila — 13 de maio de 2026</p>
-    <a class="saiba-mais" href="https://www.tabelionatoxangrila.com.br/noticias/2026/provimento-no-18-2026-cgj-altera-a-redacao-do-art.-804-que-trata-do-georreferenciamento-e-certificacao-do-sigef" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-fonte">Fonte: INCRA/TO — 18/05/2026</span><br />
+    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/incra-leva-regularizacao-fundiaria-moradia-e-r-2-5-milhoes-em-credito-a-assentados-no-tocantins" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="news-item">
-    <p class="cat-tag">&#9670; Georreferenciamento &amp; Registro</p>
-    <h2>CNJ publica Recomendação 56/2026 — dispensa de anuência de confrontantes no georreferenciamento é consolidada</h2>
+  <!-- Notícia 5 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">Legislação / CNA</span>
+    <h3>CNA debate regularização fundiária e alterações no Código Florestal na Agrotins 2026</h3>
     <p>
-      O Conselho Nacional de Justiça (CNJ) publicou a Recomendação n.º 56/2026, revogando a antiga Recomendação n.º 41/2019 e consolidando as hipóteses de dispensa da anuência de confrontantes nos processos de averbação de georreferenciamento e retificação de imóveis rurais. A norma organiza e atualiza o que já havia sido estabelecido pela legislação vigente, facilitando a tramitação de processos em cartório. Para agrimensores, a medida pode agilizar a conclusão de trabalhos em que a obtenção de assinaturas de vizinhos era um gargalo operacional.
+      A Comissão de Desenvolvimento da Região Norte da CNA reuniu presidentes de federações do Tocantins, Amazonas e Rondônia na Agrotins (Palmas/TO) para debater regularização fundiária, o programa Terra Cidadã e o PL 1131/2026, que propõe alterações no Código Florestal para produtores da Amazônia. Também foi discutida a transferência de terras da União ao Tocantins (PL 1199/2023). As deliberações devem influenciar a agenda legislativa do segundo semestre de 2026 e o mercado de regularização fundiária em todo o país.
     </p>
-    <p class="news-source">Fonte: Conjur — 17 de maio de 2026</p>
-    <a class="saiba-mais" href="https://www.conjur.com.br/2026-mai-17/recomendacao-no-56-2026-e-a-dispensa-de-anuencia-de-confrontantes-no-georreferenciamento-e-retificacao-de-imoveis-rurais-na-atualidade/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-fonte">Fonte: CNA Brasil — 19/05/2026</span><br />
+    <a class="saiba-mais" href="https://cnabrasil.org.br/noticias/cna-debate-regularizacao-fundiaria-e-legislacao-ambiental-na-agrotins" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <div class="news-item">
-    <p class="cat-tag">&#9670; Tecnologia &amp; Eventos</p>
-    <h2>MundoGEO Connect 2026 (16–18/jun, SP) terá painel Geo + IA com Embrapa e Serviço Geográfico</h2>
+  <!-- Notícia 6 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">Registro de Imóveis</span>
+    <h3>INCRA abre editais de apuração de abandono de lotes em assentamentos do Médio São Francisco (BA)</h3>
     <p>
-      A MundoGEO Connect 2026, maior evento de geotecnologias da América Latina, acontece de 16 a 18 de junho no Expo Center Norte, Pavilhão Azul, em São Paulo. A edição deste ano inclui um encontro especial sobre Geo e Inteligência Artificial no Serviço Geográfico, além de painel da Embrapa sobre agricultura digital. O evento reúne cursos, seminários, fóruns e exposição de soluções em drones, sensoriamento remoto, mapeamento, GNSS e geoprocessamento. Inscrições abertas para profissionais, estudantes e empresas do setor.
+      O INCRA publicou os Editais nº 673, 674 e 675/2026 para apurar indícios de abandono de lotes nos assentamentos Barra, Riacho Grande e Guimarães, na Bahia. A iniciativa integra as ações de gestão e regularização fundiária nos assentamentos do Médio São Francisco. Beneficiários que não regularizarem sua situação poderão perder o direito ao lote. O prazo para regularização foi prorrogado até 22 de maio de 2026, reforçando a importância do acompanhamento técnico ativo nos assentamentos.
     </p>
-    <p class="news-source">Fonte: MundoGEO / Canal Rural — 13–15 de maio de 2026</p>
-    <a class="saiba-mais" href="https://mundogeoconnect.com/2026/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-fonte">Fonte: INCRA / Médio São Francisco — 19/05/2026</span><br />
+    <a class="saiba-mais" href="https://www.gov.br/incra/pt-br/assuntos/noticias/beneficiarios-devem-regularizar-situacao-em-assentamentos-do-medio-sao-francisco" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <hr class="divider-gold" />
+  <!-- Notícia 7 -->
+  <div class="noticia-card">
+    <span class="noticia-tag">Topografia / Eventos</span>
+    <h3>II Agrimensura em Foco reúne profissionais no IFG — Câmpus Goiânia com foco em GNSS e regularização</h3>
+    <p>
+      O evento II Agrimensura em Foco aconteceu nos dias 19 e 20 de maio de 2026 no IFG — Câmpus Goiânia, reunindo profissionais, estudantes e pesquisadores da área. O encontro abordou temas como georreferenciamento, GNSS, topografia 3D e regularização fundiária, com palestras técnicas e apresentação de ferramentas inovadoras. Eventos como esse reforçam a importância da atualização técnica contínua para agrimensores que atuam em um mercado cada vez mais exigente e tecnológico.
+    </p>
+    <span class="noticia-fonte">Fonte: IFG / Instagram @agrimensuraemfoco — 19/05/2026</span><br />
+    <a class="saiba-mais" href="https://www.instagram.com/reel/DYfx_ddCgWd/" target="_blank" rel="noopener">Saiba mais</a>
+  </div>
 
-  <p class="section-title">Assessoria de Crescimento</p>
-
+  <!-- ASSESSORIA DE CRESCIMENTO -->
   <div class="assessoria-box">
-    <p class="assessoria-label">&#9670; Edição 028 — Tecnologia &amp; Produtividade</p>
-    <h2>QGIS com IA: como o agrimensor do interior pode trabalhar como uma grande empresa de geoprocessamento</h2>
+    <p class="assessoria-label">&#9670; Edição 029 — Assessoria de Crescimento</p>
+    <h2>Automação de Relatórios Técnicos com IA: como produzir memoriais, laudos e relatórios 3x mais rápido</h2>
     <p>
-      O QGIS deixou de ser apenas um software de visualização de mapas. Com os plugins certos e a integração com ferramentas de Inteligência Artificial, ele se tornou uma plataforma completa de análise geoespacial — capaz de automatizar tarefas que antes levavam horas, reduzir erros de interpretação e gerar produtos técnicos de alto valor agregado. Para o agrimensor do interior do Rio de Janeiro, dominar esse ecossistema representa uma vantagem competitiva real frente a concorrentes que ainda operam de forma manual.
+      Se você ainda redige seus relatórios técnicos, laudos de vistoria e memoriais descritivos manualmente — linha por linha, campo por campo —, está deixando horas preciosas escaparem. A Inteligência Artificial chegou para transformar essa realidade: com as ferramentas certas, é possível automatizar a geração de documentos técnicos sem abrir mão da qualidade ou da conformidade exigida pelo INCRA, cartórios e clientes.
     </p>
-    <h3>Por que QGIS + IA é a combinação do momento?</h3>
+
+    <h3>Por que automatizar relatórios técnicos agora?</h3>
     <p>
-      O QGIS é gratuito, open-source e amplamente aceito por órgãos públicos, cartórios e clientes rurais. Quando combinado com plugins de IA e automação, ele permite que um único profissional execute análises que antes exigiam uma equipe técnica especializada. A curva de aprendizado é acessível, e o retorno financeiro é imediato.
+      O mercado de georreferenciamento está aquecido — a recente liminar que restabeleceu a obrigatoriedade para imóveis acima de 100 ha vai gerar uma nova onda de demanda. Quem conseguir entregar laudos e memoriais com mais rapidez e padronização vai capturar mais contratos. A automação não é luxo: é vantagem competitiva real para o agrimensor do interior do Rio de Janeiro que compete com grandes escritórios.
     </p>
-    <h3>Plugins e ferramentas essenciais para começar hoje</h3>
+
+    <h3>Ferramentas reais que você pode usar hoje</h3>
     <ul>
-      <li><strong>Semi-Automatic Classification Plugin (SCP):</strong> classifica imagens de satélite automaticamente, identificando uso do solo, vegetação nativa e APP com precisão. Fundamental para laudos de CAR e análise ambiental.</li>
-      <li><strong>QGIS Model Designer + PyQGIS:</strong> permite criar fluxos de trabalho automatizados que executam sequências de análise com um único clique — ideal para processar lotes de imóveis rurais.</li>
-      <li><strong>Orfeo Toolbox (OTB):</strong> integrado ao QGIS, processa imagens de alta resolução com algoritmos de machine learning para detecção de feições, estradas, construções e limites de propriedades.</li>
-      <li><strong>WhiteboxTools:</strong> análise hidrológica avançada (bacias, drenagens, declividade) integrada ao QGIS — essencial para laudos de APP de cursos d'água e reservatórios.</li>
-      <li><strong>ChatGPT + QGIS via API:</strong> é possível usar o ChatGPT para gerar scripts PyQGIS sob demanda, automatizando tarefas personalizadas sem precisar saber programar do zero.</li>
+      <li><strong>ChatGPT (GPT-4o):</strong> gera rascunhos completos de memoriais descritivos, laudos de vistoria e relatórios de campo a partir de dados que você fornece em texto ou tabela. Basta criar um "prompt-modelo" com as seções do seu documento padrão.</li>
+      <li><strong>Microsoft Word + Copilot:</strong> se você usa o pacote Office 365, o Copilot já está integrado ao Word e pode preencher seções inteiras de relatórios com base em dados inseridos ou em documentos anteriores.</li>
+      <li><strong>Google Docs + Gemini:</strong> alternativa gratuita para quem usa Google Workspace. O Gemini consegue redigir e revisar textos técnicos diretamente no editor, sem custo adicional.</li>
+      <li><strong>Notion AI:</strong> excelente para criar templates de relatórios que se preenchem automaticamente com variáveis (nome do imóvel, área, coordenadas, proprietário). Ideal para padronizar a produção da equipe.</li>
+      <li><strong>Make (ex-Integromat) + ChatGPT API:</strong> para automação avançada — conecta sua planilha de dados de campo ao ChatGPT e gera o relatório em PDF automaticamente, sem intervenção manual.</li>
     </ul>
-    <h3>Caso prático: análise de CAR em 3 horas</h3>
+
+    <h3>Caso prático: memorial descritivo em 8 minutos</h3>
     <p>
-      Um agrimensor no interior do RJ recebeu a demanda de verificar a conformidade ambiental de 12 imóveis rurais para um escritório de advocacia. Usando o SCP com imagens Sentinel-2 (gratuitas) e o Model Designer do QGIS, ele criou um modelo automatizado que baixou as imagens, classificou o uso do solo, sobrepôs os polígonos do CAR e gerou um relatório de inconsistências para cada imóvel. O trabalho que levaria dois dias foi concluído em menos de 3 horas — com relatório em PDF pronto para entrega.
+      Um agrimensor do interior de Minas Gerais criou um template no ChatGPT com as seções padrão do memorial descritivo exigido pelo SIGEF. Após o levantamento de campo, ele copia os dados da planilha de coordenadas para o chat e recebe o rascunho completo em menos de 2 minutos. Revisão e ajuste levam mais 6 minutos. O que antes tomava 2 horas passou a ser feito em menos de 10 minutos — com qualidade superior e zero erro de digitação.
     </p>
-    <h3>Como a IA potencializa o QGIS além dos plugins</h3>
+
+    <h3>Como criar seu prompt-modelo de memorial descritivo</h3>
     <p>
-      Ferramentas como o <strong>Google Earth Engine</strong> (com interface no QGIS via plugin GEE) permitem processar séries temporais de imagens de satélite para detectar mudanças na cobertura vegetal — útil para laudos de desmatamento e análise de PRODES. O <strong>Copernicus Browser</strong> oferece imagens gratuitas de alta resolução que podem ser diretamente importadas. E o <strong>ChatGPT</strong> pode ser usado para interpretar resultados de análises, redigir laudos técnicos e até sugerir a metodologia mais adequada para cada tipo de imóvel.
+      Abra o ChatGPT e inicie com: <em>"Você é um assistente técnico especializado em georreferenciamento de imóveis rurais. Vou fornecer os dados do imóvel e você deve gerar um memorial descritivo completo no padrão INCRA/SIGEF, com as seguintes seções: identificação do imóvel, localização, descrição dos vértices, confrontações, área total e observações técnicas. Use linguagem técnica formal."</em> Salve esse prompt como favorito e reutilize em todos os seus projetos.
     </p>
+
     <div class="dica-box">
-      <p><strong>&#9654; Dica de ação imediata:</strong> Instale o plugin <em>Semi-Automatic Classification Plugin</em> no QGIS esta semana. Baixe uma imagem Sentinel-2 gratuita da sua região no Copernicus Browser e faça uma classificação de uso do solo de um imóvel rural que você já conhece. Compare o resultado com o CAR registrado. Você vai se surpreender com o que pode identificar — e com o quanto isso vale como serviço adicional para seus clientes.</p>
+      <strong>&#9670; Dica de Ação Imediata:</strong> Pegue o último memorial descritivo que você produziu, copie a estrutura e peça ao ChatGPT para transformá-la em um template reutilizável com campos variáveis (ex: [NOME_PROPRIETARIO], [AREA_TOTAL], [MUNICIPIO]). Na próxima semana, você já terá um modelo que reduz em 70% o tempo de produção de cada documento — e pode cobrar o mesmo valor pelo serviço.
     </div>
   </div>
 
-  <hr class="divider" />
-
+  <!-- REFLEXÃO DO DIA -->
   <div class="reflexao-box">
-    <p class="reflexao-label">&#9670; Reflexão do Dia</p>
+    <p class="reflexao-label">&#9670; Reflexão da Edição</p>
     <blockquote>
-      "A terra não pertence a nós — nós pertencemos à terra. Mas é o agrimensor quem lhe dá nome, limite e história."
+      "A terra não pertence a quem a possui no papel, mas a quem a conhece palmo a palmo — e sabe registrá-la com precisão."
     </blockquote>
-    <cite>— Adaptado de Chief Seattle, com reverência ao trabalho técnico do agrimensor</cite>
+    <cite>— Filosofia do Agrimensor</cite>
   </div>
 
-  <div class="footer">
-    <p class="footer-title">Jornal Mapear Geo</p>
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p><strong style="color:#d4af37; letter-spacing:2px;">JORNAL MAPEAR GEO</strong></p>
+    <hr class="footer-divider" />
     <p>
-      Publicação bissemanal para profissionais de agrimensura, topografia e georreferenciamento.<br />
-      Interior do Rio de Janeiro — Brasil<br />
+      Acesse sempre a edição mais recente em:<br />
       <a href="https://bicudodelison-beep.github.io/jornal-mapear-geo/" target="_blank" rel="noopener">bicudodelison-beep.github.io/jornal-mapear-geo</a>
     </p>
-    <hr class="divider" style="margin: 14px 0;" />
+    <hr class="footer-divider" />
     <p>
-      Edição N.º 028 &bull; Segunda-feira, 19 de maio de 2026<br />
-      As informações publicadas têm caráter informativo. Consulte sempre um profissional habilitado para decisões técnicas e jurídicas.<br />
-      &copy; 2026 Jornal Mapear Geo — Todos os direitos reservados.
+      Edição N.º 029 &bull; Sexta-feira, 22 de maio de 2026<br />
+      Publicação Bissemanal &bull; Agrimensura &amp; Tecnologia<br />
+      Interior do Rio de Janeiro &bull; Brasil
     </p>
-  </div>
+  </footer>
 
-</div>
-
-<button id="install-btn">&#8659; Instalar App</button>
+</div><!-- /container -->
 
 <!-- Firebase / FCM Scripts -->
 <script type="module">
