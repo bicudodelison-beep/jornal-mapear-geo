@@ -9,429 +9,178 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Mapear Geo" />
   <link rel="apple-touch-icon" href="/jornal-mapear-geo/icon-192.png" />
-  <meta name="description" content="Jornal digital para agrimensores: notícias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regularização fundiária e tecnologia." />
-  <title>Jornal Mapear Geo — Edição N.º 034</title>
+  <meta name="description" content="Jornal digital para agrimensores: noticias sobre georreferenciamento, SIGEF, CAR, CCIR, ITR, regularizacao fundiaria e tecnologia." />
+  <title>Jornal Mapear Geo - Edicao N.o 035</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: #1a1a1a;
-      color: #e8dcc8;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 15px;
-      line-height: 1.65;
-    }
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 0 40px;
-    }
-    .header {
-      background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
-      border-bottom: 3px double #d4af37;
-      padding: 22px 18px 16px;
-      text-align: center;
-    }
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 10px;
-      color: #8a7a5a;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .header h1 {
-      font-size: 2rem;
-      color: #d4af37;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-shadow: 0 0 18px rgba(212,175,55,0.35);
-      line-height: 1.15;
-    }
-    .header .subtitle {
-      font-size: 0.72rem;
-      color: #a08050;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .header-divider {
-      border: none;
-      border-top: 1px solid #3a3020;
-      margin: 10px 0;
-    }
-    .header-meta {
-      font-size: 0.75rem;
-      color: #8a7a5a;
-      letter-spacing: 1px;
-    }
-    .alerta-box {
-      background: linear-gradient(135deg, #1e1200 0%, #2a1a00 100%);
-      border: 2px solid #d4af37;
-      border-radius: 4px;
-      margin: 18px 14px;
-      padding: 16px 18px;
-    }
-    .alerta-label {
-      font-size: 0.65rem;
-      color: #d4af37;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .alerta-box h2 {
-      font-size: 1.1rem;
-      color: #f0d060;
-      line-height: 1.35;
-      margin-bottom: 8px;
-    }
-    .alerta-box p {
-      font-size: 0.88rem;
-      color: #c8b890;
-      margin-bottom: 10px;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px 6px;
-      border-bottom: 1px solid #3a3020;
-      margin: 0 14px 4px;
-    }
-    .section-header h2 {
-      font-size: 0.7rem;
-      color: #d4af37;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: #3a3020;
-    }
-    .noticia-card {
-      background: #1e1e1e;
-      border-left: 3px solid #d4af37;
-      margin: 10px 14px;
-      padding: 14px 16px;
-      border-radius: 0 4px 4px 0;
-    }
-    .noticia-tag {
-      display: inline-block;
-      font-size: 0.6rem;
-      color: #1a1a1a;
-      background: #d4af37;
-      padding: 2px 7px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border-radius: 2px;
-      margin-bottom: 7px;
-    }
-    .noticia-card h3 {
-      font-size: 0.97rem;
-      color: #e8dcc8;
-      line-height: 1.4;
-      margin-bottom: 7px;
-    }
-    .noticia-card p {
-      font-size: 0.84rem;
-      color: #a09070;
-      margin-bottom: 10px;
-    }
-    .noticia-fonte {
-      font-size: 0.72rem;
-      color: #6a5a3a;
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .btn-saiba {
-      display: inline-block;
-      font-size: 0.68rem;
-      color: #d4af37;
-      border: 1px solid #d4af37;
-      padding: 4px 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn-saiba:hover {
-      background: #d4af37;
-      color: #1a1a1a;
-    }
-    .assessoria-box {
-      background: linear-gradient(135deg, #0d1a0d 0%, #121f12 100%);
-      border: 1px solid #2a4a2a;
-      border-top: 3px solid #4a8a4a;
-      margin: 18px 14px;
-      padding: 18px 18px;
-      border-radius: 4px;
-    }
-    .assessoria-label {
-      font-size: 0.65rem;
-      color: #4a8a4a;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .assessoria-box h2 {
-      font-size: 1.05rem;
-      color: #80c880;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-    .assessoria-box h3 {
-      font-size: 0.9rem;
-      color: #a0d8a0;
-      margin: 14px 0 7px;
-    }
-    .assessoria-box p {
-      font-size: 0.86rem;
-      color: #b0c8b0;
-      margin-bottom: 10px;
-    }
-    .assessoria-box ul {
-      margin: 8px 0 10px 18px;
-    }
-    .assessoria-box li {
-      font-size: 0.84rem;
-      color: #b0c8b0;
-      margin-bottom: 5px;
-    }
-    .dica-box {
-      background: #0a1a0a;
-      border-left: 3px solid #4a8a4a;
-      padding: 12px 14px;
-      margin-top: 14px;
-      font-size: 0.84rem;
-      color: #a0c8a0;
-      border-radius: 0 4px 4px 0;
-    }
-    .reflexao-box {
-      background: #141414;
-      border-top: 1px solid #3a3020;
-      border-bottom: 1px solid #3a3020;
-      margin: 18px 14px;
-      padding: 16px 18px;
-      text-align: center;
-    }
-    .reflexao-label {
-      font-size: 0.65rem;
-      color: #8a7a5a;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .reflexao-box blockquote {
-      font-size: 0.92rem;
-      color: #c8b890;
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-    .reflexao-box cite {
-      font-size: 0.75rem;
-      color: #6a5a3a;
-    }
-    .footer {
-      text-align: center;
-      padding: 18px 14px;
-      font-size: 0.75rem;
-      color: #6a5a3a;
-      line-height: 1.8;
-    }
-    .footer a {
-      color: #d4af37;
-      text-decoration: none;
-    }
-    .footer-divider {
-      border: none;
-      border-top: 1px solid #3a3020;
-      margin: 10px auto;
-      width: 60%;
-    }
+    body { background-color: #1a1a1a; color: #e8dcc8; font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.65; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 0 40px; }
+    .header { background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%); border-bottom: 3px double #d4af37; padding: 22px 18px 16px; text-align: center; }
+    .header-top { display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #8a7a5a; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .header h1 { font-size: 2rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; text-shadow: 0 0 18px rgba(212,175,55,0.35); line-height: 1.15; }
+    .header .subtitle { font-size: 0.72rem; color: #a08050; letter-spacing: 4px; text-transform: uppercase; margin-top: 4px; }
+    .header-divider { border: none; border-top: 1px solid #3a3020; margin: 10px 0; }
+    .header-meta { font-size: 0.75rem; color: #8a7a5a; letter-spacing: 1px; }
+    .alerta-box { background: linear-gradient(135deg, #1e1200 0%, #2a1a00 100%); border: 2px solid #d4af37; border-radius: 4px; margin: 18px 14px; padding: 16px 18px; }
+    .alerta-label { font-size: 0.65rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+    .alerta-box h2 { font-size: 1.1rem; color: #f0d060; line-height: 1.35; margin-bottom: 8px; }
+    .alerta-box p { font-size: 0.88rem; color: #c8b890; margin-bottom: 10px; }
+    .section-header { display: flex; align-items: center; gap: 10px; padding: 10px 14px 6px; border-bottom: 1px solid #3a3020; margin: 0 14px 4px; }
+    .section-header h2 { font-size: 0.7rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; }
+    .section-line { flex: 1; height: 1px; background: #3a3020; }
+    .noticia-card { background: #1e1e1e; border-left: 3px solid #d4af37; margin: 10px 14px; padding: 14px 16px; border-radius: 0 4px 4px 0; }
+    .noticia-tag { display: inline-block; font-size: 0.6rem; color: #1a1a1a; background: #d4af37; padding: 2px 7px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 7px; border-radius: 2px; }
+    .noticia-card h3 { font-size: 0.98rem; color: #e8dcc8; line-height: 1.4; margin-bottom: 7px; }
+    .noticia-card p { font-size: 0.84rem; color: #b0a080; margin-bottom: 8px; }
+    .noticia-fonte { font-size: 0.72rem; color: #6a5a3a; font-style: italic; margin-bottom: 8px; }
+    .btn-saiba { display: inline-block; font-size: 0.68rem; color: #d4af37; border: 1px solid #d4af37; padding: 4px 12px; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .btn-saiba:hover { background: #d4af37; color: #1a1a1a; }
+    .assessoria-box { background: linear-gradient(135deg, #0d1a0d 0%, #111a11 100%); border: 1px solid #4a6a3a; border-left: 4px solid #6aaa4a; margin: 18px 14px; padding: 18px 18px; border-radius: 0 4px 4px 0; }
+    .assessoria-label { font-size: 0.65rem; color: #6aaa4a; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+    .assessoria-box h2 { font-size: 1.05rem; color: #a0d080; line-height: 1.35; margin-bottom: 12px; }
+    .assessoria-box h3 { font-size: 0.92rem; color: #8ac060; margin: 14px 0 6px; }
+    .assessoria-box p { font-size: 0.85rem; color: #a8b898; margin-bottom: 10px; }
+    .assessoria-box ul { margin: 6px 0 10px 18px; }
+    .assessoria-box ul li { font-size: 0.84rem; color: #a8b898; margin-bottom: 5px; }
+    .dica-box { background: #0a1a0a; border: 1px dashed #6aaa4a; padding: 12px 14px; margin-top: 12px; border-radius: 3px; font-size: 0.84rem; color: #a8b898; }
+    .reflexao-box { background: #111111; border-top: 1px solid #3a3020; border-bottom: 1px solid #3a3020; margin: 18px 14px; padding: 16px 18px; text-align: center; }
+    .reflexao-label { font-size: 0.65rem; color: #d4af37; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+    .reflexao-box blockquote { font-size: 0.92rem; color: #c8b890; font-style: italic; line-height: 1.6; margin-bottom: 8px; }
+    .reflexao-box cite { font-size: 0.75rem; color: #6a5a3a; }
+    .footer { padding: 16px 18px; text-align: center; font-size: 0.75rem; color: #6a5a3a; }
+    .footer a { color: #d4af37; text-decoration: none; }
+    .footer-divider { border: none; border-top: 1px solid #3a3020; margin-bottom: 14px; }
     @media (max-width: 480px) {
-      .header h1 { font-size: 1.55rem; }
-      .noticia-card { margin: 8px 8px; }
-      .alerta-box, .assessoria-box, .reflexao-box { margin: 14px 8px; }
-      .section-header { margin: 0 8px 4px; }
+      .header h1 { font-size: 1.55rem; letter-spacing: 2px; }
+      .noticia-card, .alerta-box, .assessoria-box, .reflexao-box { margin-left: 8px; margin-right: 8px; }
+      .section-header { margin-left: 8px; margin-right: 8px; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-
-  <!-- CABECALHO -->
   <header class="header">
     <div class="header-top">
-      <span>Agrimensura &amp; Tecnologia</span>
-      <span>Edicao N.o 034</span>
-      <span>Interior do RJ</span>
+      <span>Edicao N.o 035</span>
+      <span>&#9670; Geotecnologia &amp; Campo &#9670;</span>
+      <span>Bissemanal</span>
     </div>
-    <div class="header-divider"></div>
     <h1>Jornal Mapear Geo</h1>
-    <p class="subtitle">O Agrimensor Bem Informado Vai Mais Longe</p>
-    <div class="header-divider"></div>
-    <p class="header-meta">Segunda-feira, 08 de junho de 2026 &nbsp;|&nbsp; Publicacao Bissemanal &nbsp;|&nbsp; Edicao N.o 034</p>
+    <p class="subtitle">Agrimensura &bull; Topografia &bull; Registro de Imoveis &bull; Geotecnologia</p>
+    <hr class="header-divider" />
+    <p class="header-meta">Quinta-feira, 12 de junho de 2026 &nbsp;|&nbsp; Publicacao Bissemanal &nbsp;|&nbsp; Edicao N.o 035</p>
   </header>
 
-  <!-- ALERTA ESPECIAL -->
   <div class="alerta-box">
     <p class="alerta-label">&#9888; Alerta Especial</p>
-    <h2>CCIR 2026: Prazo Final em 17 de Junho &#8212; Apenas 9 Dias Restantes para Evitar Bloqueio do Imovel</h2>
-    <p>
-      O prazo para emissao e quitacao da Taxa de Servicos Cadastrais do CCIR 2026 encerra impreterivelmente no dia <strong>17 de junho de 2026</strong>. Apos essa data, incidem multa e juros sobre o valor devido, e o imovel rural fica impedido de realizar transferencias, arrendamentos, financiamentos e desmembramentos. A emissao e feita exclusivamente pelo site oficial do INCRA (sncr.serpro.gov.br/ccir/emissao) ou pelo aplicativo SNCR, com pagamento via Pix, cartao ou boleto. Oriente seus clientes com urgencia: o prazo e improrrogavel.
-    </p>
-    <a class="btn-saiba" href="https://www.gov.br/incra/pt-br/assuntos/governanca-fundiaria/cadastro-imovel-rural" target="_blank" rel="noopener">Saiba mais</a>
+    <h2>Georreferenciamento Obrigatorio ate 2029: Prazo Unificado Muda as Regras para Todos os Imoveis Rurais</h2>
+    <p>O Governo Federal ampliou e unificou o prazo do georreferenciamento obrigatorio de imoveis rurais para <strong>21 de novembro de 2029</strong>, substituindo o cronograma escalonado por tamanho de propriedade. A medida altera o Decreto n.o 4.449/2002 e vale para imoveis de todos os tamanhos. Porem, especialistas alertam: o georreferenciamento continua sendo exigido imediatamente em qualquer transacao &#8212; venda, desmembramento, inventario ou financiamento &#8212; realizada antes dessa data. Antecipar o servico evita correria, fila e alta de precos proximos ao prazo final, alem de valorizar o imovel desde ja.</p>
+    <a class="btn-saiba" href="https://ajtopogeo.com.br/blog-georreferenciamento-prazo-2029.html" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- SECAO NOTICIAS -->
   <div class="section-header">
     <h2>&#9632; Noticias Relevantes</h2>
     <div class="section-line"></div>
   </div>
 
-  <!-- NOTICIA 1 -->
   <div class="noticia-card">
-    <span class="noticia-tag">Agrimensura / CREA</span>
-    <h3>CREA-SP Celebra Dia do Engenheiro Agrimensor e Destaca Revolucao Digital da Profissao em 2026</h3>
-    <p>
-      No Dia do Engenheiro Agrimensor (4 de junho), o CREA-SP destacou que drones, GNSS de alta precisao, laser scanner e inteligencia artificial reinventaram completamente a profissao. O coordenador da Camara Especializada de Agrimensura afirmou que a atualizacao constante deixou de ser diferencial e passou a ser obrigacao. Sao Paulo conta com cerca de 1.500 profissionais registrados na modalidade, e a demanda por regularizacao fundiaria e georreferenciamento segue em alta.
-    </p>
-    <p class="noticia-fonte">Fonte: CREA-SP &bull; 03/06/2026</p>
-    <a class="btn-saiba" href="https://www.creasp.org.br/noticia/dia-do-engenheiro-agrimensor-destaca-papel-da-modalidade-no-planejamento-e-desenvolvimento-do-territorio/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">CAR / Ambiental</span>
+    <h3>Para Lanca SICAR+ com Seguranca Digital e Integracao Nacional para Modernizar o Cadastro Ambiental Rural</h3>
+    <p>A Secretaria de Meio Ambiente do Para (Semas) apresentou o SICAR+, novo sistema do Cadastro Ambiental Rural totalmente online, com autenticacao de usuarios, rastreabilidade das operacoes e validacoes automaticas de dados. Capacitado para cerca de mil tecnicos e gestores, o sistema esta integrado a base nacional do CAR e promete reduzir inconsistencias e agilizar a regularizacao ambiental em todo o estado do Para.</p>
+    <p class="noticia-fonte">Fonte: Semas-PA &mdash; 11 de junho de 2026</p>
+    <a class="btn-saiba" href="https://www.semas.pa.gov.br/2026/06/11/semas-apresenta-em-workshop-novo-sistema-do-cadastro-ambiental-rural-do-para-sicar/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- NOTICIA 2 -->
   <div class="noticia-card">
-    <span class="noticia-tag">CAR Digital / SP</span>
-    <h3>Sao Paulo Lanca Aplicativo Inedito para Gestao do CAR pelo Celular com Retificacoes Georreferenciadas</h3>
-    <p>
-      O Estado de Sao Paulo lancou o aplicativo mobile do SICAR-SP, ferramenta inedita no Brasil que permite ao produtor rural gerenciar o Cadastro Ambiental Rural diretamente pelo celular, sem necessidade de computador. O app permite acompanhar processos, consultar documentos, atualizar dados cadastrais e realizar retificacoes georreferenciadas diretamente do campo. Disponivel gratuitamente para Android e iOS, Sao Paulo ja ultrapassou 200 mil cadastros validados, consolidando-se como referencia nacional em regularizacao ambiental.
-    </p>
-    <p class="noticia-fonte">Fonte: Radar Digital Brasilia &bull; 01/06/2026</p>
-    <a class="btn-saiba" href="https://radardigitalbrasilia.com.br/agronegocio/sao-paulo-lanca-aplicativo-inedito-para-gestao-do-car-pelo-celular-e-reforca-lideranca-na-regularizacao-ambiental/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">GNSS / Georreferenciamento</span>
+    <h3>IAT do Parana Investe R$ 542 Mil em Novos Receptores GNSS com 550 Canais para Agilizar Regularizacao Fundiaria</h3>
+    <p>O Instituto Agua e Terra (IAT) adquiriu seis novos receptores GNSS de origem suica com 550 canais, substituindo aparelhos com apenas 120 canais. A tecnologia reduz o tempo de marcacao de coordenadas de cinco segundos para apenas um segundo, acelerando as acoes de regularizacao fundiaria e medicao de terras devolutas no Parana, com investimento total de R$ 542 mil.</p>
+    <p class="noticia-fonte">Fonte: Portal da Fronteira &mdash; 09 de junho de 2026</p>
+    <a class="btn-saiba" href="https://portaldafronteira.com/2026/noticias/parana/iat-adquire-novos-aparelhos-de-navegacao-por-satelite-para-agilizar-georreferenciamento/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- NOTICIA 3 -->
   <div class="noticia-card">
-    <span class="noticia-tag">Geotecnologia / Evento</span>
-    <h3>MundoGEO Connect 2026: Setor Geoespacial Movimentara R$ 50 Bilhoes e Reune 170 Empresas em SP</h3>
-    <p>
-      As feiras DroneShow Robotics, MundoGEO Connect e SpaceBR Show, de 16 a 18 de junho no Expo Center Norte em Sao Paulo, reunirao 170 empresas e mais de 300 palestrantes. O setor de geointeligencia, drones e espaco deve movimentar R$ 50 bilhoes em 2026, crescimento de 20% em relacao a 2025. A programacao inclui cursos de Georreferenciamento de Imoveis Rurais, Aerolevantamentos com Drones e IA no ArcGIS. Sao esperados mais de 12 mil visitantes.
-    </p>
-    <p class="noticia-fonte">Fonte: MundoGEO &bull; 05/06/2026</p>
-    <a class="btn-saiba" href="https://mundogeo.com/2026/06/05/feiras-da-mundogeo-unem-setores-que-movimentarao-mais-de-r-50-bilhoes-em-2026/amp/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">CAR / PRA / Legislacao</span>
+    <h3>Rio Grande do Sul Institui Programa de Regularizacao Ambiental (PRA/RS) Integrado ao CAR pelo Decreto 58.804/2026</h3>
+    <p>O Decreto n.o 58.804/2026 institui o Programa de Regularizacao Ambiental do RS, alinhado ao Codigo Florestal Federal. Integrado ao CAR, o PRA/RS permitira a recuperacao de passivos ambientais em APP e Reserva Legal mediante Termo de Compromisso voluntario, transformando o cadastro de ferramenta declaratoria em instrumento efetivo de gestao e monitoramento ambiental.</p>
+    <p class="noticia-fonte">Fonte: SEMA-RS &mdash; 10 de junho de 2026</p>
+    <a class="btn-saiba" href="https://www.sema.rs.gov.br/estado-regulamenta-programa-de-regularizacao-ambiental-e-fortalece-politica-ambiental-no-rio-grande-do-sul" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- NOTICIA 4 -->
   <div class="noticia-card">
-    <span class="noticia-tag">CAR Digital / SC</span>
-    <h3>Santa Catarina Implementa SICAR 2.0 com Analise Automatizada e Reduz 90% do Tempo de Validacao do CAR</h3>
-    <p>
-      Santa Catarina concluiu a migracao para o CAR Digital com a plataforma SICAR 2.0, que opera de forma 100% online e automatizada. O projeto piloto mostrou que 70% dos cadastros poderao ter suas analises concluidas pelo sistema, reduzindo em 90% o tempo de validacao. Com 427 mil cadastros no estado, a medida amplia a seguranca juridica dos produtores rurais e facilita o acesso a credito agricola e ao Programa Mais Verde de pagamento por servicos ambientais.
-    </p>
-    <p class="noticia-fonte">Fonte: Tribuna da Fronteira &bull; 04/06/2026</p>
-    <a class="btn-saiba" href="https://tribunadafronteira.com.br/proprietarios-rurais-de-sc-podem-atualizar-cadastro-ambiental-rural-de-forma-100-digital/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">Geotecnologia / IA</span>
+    <h3>MundoGEO Connect 2026: IA Integrada ao Mapeamento Movel Reduz Dias de Processamento para Minutos</h3>
+    <p>De 16 a 18 de junho, o Expo Center Norte em Sao Paulo sedia o MundoGEO Connect 2026. O destaque e a integracao de Inteligencia Artificial com mapeamento movel e sensores LiDAR, permitindo extrair informacoes de nuvens de pontos e gerar plantas topograficas automaticamente. O evento tambem oferece cursos de Georreferenciamento de Imoveis Rurais, GIS com IA e Processamento de Imagens de Drones.</p>
+    <p class="noticia-fonte">Fonte: MundoGEO &mdash; 10 de junho de 2026</p>
+    <a class="btn-saiba" href="https://mundogeo.com/2026/06/10/trimble-e-sc-tech-arena-acontece-dentro-da-feira-mundogeo-connect-2026/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- NOTICIA 5 -->
   <div class="noticia-card">
-    <span class="noticia-tag">Legislacao Ambiental</span>
-    <h3>Alerta: Novas Leis Ambientais 2026 Criminalizam Praticas Comuns no Campo e Geram Risco de Multas Pesadas</h3>
-    <p>
-      Especialistas alertam que 2026 representa o ano de maior pressao fiscalizatoria ambiental da ultima decada no campo brasileiro. Praticas antes corriqueiras como queimar lixo, desmatamentos minimos sem respaldo no CAR, transitar gado em APP ou abrir estradas internas sem licenca ambiental passam a ser autuadas com multas pesadas. Cerca de 80% das infracoes decorrem de desinformacao. O agrimensor torna-se peca-chave na orientacao preventiva dos clientes rurais.
-    </p>
-    <p class="noticia-fonte">Fonte: Jornal Hoje Goias &bull; 02/06/2026</p>
-    <a class="btn-saiba" href="https://jornalhojegoias.com.br/produtor-rural-muita-atencao-com-as-novas-leis-ambientais-para-2026/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">Regularizacao Fundiaria</span>
+    <h3>Acre Entrega 265 Titulos Definitivos de Imoveis com Investimento de R$ 1,32 Milhao em Porto Acre</h3>
+    <p>O governo do Acre entregou 265 titulos definitivos na Vila do Incra, em Porto Acre, beneficiando familias que aguardavam a regularizacao ha quase duas decadas. Com investimento de R$ 1,32 milhao, a acao garante seguranca juridica, acesso a credito e valorizacao dos imoveis. O estado ja acumula mais de 15 mil titulos entregues, com investimento superior a R$ 106 milhoes.</p>
+    <p class="noticia-fonte">Fonte: Agencia de Noticias do Acre &mdash; 10 de junho de 2026</p>
+    <a class="btn-saiba" href="https://agencia.ac.gov.br/governadora-mailza-garante-seguranca-juridica-ao-entregar-265-titulos-definitivos-a-moradores-da-vila-do-incra-em-porto-acre/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- NOTICIA 6 -->
   <div class="noticia-card">
-    <span class="noticia-tag">Inovacao / CAR</span>
-    <h3>IFES Sediara 1o Simposio do Projeto IntegraCAR: IA e Geoprocessamento para Modernizar o Cadastro Ambiental Rural</h3>
-    <p>
-      O Campus Vitoria do IFES recebera, em 10 de julho, o 1o Simposio do Projeto IntegraCAR, parceria entre IFES, IDAF, Seger e Fapes. O projeto combina geoprocessamento, sensoriamento remoto e inteligencia artificial para modernizar os processos do CAR. O prazo para submissao de trabalhos e 17 de junho de 2026. O evento e aberto a pesquisadores, estudantes, gestores publicos e profissionais de tecnologia e meio ambiente.
-    </p>
-    <p class="noticia-fonte">Fonte: IFES &bull; 03/06/2026</p>
-    <a class="btn-saiba" href="https://www.ifes.edu.br/noticias/22374-ifes-sediara-1-simposio-do-projeto-integracar" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">CAR Digital / Mutirao</span>
+    <h3>Mato Grosso Realiza Mutirao Gratuito do CAR Digital 2.0 em Barra do Garcas nos Dias 16 e 17 de Junho</h3>
+    <p>A Prefeitura de Barra do Garcas, com apoio da Secretaria-Adjunta de Regularizacao Ambiental de MT, promove mutirao gratuito do CAR Digital 2.0 para produtores rurais de todos os portes. O evento oferece orientacoes tecnicas, esclarecimento de duvidas e atendimento para quem ainda nao possui o cadastro ambiental rural, alem de reuniao regional com secretarios municipais de Agricultura.</p>
+    <p class="noticia-fonte">Fonte: Prefeitura de Barra do Garcas &mdash; 11 de junho de 2026</p>
+    <a class="btn-saiba" href="https://www.barradogarcas.mt.gov.br/Imprensa/Noticias/Barra-do-garcas-recebe-mutirao-do-car-digital-20-para-produtores-rurais-nos-dias-16-e-17-de-junho-5890/" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- NOTICIA 7 -->
   <div class="noticia-card">
-    <span class="noticia-tag">IA / Geoespacial</span>
-    <h3>Pesquisa Brasileira Usa IA e Satelite Sentinel-2 para Prever Produtividade de Lavouras com 72% de Acuracia</h3>
-    <p>
-      Pesquisadores da USP e Unesp desenvolveram um modelo de inteligencia artificial que combina imagens do satelite Sentinel-2, variaveis climaticas e dados do IBGE para estimar a produtividade de lavouras de soja no Centro-Oeste com 72% de acuracia. O estudo, publicado na revista Big Earth Data, demonstra o potencial do geoprocessamento com IA para apoiar decisoes agricolas em larga escala e abre novas perspectivas para servicos de monitoramento territorial pelo agrimensor.
-    </p>
-    <p class="noticia-fonte">Fonte: Jornal da Unesp &bull; 03/06/2026</p>
-    <a class="btn-saiba" href="https://jornal.unesp.br/2026/06/03/modelo-computacional-permite-antecipar-produtividade-das-lavouras-de-soja-com-acuracia-de-72/" target="_blank" rel="noopener">Saiba mais</a>
+    <span class="noticia-tag">Regularizacao Fundiaria / Analise</span>
+    <h3>Estudo Revela que 50% do Territorio Registrado no Brasil Tem Sobreposicao Fundiaria, Travando Credito Rural</h3>
+    <p>Analise publicada pelo Ranking dos Politicos aponta que aproximadamente 50% do territorio registrado no Brasil pode estar enquadrado em mais de uma categoria fundiaria simultaneamente, gerando inseguranca juridica e dificultando o acesso ao credito rural. A regularizacao fundiaria e apontada como condicao essencial para ampliar investimentos e a competitividade do setor agropecuario.</p>
+    <p class="noticia-fonte">Fonte: Ranking dos Politicos &mdash; 08 de junho de 2026</p>
+    <a class="btn-saiba" href="https://ranking.org.br/artigos/regularizacao-fundiaria-seguranca-juridica-campo-brasileiro" target="_blank" rel="noopener">Saiba mais</a>
   </div>
 
-  <!-- ASSESSORIA DE CRESCIMENTO -->
+  <div class="section-header" style="margin-top:22px;">
+    <h2>&#9632; Assessoria de Crescimento</h2>
+    <div class="section-line"></div>
+  </div>
+
   <div class="assessoria-box">
-    <p class="assessoria-label">&#9670; Edicao 034 &#8212; Assessoria de Crescimento</p>
-    <h2>Ferramentas Geoespaciais com IA: Como o QGIS e seus Plugins Estao Revolucionando o Trabalho do Agrimensor</h2>
-    <p>
-      O QGIS sempre foi a principal ferramenta open source do agrimensor. Mas em 2026, com a integracao de plugins de inteligencia artificial e automacao, ele se tornou um verdadeiro laboratorio de produtividade. Nesta edicao, voce vai descobrir como usar o QGIS potencializado por IA para entregar mais em menos tempo, reduzir erros e abrir novas frentes de servico no interior do Rio de Janeiro.
-    </p>
-
-    <h3>Por Que o QGIS com IA e um Divisor de Aguas em 2026</h3>
-    <p>
-      Ate pouco tempo atras, processar uma imagem de satelite, classificar uso do solo ou detectar inconsistencias em um perimetro georreferenciado exigia horas de trabalho manual. Com os novos plugins de IA disponiveis para o QGIS, essas tarefas podem ser executadas em minutos, com precisao superior. O agrimensor que domina essas ferramentas entrega laudos mais completos, cobra mais caro e diferencia-se da concorrencia que ainda trabalha no modo tradicional.
-    </p>
-
-    <h3>5 Ferramentas Reais para Usar Agora</h3>
+    <p class="assessoria-label">&#9670; Edicao 035 &#8212; Assessoria de Crescimento</p>
+    <h2>IA para Gestao de Projetos e Clientes: Organize seu Escritorio de Agrimensura e Atenda Melhor no Interior do RJ</h2>
+    <p>O dia a dia de um escritorio de agrimensura no interior do Rio de Janeiro e intenso: prazos do INCRA, pendencias no cartorio de registro de imoveis, clientes cobrando andamento do CCIR e equipes em campo. Perder o controle dessas informacoes significa perder dinheiro, reputacao e oportunidades. A boa noticia e que a Inteligencia Artificial chegou para transformar a forma como voce gerencia seus projetos e se comunica com seus clientes, sem precisar contratar mais funcionarios ou gastar com softwares caros.</p>
+    <h3>Por Que a Gestao com IA e Urgente para o Agrimensor em 2026</h3>
+    <p>Agrimensores que adotam ferramentas digitais de gestao reduzem em ate 40% o tempo gasto com comunicacao e acompanhamento de processos. No interior do RJ, onde a concorrencia e crescente e os clientes valorizam agilidade e transparencia, ser o profissional que sempre da retorno rapido e um diferencial competitivo real que se traduz em mais indicacoes e contratos fechados.</p>
+    <h3>Ferramentas Reais para Comecar Hoje</h3>
     <ul>
-      <li><strong>QGIS + Plugin Orfeo Toolbox (OTB)</strong> &#8212; Permite classificacao automatica de imagens de satelite por aprendizado de maquina. Ideal para mapear uso e cobertura do solo em imoveis rurais para laudos de CAR e regularizacao ambiental. Gratuito e integrado ao QGIS 3.38.</li>
-      <li><strong>Plugin Semi-Automatic Classification (SCP)</strong> &#8212; Automatiza o processamento de imagens Sentinel-2 e Landsat diretamente no QGIS. Permite gerar mapas de vegetacao, APP e Reserva Legal com poucos cliques. Essencial para laudos tecnicos ambientais e regularizacao no SICAR.</li>
-      <li><strong>QGIS + ChatGPT via API (plugin QChatGPT)</strong> &#8212; Permite fazer perguntas em linguagem natural sobre seus dados geoespaciais dentro do proprio QGIS. Exemplo: "Quais poligonos desta camada estao sobrepostos com APP?" e o modelo responde e executa a consulta automaticamente.</li>
-      <li><strong>Google Earth Engine + QGIS (plugin GEE)</strong> &#8212; Acessa o acervo de imagens de satelite do Google Earth Engine diretamente no QGIS. Permite monitorar mudancas no imovel rural ao longo do tempo, detectar desmatamentos e gerar evidencias para laudos periciais e de conformidade ambiental.</li>
-      <li><strong>Plugin GRASS GIS integrado ao QGIS</strong> &#8212; Oferece ferramentas avancadas de analise topografica, modelagem de bacias hidrograficas e calculo de declividade. Com scripts Python, voce automatiza relatorios tecnicos completos, reduzindo o tempo de producao de laudos em ate 70%.</li>
+      <li><strong>Notion + IA (notion.so)</strong> &#8212; Crie um banco de dados de clientes com status de cada processo (campo, SIGEF, cartorio, entregue). O recurso de IA do Notion gera resumos automaticos e redige atualizacoes para o cliente com um clique. A versao gratuita ja e suficiente para comecar.</li>
+      <li><strong>Trello + Power-Up de IA</strong> &#8212; Organize cada projeto como um quadro Kanban: Em campo, Aguardando INCRA, No cartorio, Concluido. Integre com o ChatGPT via Zapier para gerar mensagens automaticas de atualizacao quando voce mover um cartao de coluna.</li>
+      <li><strong>ChatGPT como Assistente de Comunicacao</strong> &#8212; Use para redigir mensagens profissionais para clientes, elaborar propostas comerciais, criar modelos de e-mail de cobranca e responder duvidas tecnicas sobre legislacao do INCRA e SIGEF em segundos.</li>
+      <li><strong>Google Agenda + Alertas Automaticos</strong> &#8212; Cadastre todos os prazos criticos (CCIR, SIGEF, cartorio) com alertas antecipados de 7 e 3 dias. Integre com o Google Assistente para lembretes por voz no celular durante o trabalho de campo.</li>
     </ul>
-
-    <h3>Caso Pratico: Laudo de CAR em 3 Horas no Interior do RJ</h3>
-    <p>
-      Um agrimensor do interior do Rio de Janeiro recebeu a demanda de regularizacao de uma fazenda de 120 hectares. Com o fluxo tradicional, o trabalho levaria 2 dias completos. Com o QGIS + SCP + OTB, ele processou as imagens Sentinel-2 da propriedade, classificou automaticamente as areas de APP, Reserva Legal e uso antropico, gerou o shapefile para upload no SICAR e produziu o laudo tecnico em menos de 3 horas. O cliente ficou impressionado com a agilidade e o profissional cobrou 40% a mais pelo servico diferenciado &#8212; e ainda fechou indicacoes para dois vizinhos.
-    </p>
-
-    <h3>Como Comecar Hoje Mesmo: 5 Passos Praticos</h3>
-    <ul>
-      <li>Baixe o QGIS 3.38 LTR gratuitamente em <strong>qgis.org</strong></li>
-      <li>Instale o plugin SCP (Semi-Automatic Classification) pelo Gerenciador de Plugins do QGIS</li>
-      <li>Acesse o Copernicus Open Access Hub (scihub.copernicus.eu) e baixe uma imagem Sentinel-2 da sua regiao de atuacao no RJ</li>
-      <li>Use o SCP para classificar uso do solo e gerar um mapa de APP automaticamente</li>
-      <li>Exporte o resultado como shapefile e importe no SICAR para o CAR do cliente &#8212; pronto para protocolo</li>
-    </ul>
-
+    <h3>Caso Pratico: Escritorio no Interior do RJ com 3x Mais Clientes</h3>
+    <p>Um agrimensor da regiao serrana do Rio de Janeiro tinha dificuldade em acompanhar 12 processos simultaneos de georreferenciamento. Apos adotar o Notion com IA e criar modelos de mensagens no ChatGPT, ele passou a enviar atualizacoes semanais automaticas para cada cliente, reduziu o numero de ligacoes de cobranca em 70% e conseguiu aceitar 8 novos contratos sem contratar assistente. O segredo foi a padronizacao da comunicacao e a visibilidade total do status de cada processo.</p>
     <div class="dica-box">
-      <strong>&#9670; Dica de Acao Imediata:</strong> Abra o QGIS agora, instale o plugin SCP e baixe uma imagem Sentinel-2 de uma propriedade que voce esta trabalhando. Em seguida, va ao ChatGPT e use este prompt: <em>"Sou agrimensor no interior do Rio de Janeiro e uso QGIS com o plugin SCP. Explique passo a passo como classificar uso do solo em uma imagem Sentinel-2 para identificar APP e Reserva Legal em um imovel rural, para fins de regularizacao no SICAR. Inclua os parametros ideais para a regiao da Mata Atlantica."</em> Voce tera um tutorial personalizado em segundos e podera aplicar ainda esta semana, entregando laudos mais rapidos e com mais valor agregado.
+      <strong>&#9670; Dica de Acao Imediata:</strong> Acesse o ChatGPT agora e use este prompt para criar seus modelos de comunicacao profissional:<br /><br />
+      <em>"Sou agrimensor no interior do Rio de Janeiro. Crie 3 modelos de mensagens de WhatsApp profissionais e acolhedoras para atualizar meus clientes sobre: 1) O inicio dos trabalhos de campo de georreferenciamento; 2) O protocolo do processo no INCRA/SIGEF; 3) A conclusao e entrega da planta e memorial descritivo para o cartorio. Inclua espacos para personalizar o nome do cliente e o nome da propriedade."</em><br /><br />
+      Salve esses modelos no seu celular e comece a usar hoje mesmo. Seus clientes vao valorizar a transparencia e voce economizara horas de trabalho toda semana.
     </div>
   </div>
 
-  <!-- REFLEXAO DO DIA -->
   <div class="reflexao-box">
     <p class="reflexao-label">&#9670; Reflexao da Edicao</p>
-    <blockquote>
-      "A terra nao pertence a quem a pisa, mas a quem a mede, a registra e a protege com responsabilidade tecnica. O agrimensor e o guardiao silencioso da seguranca juridica do territorio."
-    </blockquote>
+    <blockquote>"A precisao do nosso trabalho nao esta apenas nas coordenadas que medimos, mas na seguranca juridica que entregamos para as familias do campo. Cada titulo regularizado e uma historia de dignidade escrita com rigor tecnico."</blockquote>
     <cite>&#8212; Jornal Mapear Geo</cite>
   </div>
 
-  <!-- RODAPE -->
   <footer class="footer">
     <hr class="footer-divider" />
     <p>Acesse sempre a edicao mais recente em:<br />
     <a href="https://bicudodelison-beep.github.io/jornal-mapear-geo/" target="_blank" rel="noopener">bicudodelison-beep.github.io/jornal-mapear-geo/</a></p>
     <br />
-    <p>Edicao N.o 034 &bull; Segunda-feira, 08 de junho de 2026<br />
+    <p>Edicao N.o 035 &bull; Quinta-feira, 12 de junho de 2026<br />
     Publicacao Bissemanal &bull; Direitos reservados &copy; 2026</p>
   </footer>
 </div>
-
-<!-- Firebase / FCM Scripts -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js";
@@ -445,17 +194,17 @@
   };
   const app = initializeApp(firebaseConfig);
   const messaging = getMessaging(app);
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/jornal-mapear-geo/firebase-messaging-sw.js')
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/jornal-mapear-geo/firebase-messaging-sw.js")
       .then(registration => {
         getToken(messaging, {
-          vapidKey: 'BLBx-_xtOBTzMtHQbNHxpFBWkXGMRcPbgwb4Wy8b9X2Kp3Q7Z5Y1V6N0M4A8D2E',
+          vapidKey: "BLBx-_xtOBTzMtHQbNHxpFBWkXGMRcPbgwb4Wy8b9X2Kp3Q7Z5Y1V6N0M4A8D2E",
           serviceWorkerRegistration: registration
         }).then(currentToken => {
           if (currentToken) {
-            fetch('https://mapear-geo-tokens.onrender.com/register', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+            fetch("https://mapear-geo-tokens.onrender.com/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ token: currentToken })
             }).catch(() => {});
           }
@@ -464,9 +213,9 @@
   }
   onMessage(messaging, payload => {
     if (payload.notification) {
-      new Notification(payload.notification.title || 'Jornal Mapear Geo', {
-        body: payload.notification.body || 'Nova edicao disponivel!',
-        icon: '/jornal-mapear-geo/icon-192.png'
+      new Notification(payload.notification.title || "Jornal Mapear Geo", {
+        body: payload.notification.body || "Nova edicao disponivel!",
+        icon: "/jornal-mapear-geo/icon-192.png"
       });
     }
   });
